@@ -1,0 +1,38 @@
+CRITICAL - 2025-04-10 14:07:15 --> ErrorException: Array to string conversion
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\nav_view.php on line 23.
+ 1 APPPATH\Views\plantillas\nav_view.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\plantillas\\nav_view.php', 23)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\plantillas\\nav_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('plantillas/nav_view', [], true)
+ 5 APPPATH\Views\plantillas\plantilla.php(7): view('plantillas/nav_view')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\plantillas\\plantilla.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantillas/plantilla', [], true)
+ 9 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+10 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-10 14:07:16 --> ErrorException: Array to string conversion
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\nav_view.php on line 23.
+ 1 APPPATH\Views\plantillas\nav_view.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\plantillas\\nav_view.php', 23)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\plantillas\\nav_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('plantillas/nav_view', [], true)
+ 5 APPPATH\Views\plantillas\plantilla.php(7): view('plantillas/nav_view')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\plantillas\\plantilla.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantillas/plantilla', [], true)
+ 9 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+10 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

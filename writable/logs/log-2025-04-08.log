@@ -1,0 +1,144 @@
+CRITICAL - 2025-04-08 12:48:00 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "plantilla.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('plantilla.php')
+ 2 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantilla', [], true)
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/nueva-plantilla.php', [], true)
+ 4 APPPATH\Controllers\Home.php(9): view('contenidos/nueva-plantilla.php')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-08 12:48:22 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "../plantillas/plantilla.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('../plantillas/plantilla.php')
+ 2 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('../plantillas/plantilla', [], true)
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/nueva-plantilla.php', [], true)
+ 4 APPPATH\Controllers\Home.php(9): view('contenidos/nueva-plantilla.php')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-08 12:48:51 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "plantilla.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('plantilla.php')
+ 2 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantilla', [], true)
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/nueva-plantilla.php', [], true)
+ 4 APPPATH\Controllers\Home.php(9): view('contenidos/nueva-plantilla.php')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-08 12:50:14 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "header_view.php"
+[Method: GET, Route: /]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('header_view.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('header_view', [], true)
+ 3 APPPATH\Views\plantillas\plantilla.php(1): view('header_view')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantillas/plantilla', [], true)
+ 7 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/nueva-plantilla.php', [], true)
+ 8 APPPATH\Controllers\Home.php(9): view('contenidos/nueva-plantilla.php')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-08 12:52:26 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "plantilla.php"
+[Method: GET, Route: tarjeta/1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('plantilla.php')
+ 2 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantilla', [], true)
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('tarjeta1', [], true)
+ 4 APPPATH\Controllers\Home.php(19): view('tarjeta1')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->tarjeta(1)
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-08 14:46:53 --> ErrorException: Undefined variable $data
+[Method: GET, Route: quienes-somos]
+in APPPATH\Views\plantillas\plantilla.php on line 1.
+ 1 APPPATH\Views\plantillas\plantilla.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php', 1)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantillas/plantilla', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/quienes_somos_view', [], true)
+ 6 APPPATH\Controllers\Home.php(19): view('contenidos/quienes_somos_view', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->quienes_somos()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-08 14:46:55 --> ErrorException: Undefined variable $data
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\plantilla.php on line 1.
+ 1 APPPATH\Views\plantillas\plantilla.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php', 1)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantillas/plantilla', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('contenidos/inicio_view.php')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-08 14:46:55 --> ErrorException: Undefined variable $data
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\plantilla.php on line 1.
+ 1 APPPATH\Views\plantillas\plantilla.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php', 1)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantillas/plantilla', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('contenidos/inicio_view.php')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-08 14:51:03 --> ErrorException: Undefined variable $title
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\plantilla.php on line 3.
+ 1 APPPATH\Views\plantillas\plantilla.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantillas/plantilla', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('contenidos/inicio_view.php')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-08 14:51:11 --> ErrorException: Undefined variable $title
+[Method: GET, Route: /]
+in APPPATH\Views\plantillas\plantilla.php on line 3.
+ 1 APPPATH\Views\plantillas\plantilla.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Tester\\app\\Views\\plantillas\\plantilla.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('plantillas/plantilla', [], true)
+ 5 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 6 APPPATH\Controllers\Home.php(9): view('contenidos/inicio_view.php')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

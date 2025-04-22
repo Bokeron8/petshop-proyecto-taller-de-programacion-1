@@ -1,0 +1,126 @@
+CRITICAL - 2025-04-22 12:22:35 --> ErrorException: Undefined variable $links
+[Method: GET, Route: /]
+in APPPATH\Views\contenidos\inicio_view.php on line 24.
+ 1 APPPATH\Views\contenidos\inicio_view.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $links', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php', 24)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 5 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-22 12:23:21 --> ErrorException: Undefined array key "imgSrc"
+[Method: GET, Route: /]
+in APPPATH\Views\contenidos\inicio_view.php on line 30.
+ 1 APPPATH\Views\contenidos\inicio_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imgSrc"', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 5 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-22 12:23:22 --> ErrorException: Undefined array key "imgSrc"
+[Method: GET, Route: /]
+in APPPATH\Views\contenidos\inicio_view.php on line 30.
+ 1 APPPATH\Views\contenidos\inicio_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imgSrc"', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 5 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-22 12:23:22 --> ErrorException: Undefined array key "imgSrc"
+[Method: GET, Route: /]
+in APPPATH\Views\contenidos\inicio_view.php on line 30.
+ 1 APPPATH\Views\contenidos\inicio_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imgSrc"', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 5 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-22 12:23:22 --> ErrorException: Undefined array key "imgSrc"
+[Method: GET, Route: /]
+in APPPATH\Views\contenidos\inicio_view.php on line 30.
+ 1 APPPATH\Views\contenidos\inicio_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imgSrc"', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 5 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-22 12:23:48 --> ErrorException: Undefined array key "imgSrc"
+[Method: GET, Route: /]
+in APPPATH\Views\contenidos\inicio_view.php on line 30.
+ 1 APPPATH\Views\contenidos\inicio_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imgSrc"', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 5 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-22 12:23:49 --> ErrorException: Undefined array key "imgSrc"
+[Method: GET, Route: /]
+in APPPATH\Views\contenidos\inicio_view.php on line 30.
+ 1 APPPATH\Views\contenidos\inicio_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imgSrc"', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 5 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-22 12:25:18 --> ErrorException: Undefined array key "imgSrc"
+[Method: GET, Route: /]
+in APPPATH\Views\contenidos\inicio_view.php on line 30.
+ 1 APPPATH\Views\contenidos\inicio_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imgSrc"', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 5 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-22 12:26:30 --> ErrorException: Undefined array key "imgSrc"
+[Method: GET, Route: /]
+in APPPATH\Views\contenidos\inicio_view.php on line 30.
+ 1 APPPATH\Views\contenidos\inicio_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imgSrc"', 'C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp2\\htdocs\\Petshop\\app\\Views\\contenidos\\inicio_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('contenidos/inicio_view.php', [], true)
+ 5 APPPATH\Controllers\Home.php(12): view('contenidos/inicio_view.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

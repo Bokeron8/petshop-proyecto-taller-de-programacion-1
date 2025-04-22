@@ -1,0 +1,48 @@
+@font-face {
+  font-family: catpaw;
+  src: url("http://localhost/petshop/assets/fonts/catpaw.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: puppy;
+  src: url("http://localhost/petshop/assets/fonts/puppy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: meow;
+  src: url("http://localhost/petshop/assets/fonts/honey.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.carta-productos {
+  max-height: 220px;
+}
+
+.carousel-hero {
+  object-fit: cover;
+  max-height: 500px;
+}
+
+.carousel-images {
+  object-fit: cover;
+  max-height: 380px;
+  aspect-ratio: 16/9;
+}
+
+.catpaw {
+  font-family: "catpaw", sans-serif !important;
+}
+
+.puppy {
+  font-family: "puppy", sans-serif !important;
+}
+
+.meow {
+  font-family: "meow", sans-serif !important;
+}
