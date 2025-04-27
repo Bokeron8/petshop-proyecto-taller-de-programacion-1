@@ -2,7 +2,7 @@
 <?php $this->section('content'); ?>
 
 <section class="container mt-4" style="background-color: rgba(255, 255, 255, 0.6);">
-    <h1 class="title puppy" style="color: orange">
+    <h1 class="title puppy  animate__animated animate__fadeInRightBig" style="color: orange">
         Somos Full Animal...
     </h1>
 
@@ -36,7 +36,7 @@
                 </div>
                 <!-- Segunda imagen -->
                 <div class="carousel-item">
-                    <img src="<?= base_url("assets/img/fullanimal_interior2.jpg") ?>"
+                    <img src="<?= base_url("assets/img/fullanimal_interior2.webp") ?>"
                         class="d-block w-100 carousel-images" alt="Imagen 2"> <!-- Imagen 2 -->
                 </div>
 
