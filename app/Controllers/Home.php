@@ -43,9 +43,4 @@ class Home extends BaseController
         ];
         return view('contenidos/terminos_view', $data);
     }
-
-    public function saludo()
-    {
-        return "xd";
-    }
 }
