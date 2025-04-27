@@ -1,17 +1,36 @@
+<?php
+
+$social_media = [
+    ["texto" => "Instagram", "href" => 'https://www.instagram.com/full.animal', "img_src" => 'assets/img/instagram_icon.png'],
+    ["texto" => "Facebook", "href" => 'https://www.instagram.com/full.animal', "img_src" => 'assets/img/facebook_icon.png'],
+    ["texto" => "Twitter", "href" => 'https://www.facebook.com/full.animal', "img_src" => 'assets/img/twitter_icon.png'],
+
+];
+?>
+
+
 <footer class="text-white text-center py-3 mt-4" style="background-color: rgba(0, 0, 0, 0.8);">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col">
+    <div class="row me-0 justify-content-end">
+        <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
 
             <p class="puppy fs-5">&copy; 2025 Full Animal. Todos los derechos reservados®.</p>
         </div>
 
-        <section class="col">
+        <section class="col-12 col-md-4">
             <h3 class="puppy">Seguinos en:</h3>
-            <ul style="list-style: none;">
-                <li>https://www.instagram.com/full.animal</li>
-                <li>https://www.facebook.com/full.animal</li>
-                <li>https://www.twitter.com/full.animal</li>
+            <ul style="list-style: none; display: inline-flex;flex-direction: column; width: fit-content; gap: 6px;">
+
+                <?php foreach ($social_media as $texto => $value): ?>
+
+                    <li style="text-align: left;">
+
+                        <a style="text-decoration: none; color: orange;" href="<?= $value['href'] ?>">
+                            <img style="width: 24px; " src="<?= base_url('/' . $value['img_src']) ?>" alt="">
+                            <span style="width: auto;"><?= $value['texto']; ?></span>
+                        </a>
+
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </section>
     </div>
