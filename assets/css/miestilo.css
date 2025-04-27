@@ -46,3 +46,18 @@
 .meow {
   font-family: "meow", sans-serif !important;
 }
+
+.boton-conoce-mas {
+  color: white;
+  background: orange;
+  outline-color: orange;
+  border-color: #c17d00;
+  border-style: solid;
+  text-decoration: none;
+  scale: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.boton-conoce-mas:hover {
+  scale: 1.1;
+}
