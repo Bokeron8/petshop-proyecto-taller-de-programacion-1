@@ -22,32 +22,32 @@ $cards = [
 <section class="container mt-5">
     <!-- Define un contenedor que centraliza la sección y aplica margen superior -->
     <div class="row">
-        <h1 class="text-center meow fw-bolder">Nuestros Productos</h1>
+        <h1 class="text-center title">Nuestros Productos</h1>
         <!-- Primer tarjeta: Ocupa 4 columnas en pantallas medianas -->
         <?php foreach ($cards as $titulo => $value): ?>
 
-        <div class="col-md-4 mb-2">
-            <!-- Componente de tarjeta de Bootstrap -->
-            <div class="card">
-                <!-- Imagen de la tarjeta -->
-                <img src="<?= base_url($value['imgSrc']) ?>" class="card-img-top carta-productos"
-                    alt="<?= $value['alt'] ?>">
-                <!-- Cuerpo de la tarjeta: Contiene el texto y el botón -->
-                <div class="card-body">
-                    <!-- Título de la tarjeta -->
-                    <h5 class="card-title puppy fw-bold"><?= $value['titulo'] ?></h5>
-                    <!-- Texto descriptivo de la tarjeta -->
-                    <!-- Botón de la tarjeta -->
-                    <a href="#" class="btn btn-outline-primary meow">Ver productos</a>
+            <div class="col-md-4 mb-2">
+                <!-- Componente de tarjeta de Bootstrap -->
+                <div class="card">
+                    <!-- Imagen de la tarjeta -->
+                    <img src="<?= base_url($value['imgSrc']) ?>" class="card-img-top carta-productos"
+                        alt="<?= $value['alt'] ?>">
+                    <!-- Cuerpo de la tarjeta: Contiene el texto y el botón -->
+                    <div class="card-body">
+                        <!-- Título de la tarjeta -->
+                        <h5 class="card-title puppy fw-bold"><?= $value['titulo'] ?></h5>
+                        <!-- Texto descriptivo de la tarjeta -->
+                        <!-- Botón de la tarjeta -->
+                        <a href="#" class="btn btn-outline-primary meow">Ver productos</a>
+                    </div>
                 </div>
             </div>
-        </div>
         <?php endforeach ?>
 
     </div>
 
     <section class="mt-4">
-        <h1 class="text-center meow fw-bolder">Novedades</h1>
+        <h1 class="text-center title">Novedades</h1>
 
         <div style="max-width: 760px; margin-left:auto; margin-right:auto">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -95,14 +95,14 @@ $cards = [
         </div>
     </section>
 
-    <section class="mt-4 flex-column" style="justify-items: center;">
-        <h1 class="text-center meow fw-bolder">Sobre Nosotros</h1>
-        <p class="meow fs-4 text-center" style="max-width: 700px;">Un negocio dedicado con pasion al cuidado y bienestar
+    <section class="mt-4 d-flex flex-column text-center align-items-center">
+        <h1 class="text-center title">Sobre Nosotros</h1>
+        <p class="meow fs-4" style="max-width: 700px;">Un negocio dedicado con pasion al cuidado y bienestar
             de tus mascotas. Nuestro
             objetivo es
             brindar todo lo
             necesario para asegurar una vida feliz, saludable y plena para tu peludo compañero...</p>
-        <a class="rounded-5 meow p-4 fs-4 fw-bolder d-block boton-conoce-mas"
+        <a class="rounded-5 meow p-4 fs-4 d-block boton-conoce-mas"
             href="<?= base_url('/quienes-somos') ?>">Conoce
             mas sobre
             nosotros!!!</a>

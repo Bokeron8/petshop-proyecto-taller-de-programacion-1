@@ -6,7 +6,7 @@
     <section>
         <div class="row">
             <div class="col" style="background-color: rgba(255, 255, 255, 0.6);">
-                <h1 class="puppy">Informacion de contacto</h1>
+                <h1 class="title puppy">Informacion de contacto</h1>
                 <ul class="meow fs-5">
                     <li>
                         <strong>👨‍💼 Titular de la empresa:</strong> Zambrano, Ariel
@@ -44,7 +44,7 @@
     </section>
 
     <section class="mt-3 " style="background-color: rgba(255, 255, 255, 0.6);">
-        <h1 class="text-center puppy">Formulario de contacto</h1>
+        <h1 class="text-center title puppy">Formulario de contacto</h1>
         <form class="border rounded p-3 meow fs-5">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre:</label>

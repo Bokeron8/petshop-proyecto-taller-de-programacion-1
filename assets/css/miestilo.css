@@ -61,3 +61,9 @@
 .boton-conoce-mas:hover {
   scale: 1.1;
 }
+
+.title {
+  font-family: "meow", sans-serif;
+  color: orange;
+  font-weight: bold !important;
+}

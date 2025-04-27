@@ -3,9 +3,9 @@
 <?php $this->section('content'); ?>
 <section class="container mt-3">
     <div class="row">
-        <div class="col" style="background-color: rgba(255, 255, 255, 0.6);">
+        <div class="col-12 col-md-6" style="background-color: rgba(255, 255, 255, 0.6);">
             <img class="w-100" style="max-width: 500px;" src="<?= base_url('assets/img/repartidor.jpg') ?>">
-            <h1 class="puppy fw-bolder">Envios</h1>
+            <h1 class="title puppy">Envios</h1>
             <ul class="meow fs-5">
                 <li>
                     Realizamos enviamos a domicilio dentro de las cuatro avenidas.
@@ -18,8 +18,8 @@
                 </li>
             </ul>
         </div>
-        <div class="col" style="background-color: rgba(255, 255, 255, 0.6);">
-            <h1 class="puppy fw-bolder">Formas de pago</h1>
+        <div class="col-12 col-md-6" style="background-color: rgba(255, 255, 255, 0.6);">
+            <h1 class="title puppy">Formas de pago</h1>
             <ul class="meow  fs-5">
                 <li>
                     Aceptamos todos los medios de pagos.
@@ -31,8 +31,8 @@
                     Pagando en efectivo tenes 10% de descuento en el total de tu compra.
                 </li>
                 <li>Con tarjetas visas y mastercard tenes hasta 3 coutos sin interes.</li>
-                <li>
-                    <h5 class="fs-3 fw-bolder">Aprovecha!!</h5>
+                <li class="title">
+                    <h5 class="fs-3 fw-bold">Aprovecha!!</h5>
                 </li>
             </ul>
             <img class="w-100" style="max-width: 500px;" src="<?= base_url("assets/img/metodos_pago.jfif") ?>">
