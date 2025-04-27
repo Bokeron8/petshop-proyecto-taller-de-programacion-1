@@ -32,7 +32,7 @@
                 </li>
                 <li>Con tarjetas visas y mastercard tenes hasta 3 coutos sin interes.</li>
                 <li>
-                    <h5>Aprovecha!!</h5>
+                    <h5 class="fs-3 fw-bolder">Aprovecha!!</h5>
                 </li>
             </ul>
             <img class="w-100" style="max-width: 500px;" src="<?= base_url("assets/img/metodos_pago.jfif") ?>">

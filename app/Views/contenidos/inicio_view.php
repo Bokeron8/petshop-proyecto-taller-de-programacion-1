@@ -22,6 +22,7 @@ $cards = [
 <section class="container mt-5">
     <!-- Define un contenedor que centraliza la sección y aplica margen superior -->
     <div class="row">
+        <h1 class="text-center meow fw-bolder">Nuestros Productos</h1>
         <!-- Primer tarjeta: Ocupa 4 columnas en pantallas medianas -->
         <?php foreach ($cards as $titulo => $value): ?>
 
@@ -44,5 +45,67 @@ $cards = [
         <?php endforeach ?>
 
     </div>
+
+    <section class="mt-4">
+        <h1 class="text-center meow fw-bolder">Novedades</h1>
+
+        <div style="max-width: 760px; margin-left:auto; margin-right:auto">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <!-- Indicadores (puntos debajo del carrusel para cambiar de imagen) -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+
+                </div>
+                <!-- Contenedor de las imágenes del carrusel -->
+                <div class="carousel-inner">
+                    <!-- Primera imagen (activa por defecto) -->
+                    <div class="carousel-item active">
+                        <img src="<?= base_url("assets/img/producto1.jpg") ?>" class="d-block w-100 carousel-images"
+                            alt="Imagen 1"> <!-- Imagen 1 -->
+                    </div>
+                    <!-- Segunda imagen -->
+                    <div class="carousel-item">
+                        <img src="<?= base_url("assets/img/producto2.jpg") ?>" class="d-block w-100 carousel-images"
+                            alt="Imagen 2"> <!-- Imagen 2 -->
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="<?= base_url("assets/img/producto3.jpg") ?>"
+                            class="d-block w-100 carousel-images object-fit-fill" alt="Imagen 2"> <!-- Imagen 2 -->
+                    </div>
+                </div>
+                <!-- Botón para ir a la imagen anterior -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span> <!-- Ícono de anterior -->
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <!-- Botón para ir a la imagen siguiente -->
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span> <!-- Ícono de siguiente -->
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-4 flex-column" style="justify-items: center;">
+        <h1 class="text-center meow fw-bolder">Sobre Nosotros</h1>
+        <p class="meow fs-4 text-center" style="max-width: 700px;">Un negocio dedicado con pasion al cuidado y bienestar
+            de tus mascotas. Nuestro
+            objetivo es
+            brindar todo lo
+            necesario para asegurar una vida feliz, saludable y plena para tu peludo compañero...</p>
+        <a class="rounded-5 meow p-4 fs-4 fw-bolder d-block boton-conoce-mas"
+            href="<?= base_url('/quienes-somos') ?>">Conoce
+            mas sobre
+            nosotros!!!</a>
+    </section>
 </section>
 <?php $this->endSection(); ?>
