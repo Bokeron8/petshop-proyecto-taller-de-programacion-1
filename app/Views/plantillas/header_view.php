@@ -16,4 +16,4 @@
 </head>
 
 <body style="background-image: url(<?= base_url('assets/img/bg2.png') ?>); background-color: rgba(255,255,255,0.8);
-    background-blend-mode: lighten;">
+    background-blend-mode: hard-light;">

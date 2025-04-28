@@ -21,12 +21,12 @@
 }
 
 .carta-productos {
-  max-height: 220px;
+  aspect-ratio: 1/1;
 }
 
 .carousel-hero {
   object-fit: cover;
-  max-height: 500px;
+  height: 325px;
 }
 
 .carousel-images {
