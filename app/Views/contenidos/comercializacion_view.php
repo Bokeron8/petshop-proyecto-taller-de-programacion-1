@@ -1,6 +1,10 @@
 <?php $this->extend('plantillas/plantilla'); ?>
 
 <?php $this->section('content'); ?>
+
+
+
+
 <section class="container mt-3">
     <div class="row">
         <div class="col-12 col-md-6" style="background-color: rgba(255, 255, 255, 0.6);">
@@ -35,7 +39,8 @@
                     <h5 class="fs-3 fw-bold">Aprovecha!!</h5>
                 </li>
             </ul>
-            <img class="w-100" style="max-width: 500px;" src="<?= base_url("assets/img/metodos_pago.jfif") ?>">
+
+            <img class="w-100" style="max-width: 500px;" src="<?= base_url("assets/img/medios_de_pago.jpg") ?>">
         </div>
 
 </section>
