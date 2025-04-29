@@ -12,7 +12,7 @@
             <h1 class="title puppy">Envios</h1>
             <ul class="meow fs-5">
                 <li>
-                    Realizamos enviamos a domicilio dentro de las cuatro avenidas.
+                    Realizamos envios a domicilio dentro de las cuatro avenidas.
                 </li>
                 <li>
                     El coste dependera de la distancia al local.
@@ -34,7 +34,7 @@
                 <li>
                     Pagando en efectivo tenes 10% de descuento en el total de tu compra.
                 </li>
-                <li>Con tarjetas visas y mastercard tenes hasta 3 coutos sin interes.</li>
+                <li>Con tarjetas visas y mastercard tenes hasta 3 cuotas sin interes.</li>
                 <li class="title">
                     <h5 class="fs-3 fw-bold">Aprovecha!!</h5>
                 </li>
