@@ -9,7 +9,7 @@ $personas = [
 ];
 ?>
 
-<section class="container mt-4" style="background-color: rgba(255, 255, 255, 0.6);">
+<section class="container mt-4 bg-translucido">
 
 
     <section>
@@ -95,7 +95,7 @@ $personas = [
             <?php foreach ($personas as $texto => $value): ?>
 
                 <div class="col-4 d-flex flex-column justify-contents-center align-items-center puppy">
-                    <img src="<?= base_url('/' . $value['img_src']) ?>" style="aspect-ratio: 1/1;border-color: #333; background-color: #333;border-style: solid; border-radius: 100%;" class="w-100">
+                    <img src="<?= base_url('/' . $value['img_src']) ?>" class="w-100 avatar-img">
 
                     </img>
                     <div style="align-self: baseline;" class="mt-1">

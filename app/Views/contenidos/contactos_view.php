@@ -5,7 +5,7 @@
 <section class="container mt-3">
     <section>
         <div class="row">
-            <div class="col" style="background-color: rgba(255, 255, 255, 0.6);">
+            <div class="col bg-translucido">
                 <h1 class="title puppy">Informacion de contacto</h1>
                 <ul class="meow fs-5">
                     <li>
@@ -30,14 +30,14 @@
                     </li>
                     <li>
                         <strong>⌚ Horario de atencion:</strong> Lunes a Viernes de 9hs a 13hs y 17hs a 21hs, Sabados de 9hs a 13hs, Domingo cerrado
-                   </li>
+                    </li>
                 </ul>
             </div>
 
             <div class="col">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d442.5063511246984!2d-58.82409126851818!3d-27.467677519119356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94456b798a0bf095%3A0x2168fde8dde25df7!2sFull%20Animal!5e0!3m2!1ses-419!2sar!4v1744293678283!5m2!1ses-419!2sar"
-                    style="border:0; min-width: 300px; width: 100%;height: 400px" allowfullscreen="" loading="lazy"
+                    class="iframe-map" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
@@ -46,7 +46,7 @@
 
     </section>
 
-    <section class="mt-3 " style="background-color: rgba(255, 255, 255, 0.6);">
+    <section class="mt-3 bg-translucido">
         <h1 class="text-center title puppy">Formulario de contacto</h1>
         <form class="border rounded p-3 meow fs-5">
             <div class="mb-3">

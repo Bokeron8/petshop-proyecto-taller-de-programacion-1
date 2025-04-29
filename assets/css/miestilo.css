@@ -20,6 +20,12 @@
   font-style: normal;
 }
 
+body {
+  background-image: url("http://localhost/petshop/assets/img/bg2.png");
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: hard-light;
+}
+
 .carta-productos {
   aspect-ratio: 1/1;
 }
@@ -66,4 +72,31 @@
   font-family: "meow", sans-serif;
   color: orange;
   font-weight: bold !important;
+}
+
+.bg-translucido {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.iframe-map {
+  border: 0;
+  min-width: 300px;
+  width: 100%;
+  height: 400px;
+}
+
+.social-media-list {
+  list-style: none;
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 6px;
+}
+
+.avatar-img {
+  aspect-ratio: 1/1;
+  border-color: #333;
+  background-color: #333;
+  border-style: solid;
+  border-radius: 100%;
 }

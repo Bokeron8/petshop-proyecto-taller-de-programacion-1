@@ -18,7 +18,7 @@ $social_media = [
 
         <section class="col-12 col-md-4">
             <h3 class="puppy">Seguinos en:</h3>
-            <ul style="list-style: none; display: inline-flex;flex-direction: column; width: fit-content; gap: 6px;">
+            <ul class="social-media-list">
 
                 <?php foreach ($social_media as $texto => $value): ?>
 

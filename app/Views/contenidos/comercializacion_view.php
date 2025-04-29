@@ -7,8 +7,8 @@
 
 <section class="container mt-3">
     <div class="row">
-        <div class="col-12 col-md-6" style="background-color: rgba(255, 255, 255, 0.6);">
-            <img class="w-100" style="max-width: 500px;" src="<?= base_url('assets/img/repartidor.jpg') ?>">
+        <div class="col-12 col-md-6 bg-translucido">
+            <img class="w-100" src="<?= base_url('assets/img/repartidor.jpg') ?>">
             <h1 class="title puppy">Envios</h1>
             <ul class="meow fs-5">
                 <li>
@@ -22,7 +22,7 @@
                 </li>
             </ul>
         </div>
-        <div class="col-12 col-md-6" style="background-color: rgba(255, 255, 255, 0.6);">
+        <div class="col-12 col-md-6 bg-translucido">
             <h1 class="title puppy">Formas de pago</h1>
             <ul class="meow  fs-5">
                 <li>
@@ -40,7 +40,7 @@
                 </li>
             </ul>
 
-            <img class="w-100" style="max-width: 500px;" src="<?= base_url("assets/img/medios_de_pago.jpg") ?>">
+            <img class="w-100" src="<?= base_url("assets/img/medios_de_pago.jpg") ?>">
         </div>
 
 </section>

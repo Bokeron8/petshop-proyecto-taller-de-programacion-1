@@ -15,5 +15,4 @@
     <link rel="icon" type="image/x-icon" href="<?= base_url("assets/img/icon.png") ?>">
 </head>
 
-<body style="background-image: url(<?= base_url('assets/img/bg2.png') ?>); background-color: rgba(255,255,255,0.8);
-    background-blend-mode: hard-light;">
+<body>
