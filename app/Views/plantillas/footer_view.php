@@ -2,8 +2,8 @@
 
 $social_media = [
     ["texto" => "Instagram", "href" => 'https://www.instagram.com/full.animal', "img_src" => 'assets/img/instagram_icon.png'],
-    ["texto" => "Facebook", "href" => 'https://www.instagram.com/full.animal', "img_src" => 'assets/img/facebook_icon.png'],
-    ["texto" => "Twitter", "href" => 'https://www.facebook.com/full.animal', "img_src" => 'assets/img/twitter_icon.png'],
+    ["texto" => "Facebook", "href" => 'https://www.facebook.com/full.animal', "img_src" => 'assets/img/facebook_icon.png'],
+    ["texto" => "Twitter", "href" => 'https://www.x.com/full.animal', "img_src" => 'assets/img/twitter_icon.png'],
 
 ];
 ?>
