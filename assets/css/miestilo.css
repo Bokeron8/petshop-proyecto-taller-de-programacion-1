@@ -1,27 +1,29 @@
 @font-face {
   font-family: catpaw;
-  src: url("http://localhost/petshop/assets/fonts/catpaw.otf")
-    format("opentype");
+  src: url("../fonts/catpaw.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
+  font-display: sans-serif;
 }
 
 @font-face {
   font-family: puppy;
-  src: url("http://localhost/petshop/assets/fonts/puppy.ttf") format("truetype");
+  src: url("../fonts/puppy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: sans-serif;
 }
 
 @font-face {
   font-family: meow;
-  src: url("http://localhost/petshop/assets/fonts/honey.ttf") format("truetype");
+  src: url("../fonts/honey.woff2") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: sans-serif;
 }
 
 body {
-  background-image: url("http://localhost/petshop/assets/img/bg2.png");
+  background-image: url("../img/bg2.png");
   background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: hard-light;
 }
