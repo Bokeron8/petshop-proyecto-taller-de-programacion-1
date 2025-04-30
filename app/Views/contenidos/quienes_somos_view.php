@@ -7,6 +7,12 @@ $personas = [
     ["name" => "Zambrano Ariel", "job" => 'Jefe', "img_src" => 'assets/img/zambrano_ariel.png'],
     ["name" => "Bazzola Gabriel", "job" => 'Repositor de stock', "img_src" => 'assets/img/bazzola_gabriel.png'],
 ];
+
+$clientes = [
+    ["name" => "Lucía Pérez", "review" => '"Excelente atencion y productos de calidad. ¡Mi perro ama esta tienda!"', "img_src" => 'assets/img/cliente1.avif'],
+    ["name" => "Marcos Mazzanti", "review" => '"Excelente variedad de productos y el personal siempre esta dispuesto a ayudar. ¡Recomiendo Full Animal sin dudar!"', "img_src" => 'assets/img/cliente2.avif'],
+    ["name" => "Camila Gómez", "review" => '"Lleve a mi gato por recomendacion y me encontre con un lugar super completo. Muy buena atencion y precios accesibles."', "img_src" => 'assets/img/cliente3.avif'],
+];
 ?>
 
 <section class="container mt-4 bg-translucido">
@@ -30,8 +36,8 @@ $personas = [
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <!-- Indicadores (puntos debajo del carrusel para cambiar de imagen) -->
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
@@ -42,8 +48,8 @@ $personas = [
                 <div class="carousel-inner">
                     <!-- Primera imagen (activa por defecto) -->
                     <div class="carousel-item active">
-                        <img src="<?= base_url("assets/img/fullanimal_dia2.jpg") ?>" class="d-block w-100 carousel-images"
-                            alt="Imagen 1"> <!-- Imagen 1 -->
+                        <img src="<?= base_url("assets/img/fullanimal_dia2.jpg") ?>"
+                            class="d-block w-100 carousel-images" alt="Imagen 1"> <!-- Imagen 1 -->
                     </div>
                     <!-- Segunda imagen -->
                     <div class="carousel-item">
@@ -94,20 +100,39 @@ $personas = [
 
             <?php foreach ($personas as $texto => $value): ?>
 
-                <div class="col-4 d-flex flex-column justify-contents-center align-items-center puppy">
-                    <img src="<?= base_url('/' . $value['img_src']) ?>" class="w-100 avatar-img">
+            <div class="col-4 d-flex flex-column justify-contents-center align-items-center puppy">
+                <img src="<?= base_url('/' . $value['img_src']) ?>" class="w-100 avatar-img">
 
-                    </img>
-                    <div style="align-self: baseline;" class="mt-1">
-                        <h3 style="color: orange;"><?= $value['name']; ?></h3>
-                        <h5><strong><?= $value['job']; ?></strong></h5>
-
-                    </div>
+                </img>
+                <div style="align-self: baseline;" class="mt-1">
+                    <h3 style="color: orange;"><?= $value['name']; ?></h3>
+                    <h5><strong><?= $value['job']; ?></strong></h5>
 
                 </div>
+
+            </div>
             <?php endforeach; ?>
 
         </div>
+    </section>
+    <section class="mt-5 bg-translucido">
+        <h2 class="text-center title">Lo que dicen nuestros clientes</h2>
+        <div class="row justify-content-center">
+            <?php foreach ($clientes as $texto => $value): ?>
+
+            <div class="col-8 col-md-4 d-flex flex-column justify-contents-center align-items-center puppy">
+                <img src="<?= base_url('/' . $value['img_src']) ?>" class="w-100 avatar-img">
+
+                </img>
+
+                <blockquote class="blockquote">
+                    <p><?= $value['review'] ?></p>
+                    <footer class="blockquote-footer"><?= $value['name'] ?></footer>
+                </blockquote>
+
+            </div>
+            <?php endforeach; ?>
+
     </section>
 
 </section>
