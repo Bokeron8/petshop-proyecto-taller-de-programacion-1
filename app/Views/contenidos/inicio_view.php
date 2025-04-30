@@ -13,14 +13,13 @@ $cards = [
 ?>
 
 
-<section class="container mt-4 mb-4">
+<section class="mb-2">
     <!-- Componente del carrusel -->
-    <img src="<?= base_url('assets/img/petshop_hero.png') ?>" class="d-block w-100 carousel-hero rounded"
-        alt="Portada petshop">
+    <img src="<?= base_url('assets/img/petshop_hero.png') ?>" class="d-block w-100 carousel-hero" alt="Portada petshop">
 </section>
 <!-- Fin del carrusel -->
 
-<section class="container mt-5">
+<section class="container mt-3">
     <!-- Define un contenedor que centraliza la sección y aplica margen superior -->
     <div class="row">
         <h1 class="text-center title">Nuestros Productos</h1>
@@ -46,7 +45,6 @@ $cards = [
         <?php endforeach ?>
 
     </div>
-
     <section class="mt-4">
         <h1 class="text-center title">Novedades</h1>
 
@@ -92,6 +90,40 @@ $cards = [
                     <span class="carousel-control-next-icon" aria-hidden="true"></span> <!-- Ícono de siguiente -->
                     <span class="visually-hidden">Siguiente</span>
                 </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-5 bg-translucido p-4 rounded">
+        <h1 class="title text-center mb-4">🎉 Promociones especiales</h1>
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-3">
+                <div class="border p-3 h-100 bg-white shadow-sm rounded">
+                    <img src="<?= base_url("assets/img/promo1.avif") ?>" alt="" class="w-100">
+                    <h5 class="puppy">3x2 en Alimento Balanceado</h5>
+                    <p class="meow">Llevás 3 bolsas, ¡pagás solo 2!</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="border p-3 h-100 bg-white shadow-sm rounded">
+                    <img src="<?= base_url("assets/img/promo2.avif") ?>" alt="" class="w-100">
+                    <h5 class="puppy">10% Off pagando en efectivo</h5>
+                    <p class="meow">En todas tus compras, sin mínimo.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="border p-3 h-100 bg-white shadow-sm rounded">
+                    <img src="<?= base_url("assets/img/promo3.avif") ?>" alt="" class="w-100">
+                    <h5 class="puppy">Shampoo + antipulgas</h5>
+                    <p class="meow">Servicio completo para tu mascota con descuento.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="border p-3 h-100 bg-white shadow-sm rounded">
+                    <img src="<?= base_url("assets/img/promo4.avif") ?>" alt="" class="w-100">
+                    <h5 class="puppy">Juguetes con 15% de descuento</h5>
+                    <p class="meow">Juguetes seleccionados para perros y gatos.</p>
+                </div>
             </div>
         </div>
     </section>
