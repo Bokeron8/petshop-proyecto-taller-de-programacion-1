@@ -5,10 +5,10 @@
 
 <?php
 $cards = [
-    ["titulo" => "Alimentos", "texto" => "Descripción breve de la tarjeta 1.", "href" => '#', "alt" => "Imagen de comida para perros", "imgSrc" => "assets/img/card_alimento.webp"],
-    ["titulo" => "Accesorios y Juguetes", "texto" => "Descripción breve de la tarjeta 1.", "href" => '#', "alt" => "Imagen de juguetes para perros", "imgSrc" => "assets/img/card_juguetes.jpg"],
-    ["titulo" => "Higiene", "texto" => "Descripción breve de la tarjeta 1.", "href" => '#', "alt" => "Imagen de shampoos para perros y gatos", "imgSrc" => "assets/img/card_shampoo.webp"],
-    ["titulo" => "Medicamentos", "texto" => "Consulta médica, vacunación y más.", "href" => '#', "alt" => "Imagen de veterinario atendiendo a un perro", "imgSrc" => "assets/img/card_veterinario.jpg"]
+    ["titulo" => "Alimentos", "texto" => "Descripción breve de la tarjeta 1.", "href" => '#', "alt" => "Imagen de comida para perros", "imgSrc" => "assets/img/alimento.avif"],
+    ["titulo" => "Accesorios y Juguetes", "texto" => "Descripción breve de la tarjeta 1.", "href" => '#', "alt" => "Imagen de juguetes para perros", "imgSrc" => "assets/img/accesorios.avif"],
+    ["titulo" => "Higiene", "texto" => "Descripción breve de la tarjeta 1.", "href" => '#', "alt" => "Imagen de shampoos para perros y gatos", "imgSrc" => "assets/img/shampoo.avif"],
+    ["titulo" => "Medicamentos", "texto" => "Consulta médica, vacunación y más.", "href" => '#', "alt" => "Imagen de veterinario atendiendo a un perro", "imgSrc" => "assets/img/veterinario.avif"]
 ];
 ?>
 
@@ -27,22 +27,22 @@ $cards = [
         <!-- Primer tarjeta: Ocupa 4 columnas en pantallas medianas -->
         <?php foreach ($cards as $titulo => $value): ?>
 
-            <div class="col-md-3 col-6 mb-2">
-                <!-- Componente de tarjeta de Bootstrap -->
-                <div class="card h-100">
-                    <!-- Imagen de la tarjeta -->
-                    <img src="<?= base_url($value['imgSrc']) ?>" class="card-img-top carta-productos"
-                        alt="<?= $value['alt'] ?>">
-                    <!-- Cuerpo de la tarjeta: Contiene el texto y el botón -->
-                    <div class="card-body">
-                        <!-- Título de la tarjeta -->
-                        <h5 class="card-title puppy fw-bold"><?= $value['titulo'] ?></h5>
-                        <!-- Texto descriptivo de la tarjeta -->
-                        <!-- Botón de la tarjeta -->
-                        <a href="#" class="btn btn-outline-primary meow">Ver productos</a>
-                    </div>
+        <div class="col-md-3 col-6 mb-2">
+            <!-- Componente de tarjeta de Bootstrap -->
+            <div class="card h-100">
+                <!-- Imagen de la tarjeta -->
+                <img src="<?= base_url($value['imgSrc']) ?>" class="card-img-top carta-productos"
+                    alt="<?= $value['alt'] ?>">
+                <!-- Cuerpo de la tarjeta: Contiene el texto y el botón -->
+                <div class="card-body">
+                    <!-- Título de la tarjeta -->
+                    <h5 class="card-title puppy fw-bold"><?= $value['titulo'] ?></h5>
+                    <!-- Texto descriptivo de la tarjeta -->
+                    <!-- Botón de la tarjeta -->
+                    <a href="#" class="btn btn-outline-warning meow">Ver productos</a>
                 </div>
             </div>
+        </div>
         <?php endforeach ?>
 
     </div>
@@ -96,15 +96,14 @@ $cards = [
         </div>
     </section>
 
-    <section class="mt-4 d-flex flex-column text-center align-items-center">
+    <section class="mt-4 d-flex flex-column text-center align-items-center bg-translucido">
         <h1 class="text-center title">Sobre Nosotros</h1>
         <p class="meow fs-4" style="max-width: 700px;">Un negocio dedicado con pasion al cuidado y bienestar
             de tus mascotas. Nuestro
             objetivo es
             brindar todo lo
             necesario para asegurar una vida feliz, saludable y plena para tu peludo compañero...</p>
-        <a class="rounded-5 meow p-4 fs-4 d-block boton-conoce-mas"
-            href="<?= base_url('/quienes-somos') ?>">Conoce
+        <a class="rounded-5 meow p-4 fs-4 d-block boton-conoce-mas" href="<?= base_url('/quienes-somos') ?>">Conoce
             mas sobre
             nosotros!!!</a>
     </section>
