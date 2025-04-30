@@ -34,7 +34,6 @@ $clientes = [
 
         <div style="max-width: 760px; margin-left:auto; margin-right:auto">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <!-- Indicadores (puntos debajo del carrusel para cambiar de imagen) -->
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                         class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -44,34 +43,33 @@ $clientes = [
                         aria-label="Slide 3"></button>
 
                 </div>
-                <!-- Contenedor de las imágenes del carrusel -->
+
                 <div class="carousel-inner">
-                    <!-- Primera imagen (activa por defecto) -->
                     <div class="carousel-item active">
                         <img src="<?= base_url("assets/img/fullanimal_dia2.jpg") ?>"
-                            class="d-block w-100 carousel-images" alt="Imagen 1"> <!-- Imagen 1 -->
+                            class="d-block w-100 carousel-images" alt="Imagen 1">
                     </div>
-                    <!-- Segunda imagen -->
+
                     <div class="carousel-item">
                         <img src="<?= base_url("assets/img/fullanimal_interior2.webp") ?>"
-                            class="d-block w-100 carousel-images" alt="Imagen 2"> <!-- Imagen 2 -->
+                            class="d-block w-100 carousel-images" alt="Imagen 2">
                     </div>
 
                     <div class="carousel-item">
                         <img src="<?= base_url("assets/img/perra_guapetona3.jpg") ?>"
-                            class="d-block w-100 carousel-images object-fit-fill" alt="Imagen 2"> <!-- Imagen 2 -->
+                            class="d-block w-100 carousel-images object-fit-fill" alt="Imagen 2">
                     </div>
                 </div>
-                <!-- Botón para ir a la imagen anterior -->
+
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                     data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span> <!-- Ícono de anterior -->
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Anterior</span>
                 </button>
-                <!-- Botón para ir a la imagen siguiente -->
+
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                     data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span> <!-- Ícono de siguiente -->
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Siguiente</span>
                 </button>
             </div>
