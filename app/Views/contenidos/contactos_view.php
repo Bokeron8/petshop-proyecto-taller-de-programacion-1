@@ -20,10 +20,11 @@
                     <li>
                         <strong>📷
                             Instagram:</strong>
-                        full.animal
+                        <a href="https://instagram.com/full.animal" style="color: orange;">full.animal</a>
                     </li>
                     <li>
-                        <strong>✉️ Email:</strong> fullanimal@gmail.com
+                        <strong>✉️ Email:</strong> <a href="mailto:fullanimal@gmail.com"
+                            style="color: orange;">fullanimal@gmail.com</a>
                     </li>
                     <li>
                         <strong>🏠 Domicilio Legal:</strong> Brasil 809, Corrientes, Corrientes, Argentina
