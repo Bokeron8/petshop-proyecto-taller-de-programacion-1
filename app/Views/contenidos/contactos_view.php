@@ -29,7 +29,8 @@
                         <strong>🏠 Domicilio Legal:</strong> Brasil 809, Corrientes, Corrientes, Argentina
                     </li>
                     <li>
-                        <strong>⌚ Horario de atencion:</strong> Lunes a Viernes de 9hs a 13hs y 17hs a 21hs, Sabados de 9hs a 13hs, Domingo cerrado
+                        <strong>⌚ Horario de atencion:</strong> Lunes a Viernes de 9hs a 13hs y 17hs a 21hs, Sabados de
+                        9hs a 13hs, Domingo cerrado.
                     </li>
                 </ul>
             </div>
@@ -66,7 +67,7 @@
                     placeholder="Mensaje a la empresa..." name="mensaje"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-warning">Enviar</button>
         </form>
     </section>
 
