@@ -42,6 +42,7 @@
 
             <img class="w-100" src="<?= base_url("assets/img/medios_de_pago.jpg") ?>">
         </div>
+    </div>
 
 </section>
 
