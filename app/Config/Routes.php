@@ -14,3 +14,4 @@ $routes->get('/terminos-usos', 'Home::terminos');
 
 $routes->get('tarjeta/(:num)', 'Home::tarjeta/$1');
 $routes->get('saludo/(:segment)', 'Home::saludo/$1');
+$routes->post('/contacto', 'Mensaje::enviar');
