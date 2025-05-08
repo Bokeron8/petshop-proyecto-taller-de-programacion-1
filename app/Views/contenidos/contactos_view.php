@@ -2,10 +2,12 @@
 
 <?php $this->section('content'); ?>
 
-<section class="container mt-3">
+
+
+<section class="container mt-3 bg-translucido">
     <section>
         <div class="row">
-            <div class="col bg-translucido">
+            <div class="col ">
                 <h1 class="title puppy">Informacion de contacto</h1>
                 <ul class="meow fs-5">
                     <li>
@@ -48,7 +50,7 @@
 
     </section>
 
-    <section class="mt-3 bg-translucido">
+    <section class="mt-3 ">
         <h1 class="text-center title puppy">Formulario de contacto</h1>
         <form class="border rounded p-3 meow fs-5">
             <div class="mb-3">

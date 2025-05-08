@@ -4,7 +4,7 @@
 
 
 
-<div class="container my-5">
+<div class="container my-5 bg-translucido">
     <h1 class="text-center mb-4 title puppy">Terminos y Condiciones de Uso</h1>
     <div class="accordion" id="legalAccordion">
 

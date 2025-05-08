@@ -17,8 +17,8 @@ $cards = [
     <img src="<?= base_url('assets/img/petshop_hero.png') ?>" class="d-block w-100 carousel-hero" alt="Portada petshop">
 </section>
 
-<section class="container mt-3">
-    <div class="row">
+<section class="container mt-3 bg-translucido">
+    <div class="row animar animate__animated">
         <h1 class="text-center title">Nuestros Productos</h1>
         <?php foreach ($cards as $titulo => $value): ?>
 
@@ -35,7 +35,7 @@ $cards = [
         <?php endforeach ?>
 
     </div>
-    <section class="mt-4">
+    <section class="mt-4 animar animate__animated">
         <h1 class="text-center title">Novedades</h1>
 
         <div style="max-width: 760px; margin-left:auto; margin-right:auto">
@@ -84,7 +84,7 @@ $cards = [
         </div>
     </section>
 
-    <section class="mt-5 bg-translucido p-4 rounded">
+    <section class="mt-5 p-4 rounded animar animate__animated">
         <h1 class="title text-center mb-4">🎉 Promociones especiales</h1>
         <div class="row text-center">
             <div class="col-md-3 col-6 mb-3">
@@ -118,7 +118,7 @@ $cards = [
         </div>
     </section>
 
-    <section class="mt-4 d-flex flex-column text-center align-items-center bg-translucido">
+    <section class="mt-4 d-flex flex-column text-center align-items-center animar animate__animated">
         <h1 class="text-center title">Sobre Nosotros</h1>
         <p class="meow fs-4" style="max-width: 700px;">Un negocio dedicado con pasion al cuidado y bienestar
             de tus mascotas. Nuestro
@@ -130,4 +130,6 @@ $cards = [
             nosotros!!!</a>
     </section>
 </section>
+<script src="<?= base_url('assets/js/main.js') ?>"></script>
+
 <?php $this->endSection(); ?>

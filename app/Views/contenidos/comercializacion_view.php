@@ -5,9 +5,10 @@
 
 
 
-<section class="container mt-3">
+
+<section class="container mt-3 bg-translucido">
     <div class="row">
-        <div class="col-12 col-md-6 bg-translucido">
+        <div class="col-12 col-md-6 ">
             <img class="w-100" src="<?= base_url('assets/img/repartidor.jpg') ?>">
             <h1 class="title puppy">Envios</h1>
             <ul class="meow fs-5">
@@ -22,7 +23,7 @@
                 </li>
             </ul>
         </div>
-        <div class="col-12 col-md-6 bg-translucido">
+        <div class="col-12 col-md-6 ">
             <h1 class="title puppy">Formas de pago</h1>
             <ul class="meow  fs-5">
                 <li>
@@ -43,7 +44,7 @@
             <img class="w-100" src="<?= base_url("assets/img/medios_de_pago.jpg") ?>">
         </div>
     </div>
-    <section class="mt-2 bg-translucido p-4 rounded">
+    <section class="mt-2  p-4 rounded">
         <h2 class="title puppy">Preguntas frecuentes</h2>
         <ul class="meow fs-5">
             <li><strong>¿Como calculo el costo del envío?</strong> Podes consultarnos por WhatsApp con tu direccion y te

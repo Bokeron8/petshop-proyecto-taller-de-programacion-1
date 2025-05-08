@@ -22,6 +22,14 @@
     font-display: sans-serif;
 }
 
+@font-face {
+    font-family: Roboto;
+    src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: sans-serif;
+}
+
 body {
     background-image: url("../img/bg2.png");
     background-color: rgba(255, 255, 255, 0.8);
@@ -52,6 +60,10 @@ body {
 
 .meow {
     font-family: "meow", sans-serif !important;
+}
+
+.roboto {
+    font-family: "roboto", sans-serif !important;
 }
 
 .boton-conoce-mas {
@@ -91,7 +103,7 @@ body {
 }
 
 .bg-translucido {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .iframe-map {
