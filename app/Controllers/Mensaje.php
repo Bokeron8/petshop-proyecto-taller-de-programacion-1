@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Models\MensajeModel;
+use App\Models\Mensaje_Model;
 
 class Mensaje extends BaseController
 {
     public function enviar()
     {
-        $model = new MensajeModel();
+        $model = new Mensaje_Model();
 
         // Obtener datos POST
         $data = [
