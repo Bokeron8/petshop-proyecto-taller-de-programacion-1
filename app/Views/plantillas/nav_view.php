@@ -14,8 +14,8 @@ $links = [
     <!-- Define el contenedor fluido para ocupar todo el ancho -->
     <div class="container-fluid">
         <!-- Título o marca de la página -->
-        <a class="navbar-brand title catpaw fs-2" href="<?= base_url('/') ?>"><i
-                class="fa fa-paw" aria-hidden="true"></i> Full Animal</a>
+        <a class="navbar-brand title catpaw fs-2" href="<?= base_url('/') ?>"><i class="fa fa-paw"
+                aria-hidden="true"></i> Full Animal</a>
         <!-- Botón para colapsar el menú en pantallas pequeñas -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,20 +24,21 @@ $links = [
         <!-- Contenedor del menú que se colapsa o expande -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Lista de navegación -->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto">
                 <!-- Cada uno de los enlaces de la navegación -->
                 <?php foreach ($links as $texto => $value): ?>
 
-                    <li class="nav-item">
+                <li class="nav-item">
 
-                        <a class="fs-4 puppy nav-link <?= $current_url == $value['href'] ? "active" : "" ?>"
-                            aria-current="page"
-                            href="<?php echo base_url('/' . $value['href']) ?>"><?= $value['texto']; ?></a>
-                        <!-- Enlace activo -->
-                    </li>
+                    <a class="fs-5 puppy nav-link <?= $current_url == $value['href'] ? "active" : "" ?>"
+                        aria-current="page"
+                        href="<?php echo base_url('/' . $value['href']) ?>"><?= $value['texto']; ?></a>
+                    <!-- Enlace activo -->
+                </li>
                 <?php endforeach; ?>
 
             </ul>
+            <a href="<?= base_url('/login') ?>" class="btn btn-warning puppy fs-5">Iniciar sesion</a>
         </div>
     </div>
 </nav>

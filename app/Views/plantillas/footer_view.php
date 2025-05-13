@@ -9,7 +9,7 @@ $social_media = [
 ?>
 
 
-<footer class="text-white text-center py-3 mt-4" style="background-color: rgba(0, 0, 0, 0.8);">
+<footer class="text-white text-center py-3" style="background-color: rgba(0, 0, 0, 0.8);">
     <div class="row me-0 justify-content-end">
         <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
 
@@ -22,14 +22,14 @@ $social_media = [
 
                 <?php foreach ($social_media as $texto => $value): ?>
 
-                    <li style="text-align: left;">
+                <li style="text-align: left;">
 
-                        <a style="text-decoration: none; color: orange;" href="<?= $value['href'] ?>">
-                            <img style="width: 24px; " src="<?= base_url('/' . $value['img_src']) ?>" alt="">
-                            <span style="width: auto;"><?= $value['texto']; ?></span>
-                        </a>
+                    <a style="text-decoration: none; color: orange;" href="<?= $value['href'] ?>">
+                        <img style="width: 24px; " src="<?= base_url('/' . $value['img_src']) ?>" alt="">
+                        <span style="width: auto;"><?= $value['texto']; ?></span>
+                    </a>
 
-                    </li>
+                </li>
                 <?php endforeach; ?>
             </ul>
         </section>

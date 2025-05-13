@@ -10,6 +10,7 @@ $routes->get('/quienes-somos', 'Home::quienes_somos');
 $routes->get('/comercializacion', 'Home::comercializacion');
 $routes->get('/contacto', 'Home::contacto');
 $routes->get('/terminos-usos', 'Home::terminos');
+$routes->get('/login', 'Home::login');
 
 
 $routes->get('tarjeta/(:num)', 'Home::tarjeta/$1');

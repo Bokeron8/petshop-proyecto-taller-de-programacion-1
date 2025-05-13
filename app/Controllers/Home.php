@@ -43,4 +43,12 @@ class Home extends BaseController
         ];
         return view('contenidos/terminos_view', $data);
     }
+
+    public function login()
+    {
+        $data = [
+            'title' => 'Iniciar Sesion - Full animal',
+        ];
+        return view('contenidos/login_view', $data);
+    }
 }
