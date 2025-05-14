@@ -16,3 +16,5 @@ $routes->get('/login', 'Home::login');
 $routes->get('tarjeta/(:num)', 'Home::tarjeta/$1');
 $routes->get('saludo/(:segment)', 'Home::saludo/$1');
 $routes->post('/contacto', 'Mensaje::enviar');
+$routes->post('/login', 'Usuario::login');
+$routes->post('/register', 'Usuario::register');

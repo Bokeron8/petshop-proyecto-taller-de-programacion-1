@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Mensaje_Model extends Model
+class Usuarios_Model extends Model
 {
     protected $table = 'usuarios'; // nombre de tu tabla
     protected $primaryKey = 'id_usuario';
