@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col ">
                 <h1 class="title puppy">Informacion de contacto</h1>
-                <ul class="meow fs-5">
+                <ul class="sans-deva fs-5">
                     <li>
                         <strong>👨‍💼 Titular de la empresa:</strong> Zambrano, Ariel
                     </li>
@@ -52,7 +52,7 @@
 
     <section class="mt-3 ">
         <h1 class="text-center title puppy">Formulario de contacto</h1>
-        <form class="border rounded p-3 meow fs-5" action="<?= site_url('/contacto') ?>" method="POST">
+        <form class="border rounded p-3 sans-deva fs-5" action="<?= site_url('/contacto') ?>" method="POST">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre:</label>
                 <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre..." name="nombre">

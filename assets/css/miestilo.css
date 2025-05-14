@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans+Deva:wght@100..800&display=swap");
+
 @font-face {
   font-family: catpaw;
   src: url("../fonts/catpaw.otf") format("opentype");
@@ -67,6 +69,13 @@ div.content > * {
 
 .roboto {
   font-family: "roboto", sans-serif !important;
+}
+
+.sans-deva {
+  font-family: "Playpen Sans Deva", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .boton-conoce-mas {

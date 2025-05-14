@@ -23,7 +23,7 @@ $clientes = [
             Somos Full Animal...
         </h1>
 
-        <p class="meow fw-bold fs-5">Un negocio dedicado con pasion al cuidado y bienestar de tus mascotas.
+        <p class="sans-deva fs-5">Un negocio dedicado con pasion al cuidado y bienestar de tus mascotas.
             Nuestro objetivo
             es
             brindar todo
@@ -78,7 +78,7 @@ $clientes = [
 
     <section class="mt-3">
 
-        <p class="meow fw-bold fs-5">
+        <p class="sans-deva fs-5">
             Sabemos que cada mascota es unica, por eso ofrecemos opciones para perros, gatos, aves, pequeños roedores y
             mas, adaptadas a sus distintas necesidades y etapas de vida. Nuestro compromiso es acompañarte en cada paso,
             ofreciendote asesoria personalizada y productos que realmente marcan la diferencia en la vida de tus

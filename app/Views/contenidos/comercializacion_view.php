@@ -11,7 +11,7 @@
         <div class="col-12 col-md-6 ">
             <img class="w-100" src="<?= base_url('assets/img/repartidor.jpg') ?>">
             <h1 class="title puppy">Envios</h1>
-            <ul class="meow fs-5">
+            <ul class="sans-deva fs-5">
                 <li>
                     Realizamos envios a domicilio dentro de las cuatro avenidas.
                 </li>
@@ -25,7 +25,7 @@
         </div>
         <div class="col-12 col-md-6 ">
             <h1 class="title puppy">Formas de pago</h1>
-            <ul class="meow  fs-5">
+            <ul class="sans-deva  fs-5">
                 <li>
                     Aceptamos todos los medios de pagos.
                 </li>
@@ -46,7 +46,7 @@
     </div>
     <section class="mt-2  p-4 rounded">
         <h2 class="title puppy">Preguntas frecuentes</h2>
-        <ul class="meow fs-5">
+        <ul class="sans-deva fs-5">
             <li><strong>¿Como calculo el costo del envío?</strong> Podes consultarnos por WhatsApp con tu direccion y te
                 damos el precio exacto.</li>
             <li><strong>¿Puedo programar el horario de entrega?</strong> Si, siempre dentro de las franjas horarias
@@ -73,7 +73,7 @@
     </section>
 
     <div class="text-center mt-2">
-        <a href="https://wa.me/1234567890" target="_blank" class="rounded-5 meow p-4 fs-4 d-block boton-whatsapp heartbeat">
+        <a href="https://wa.me/1234567890" target="_blank" class="rounded-5 sans-deva p-4 fs-4 d-block boton-whatsapp heartbeat">
             <i class="fa fa-whatsapp" aria-hidden="true"></i>
             ¡Hacé tu pedido ahora por WhatsApp!
         </a>
