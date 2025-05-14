@@ -76,7 +76,7 @@ $clientes = [
         </div>
     </section>
 
-    <section class="mt-3 ">
+    <section class="mt-3">
 
         <p class="roboto fs-5" style="color: #333">
             Sabemos que cada mascota es unica, por eso ofrecemos opciones para perros, gatos, aves, pequeños roedores y
@@ -89,7 +89,7 @@ $clientes = [
     </section>
 
 
-    <section class="mt-3 ">
+    <section class="mt-3" data-aos="fade-up">
         <h1 class="title animate__animated animate__fadeInRightBig text-center">
             Nosotros
         </h1>
@@ -98,37 +98,37 @@ $clientes = [
 
             <?php foreach ($personas as $texto => $value): ?>
 
-            <div class="col-4 d-flex flex-column justify-contents-center align-items-center puppy">
-                <img src="<?= base_url('/' . $value['img_src']) ?>" class="w-100 avatar-img">
+                <div class="col-4 d-flex flex-column justify-contents-center align-items-center puppy">
+                    <img src="<?= base_url('/' . $value['img_src']) ?>" class="w-100 avatar-img">
 
-                </img>
-                <div style="align-self: baseline;" class="mt-1">
-                    <h3 style="color: orange;"><?= $value['name']; ?></h3>
-                    <h5><strong><?= $value['job']; ?></strong></h5>
+                    </img>
+                    <div style="align-self: baseline;" class="mt-1">
+                        <h3 style="color: orange;"><?= $value['name']; ?></h3>
+                        <h5><strong><?= $value['job']; ?></strong></h5>
+
+                    </div>
 
                 </div>
-
-            </div>
             <?php endforeach; ?>
 
         </div>
     </section>
-    <section class="mt-5">
+    <section class="mt-5" data-aos="fade-up">
         <h2 class="text-center title">Lo que dicen nuestros clientes</h2>
         <div class="row justify-content-center">
             <?php foreach ($clientes as $texto => $value): ?>
 
-            <div class="col-8 col-md-4 d-flex flex-column justify-contents-center align-items-center puppy">
-                <img src="<?= base_url('/' . $value['img_src']) ?>" class="w-100 avatar-img">
+                <div class="col-8 col-md-4 d-flex flex-column justify-contents-center align-items-center puppy">
+                    <img src="<?= base_url('/' . $value['img_src']) ?>" class="w-100 avatar-img">
 
-                </img>
+                    </img>
 
-                <blockquote class="blockquote">
-                    <p><?= $value['review'] ?></p>
-                    <footer class="blockquote-footer"><?= $value['name'] ?></footer>
-                </blockquote>
+                    <blockquote class="blockquote">
+                        <p><?= $value['review'] ?></p>
+                        <footer class="blockquote-footer"><?= $value['name'] ?></footer>
+                    </blockquote>
 
-            </div>
+                </div>
             <?php endforeach; ?>
 
     </section>

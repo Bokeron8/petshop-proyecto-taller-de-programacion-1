@@ -12,6 +12,7 @@
     -->
     <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/animate.min.css') ?>" />
+    <link rel="stylesheet" href="<?= base_url('assets/css/aos.css') ?>" />
     <link rel="stylesheet" href="<?= base_url('assets/css/animista.css') ?>" />
     <link rel="icon" type="image/x-icon" href="<?= base_url("assets/img/icon.png") ?>">
 

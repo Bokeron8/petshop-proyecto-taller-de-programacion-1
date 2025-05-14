@@ -22,21 +22,25 @@ $social_media = [
 
                 <?php foreach ($social_media as $texto => $value): ?>
 
-                <li style="text-align: left;">
+                    <li style="text-align: left;">
 
-                    <a style="text-decoration: none; color: orange;" href="<?= $value['href'] ?>">
-                        <img style="width: 24px; " src="<?= base_url('/' . $value['img_src']) ?>" alt="">
-                        <span style="width: auto;"><?= $value['texto']; ?></span>
-                    </a>
+                        <a style="text-decoration: none; color: orange;" href="<?= $value['href'] ?>">
+                            <img style="width: 24px; " src="<?= base_url('/' . $value['img_src']) ?>" alt="">
+                            <span style="width: auto;"><?= $value['texto']; ?></span>
+                        </a>
 
-                </li>
+                    </li>
                 <?php endforeach; ?>
             </ul>
         </section>
     </div>
 
 </footer>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/aos.js') ?>"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 
 </html>
