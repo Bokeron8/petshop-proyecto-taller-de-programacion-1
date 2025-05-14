@@ -73,7 +73,7 @@
     </section>
 
     <div class="text-center mt-2">
-        <a href="https://wa.me/1234567890" target="_blank" class="rounded-5 meow p-4 fs-4 d-block boton-whatsapp">
+        <a href="https://wa.me/1234567890" target="_blank" class="rounded-5 meow p-4 fs-4 d-block boton-whatsapp heartbeat">
             <i class="fa fa-whatsapp" aria-hidden="true"></i>
             ¡Hacé tu pedido ahora por WhatsApp!
         </a>
