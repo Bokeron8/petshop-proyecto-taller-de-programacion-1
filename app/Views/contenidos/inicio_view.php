@@ -125,7 +125,7 @@ $cards = [
                 objetivo es
                 brindar todo lo
                 necesario para asegurar una vida feliz, saludable y plena para tu peludo compañero...</p>
-            <a class="rounded-5 meow p-4 fs-4 d-block boton-conoce-mas heartbeat" href="<?= base_url('/quienes-somos') ?>">Conoce
+            <a class="rounded-5 meow p-4 fs-4 d-block boton-conoce-mas wobble-hor-bottom " href="<?= base_url('/quienes-somos') ?>">Conoce
                 mas sobre
                 nosotros!!!</a>
         </section>
