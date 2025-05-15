@@ -2,6 +2,7 @@
 $current_url = uri_string();
 $links = [
     ["texto" => "Inicio", "href" => ''],
+    ["texto" => "Productos", "href" => 'productos'],
     ["texto" => "¿Quienes somos?", "href" => 'quienes-somos'],
     ["texto" => "Comercializacion", "href" => 'comercializacion'],
     ["texto" => "Contacto", "href" => 'contacto'],
@@ -9,46 +10,53 @@ $links = [
 ];
 ?>
 
-
-<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: rgba(0, 0, 0, 0.8);">
-    <!-- Define el contenedor fluido para ocupar todo el ancho -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0, 0, 0, 0.8);">
     <div class="container-fluid">
-        <!-- Título o marca de la página -->
-        <a class="navbar-brand title catpaw fs-2 " href="<?= base_url('/') ?>"><i class="fa fa-paw"
-                aria-hidden="true"></i> Full Animal</a>
-        <!-- Botón para colapsar el menú en pantallas pequeñas -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        <!-- Marca -->
+        <a class="navbar-brand title catpaw fs-2" href="<?= base_url('/') ?>"
+            style="max-width: 36%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            <i class="fa fa-paw" aria-hidden="true"></i> Full Animal
+        </a>
+
+        <!-- Botones visibles SOLO en pantallas pequeñas -->
+        <div class="d-flex d-lg-none ms-auto">
+            <a href="<?= base_url('/login') ?>" class="btn btn-warning puppy fs-5 me-2">
+                <i class="fa fa-user"></i>
+            </a>
+            <a href="<?= base_url('/login') ?>" class="btn btn-warning puppy fs-5">
+                <i class="fa fa-shopping-cart"></i>
+            </a>
+        </div>
+
+        <!-- Botón de colapso -->
+        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span> <!-- Ícono del botón de colapso -->
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Contenedor del menú que se colapsa o expande -->
+
+        <!-- Menú colapsable -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Lista de navegación -->
-            <ul class="navbar-nav me-auto">
-                <!-- Cada uno de los enlaces de la navegación -->
+            <!-- Links de navegación -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <?php foreach ($links as $texto => $value): ?>
-
-                    <li class="nav-item">
-
-                        <a class="fs-4 puppy nav-link <?= $current_url == $value['href'] ? "active" : "" ?>"
-                            aria-current="page"
-                            href="<?php echo base_url('/' . $value['href']) ?>"><?= $value['texto']; ?></a>
-                        <!-- Enlace activo -->
-                    </li>
+                <li class="nav-item">
+                    <a class="fs-4 puppy nav-link <?= $current_url == $value['href'] ? "active" : "" ?>"
+                        href="<?= base_url('/' . $value['href']) ?>">
+                        <?= $value['texto']; ?>
+                    </a>
+                </li>
                 <?php endforeach; ?>
-
             </ul>
-            <div class="d-flex justify-content-space-between gap-2">
-                <a href="<?= base_url('/login') ?>" class="btn btn-warning puppy fs-5 me-auto">
+
+            <!-- Botones visibles SOLO en pantallas grandes -->
+            <div class="d-none d-lg-flex">
+                <a href="<?= base_url('/login') ?>" class="btn btn-warning puppy fs-5 me-2">
                     <i class="fa fa-user"></i>
                 </a>
-
                 <a href="<?= base_url('/login') ?>" class="btn btn-warning puppy fs-5">
                     <i class="fa fa-shopping-cart"></i>
                 </a>
             </div>
-
-
         </div>
     </div>
 </nav>
