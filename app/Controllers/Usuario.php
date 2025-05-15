@@ -36,6 +36,7 @@ class Usuario extends BaseController
 
       'email_usuario' => $this->request->getPost('email'),
       'contraseña_usuario'  => $this->request->getPost('password'),
+      'perfil_id' => 1,
     ];
 
 

@@ -1,7 +1,9 @@
 <?php $this->extend('plantillas/plantilla'); ?>
 
 <?php $this->section('content'); ?>
-
+<?php
+helper('form');
+?>
 
 
 <section class="container mt-3 bg-translucido">
@@ -52,25 +54,36 @@
 
     <section class="mt-3 ">
         <h1 class="text-center title puppy">Formulario de contacto</h1>
-        <form class="border rounded p-3 sans-deva fs-5" action="<?= site_url('/contacto') ?>" method="POST">
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre..." name="nombre">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                    placeholder="Ingresa tu email..." name="email">
-            </div>
-            <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje:</label>
 
-                <textarea class="form-control" aria-label="With textarea" id="mensaje" rows="5"
-                    placeholder="Mensaje a la empresa..." name="mensaje"></textarea>
-            </div>
+        <?php if (! empty($errors)): ?>
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                <?php foreach ($errors as $error): ?>
+                <li><?= esc($error) ?></li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+        <?php endif ?>
+        <?= form_open('/contacto', ['class' => 'border rounded p-3 sans-deva fs-5']) ?>
 
-            <button type="submit" class="btn btn-warning">Enviar</button>
-        </form>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre..." name="nombre">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                placeholder="Ingresa tu email..." name="email">
+        </div>
+        <div class="mb-3">
+            <label for="mensaje" class="form-label">Mensaje:</label>
+
+            <textarea class="form-control" aria-label="With textarea" id="mensaje" rows="5"
+                placeholder="Mensaje a la empresa..." name="mensaje"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Enviar</button>
+        <?= form_close() ?>
     </section>
 
 </section>
