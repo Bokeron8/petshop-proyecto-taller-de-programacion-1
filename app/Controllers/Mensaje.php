@@ -6,7 +6,6 @@ use App\Models\Mensaje_Model;
 
 class Mensaje extends BaseController
 {
-    protected $helpers = ['form'];
 
 
     public function enviar()
@@ -64,15 +63,9 @@ class Mensaje extends BaseController
         } else {
             $data = [
                 'title' => 'Contacto - Full animal',
-                'errors' => $validation->getErrors(),
+                'validation' => $validation,
             ];
             return view('contenidos/contactos_view', $data);
         }
-        // Obtener datos validados
-        $data = [
-            'nombre_mensaje' => $this->request->getPost('nombre'),
-            'email_mensaje'  => $this->request->getPost('email'),
-            'mensaje'        => $this->request->getPost('mensaje'),
-        ];
     }
 }

@@ -2,10 +2,10 @@
 
 <?php $this->section('content'); ?>
 <style>
-    body {
-        background-color: rgba(0, 0, 0, 0.9);
+body {
+    background-color: rgba(0, 0, 0, 0.9);
 
-    }
+}
 </style>
 
 <div class="d-flex align-items-center py-4 h-auto row me-0">
@@ -19,10 +19,21 @@
             <div class="form-floating"> <input type="email" class="form-control" id="floatingInput"
                     placeholder="name@example.com" name="email">
                 <label for="floatingInput">Correo electronico</label>
+                <?php if (session()->has('validation') && session('validation')->hasError('email')) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc(session('validation')->getError('email')) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                    name="password">
                 <label for="floatingPassword">Contraseña</label>
+                <?php if (session()->has('validation') && session('validation')->hasError('password')) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc(session('validation')->getError('password')) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
 
             <button class="btn btn-warning w-100 py-2 mt-4" type="submit">Iniciar sesion</button>
@@ -39,29 +50,53 @@
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="nameInput"
-                    placeholder="Marcos" name="name">
+                <input type="text" class="form-control" id="nameInput" placeholder="Marcos" name="name">
                 <label for="floatingInput">Nombre</label>
+                <?php if (session()->has('validation') && session('validation')->hasError('name')) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc(session('validation')->getError('name')) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="surnameInput"
-                    placeholder="Mazzanti" name="surname">
+                <input type="text" class="form-control" id="surnameInput" placeholder="Mazzanti" name="surname">
                 <label for="floatingInput">Apellido</label>
+                <?php if (session()->has('validation') && session('validation')->hasError('surname')) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc(session('validation')->getError('surname')) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput"
-                    placeholder="name@example.com" name="email">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                 <label for="floatingInput">Correo electronico</label>
+                <?php if (session()->has('validation') && session('validation')->hasError('email')) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc(session('validation')->getError('email')) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" name="password">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña"
+                    name="password">
                 <label for="floatingPassword">Contraseña</label>
+                <?php if (session()->has('validation') && session('validation')->hasError('password')) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc(session('validation')->getError('password')) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="repeatPasswordInput" placeholder="Repeti tu contraseña" name="password">
+                <input type="password" class="form-control" id="repeatPasswordInput" placeholder="Repeti tu contraseña"
+                    name="repeatPasswordInput">
                 <label for="repeatPasswordInput">Repeti tu contraseña</label>
+                <?php if (session()->has('validation') && session('validation')->hasError('repeatPasswordInput')) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc(session('validation')->getError('repeatPasswordInput')) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
 
             <button class="btn btn-warning w-100 py-2 mt-4" type="submit">Crear cuenta</button>
@@ -72,47 +107,51 @@
 </div>
 
 <script>
-    let $ = (string) => document.querySelector(string)
+let $ = (string) => document.querySelector(string)
 
-    let goCreateBtn = $('#go-create-account');
-    let goLogin = $('#go-login');
-    let formSignIn = $('.form-signin');
-    let formRegister = $('.form-register');
+let goCreateBtn = $('#go-create-account');
+let goLogin = $('#go-login');
+let formSignIn = $('.form-signin');
+let formRegister = $('.form-register');
+
+if (<?= session()->has('registering') ? true : 'false' ?>) {
+    formSignIn.classList.add('d-none')
+    formRegister.classList.remove('d-none')
+}
+
+formSignIn.addEventListener('animationend', (e) => {
+    console.log(e)
+
+    if (e.animationName == 'scale-out-center') {
+        formSignIn.classList.add('d-none')
+        formSignIn.classList.remove('scale-out-center')
+
+        formRegister.classList.add('scale-in-center')
+        formRegister.classList.remove('d-none')
+    }
+
+})
+
+formRegister.addEventListener('animationend', (e) => {
+    if (e.animationName == 'scale-out-center') {
+        formRegister.classList.add('d-none')
+        formRegister.classList.remove('scale-out-center')
+
+        formSignIn.classList.add('scale-in-center')
+        formSignIn.classList.remove('d-none')
+    }
+})
+
+goCreateBtn.addEventListener("click", function() {
+    formSignIn.classList.remove('scale-in-center')
+    formSignIn.classList.add('scale-out-center')
+})
 
 
-    formSignIn.addEventListener('animationend', (e) => {
-        console.log(e)
-
-        if (e.animationName == 'scale-out-center') {
-            formSignIn.classList.add('d-none')
-            formSignIn.classList.remove('scale-out-center')
-
-            formRegister.classList.add('scale-in-center')
-            formRegister.classList.remove('d-none')
-        }
-
-    })
-
-    formRegister.addEventListener('animationend', (e) => {
-        if (e.animationName == 'scale-out-center') {
-            formRegister.classList.add('d-none')
-            formRegister.classList.remove('scale-out-center')
-
-            formSignIn.classList.add('scale-in-center')
-            formSignIn.classList.remove('d-none')
-        }
-    })
-
-    goCreateBtn.addEventListener("click", function() {
-        formSignIn.classList.remove('scale-in-center')
-        formSignIn.classList.add('scale-out-center')
-    })
-
-
-    goLogin.addEventListener("click", function() {
-        formRegister.classList.remove('scale-in-center')
-        formRegister.classList.add('scale-out-center')
-    })
+goLogin.addEventListener("click", function() {
+    formRegister.classList.remove('scale-in-center')
+    formRegister.classList.add('scale-out-center')
+})
 </script>
 
 <?php $this->endSection(); ?>
