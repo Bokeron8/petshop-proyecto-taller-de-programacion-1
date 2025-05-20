@@ -14,7 +14,8 @@ $cards = [
 
 <section>
     <section class="mb-2">
-        <img src="<?= base_url('assets/img/petshop_hero.png') ?>" class="d-block w-100 carousel-hero" alt="Portada petshop">
+        <img src="<?= base_url('assets/img/petshop_hero.png') ?>" class="d-block w-100 carousel-hero"
+            alt="Portada petshop">
     </section>
 
     <section class="container mt-3 bg-translucido">
@@ -22,16 +23,16 @@ $cards = [
             <h1 class="text-center title">Nuestros Productos</h1>
             <?php foreach ($cards as $titulo => $value): ?>
 
-                <div class="col-md-3 col-6 mb-2">
-                    <div class="card h-100">
-                        <img src="<?= base_url($value['imgSrc']) ?>" class="card-img-top carta-productos"
-                            alt="<?= $value['alt'] ?>">
-                        <div class="card-body">
-                            <h5 class="card-title puppy fw-bold"><?= $value['titulo'] ?></h5>
-                            <a href="#" class="btn btn-outline-warning meow">Ver productos</a>
-                        </div>
+            <div class="col-md-3 col-6 mb-2">
+                <div class="card h-100">
+                    <img src="<?= base_url($value['imgSrc']) ?>" class="card-img-top carta-productos"
+                        alt="<?= $value['alt'] ?>">
+                    <div class="card-body">
+                        <h5 class="card-title puppy fw-bold"><?= $value['titulo'] ?></h5>
+                        <a href="#" class="btn btn-outline-warning meow">Ver productos</a>
                     </div>
                 </div>
+            </div>
             <?php endforeach ?>
 
         </div>
@@ -91,28 +92,28 @@ $cards = [
                     <div class="border p-3 h-100 bg-white shadow-sm rounded">
                         <img src="<?= base_url("assets/img/promo1.avif") ?>" alt="" class="w-100">
                         <h5 class="puppy">3x2 en Alimento Balanceado</h5>
-                        <p class="meow">Llevás 3 bolsas, ¡pagás solo 2!</p>
+                        <p class="sans-deva">Llevás 3 bolsas, ¡pagás solo 2!</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6 mb-3">
                     <div class="border p-3 h-100 bg-white shadow-sm rounded">
                         <img src="<?= base_url("assets/img/promo2.avif") ?>" alt="" class="w-100">
                         <h5 class="puppy">10% Off pagando en efectivo</h5>
-                        <p class="meow">En todas tus compras, sin mínimo.</p>
+                        <p class="sans-deva">En todas tus compras, sin mínimo.</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6 mb-3">
                     <div class="border p-3 h-100 bg-white shadow-sm rounded">
                         <img src="<?= base_url("assets/img/promo3.avif") ?>" alt="" class="w-100">
                         <h5 class="puppy">Shampoo + antipulgas</h5>
-                        <p class="meow">Servicio completo para tu mascota con descuento.</p>
+                        <p class="sans-deva">Servicio completo para tu mascota con descuento.</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6 mb-3">
                     <div class="border p-3 h-100 bg-white shadow-sm rounded">
                         <img src="<?= base_url("assets/img/promo4.avif") ?>" alt="" class="w-100">
                         <h5 class="puppy">Juguetes con 15% de descuento</h5>
-                        <p class="meow">Juguetes seleccionados para perros y gatos.</p>
+                        <p class="sans-deva">Juguetes elegidos para perros y gatos.</p>
                     </div>
                 </div>
             </div>
@@ -125,7 +126,8 @@ $cards = [
                 objetivo es
                 brindar todo lo
                 necesario para asegurar una vida feliz, saludable y plena para tu peludo compañero...</p>
-            <a class="rounded-5 meow p-4 fs-4 d-block boton-conoce-mas wobble-hor-bottom " href="<?= base_url('/quienes-somos') ?>">Conoce
+            <a class="rounded-5 meow p-4 fs-4 d-block boton-conoce-mas wobble-hor-bottom "
+                href="<?= base_url('/quienes-somos') ?>">Conoce
                 mas sobre
                 nosotros!!!</a>
         </section>
