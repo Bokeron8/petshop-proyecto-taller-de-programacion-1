@@ -40,7 +40,7 @@ $links = [
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <?php foreach ($links as $texto => $value): ?>
                 <li class="nav-item">
-                    <a class="fs-4 puppy nav-link <?= $current_url == $value['href'] ? "active" : "" ?>"
+                    <a class="fs-5 puppy nav-link <?= $current_url == $value['href'] ? "active" : "" ?>"
                         href="<?= base_url('/' . $value['href']) ?>">
                         <?= $value['texto']; ?>
                     </a>
