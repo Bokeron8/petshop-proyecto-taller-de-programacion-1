@@ -19,3 +19,6 @@ $routes->post('/contacto', 'Mensaje::enviar');
 $routes->post('/login', 'Usuario::login');
 $routes->post('/register', 'Usuario::register');
 $routes->get('logout', 'Usuario::logout');
+
+
+$routes->get('/admin/gestionar-productos', 'Admin::gestionar_producto');
