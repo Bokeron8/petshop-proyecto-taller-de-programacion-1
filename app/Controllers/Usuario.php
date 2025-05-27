@@ -54,12 +54,12 @@ class Usuario extends BaseController
 
     $session = session();
     $session->set('usuario', [
-  'id_usuario' => $user['id_usuario'],
-  'nombre_usuario' => $user['nombre_usuario'],
-  'apellido_usuario' => $user['apellido_usuario'],
-  'perfil_id' => $user['perfil_id'],
-  'email_usuario' => $user['email_usuario']
-]);
+      'id_usuario' => $user['id_usuario'],
+      'nombre_usuario' => $user['nombre_usuario'],
+      'apellido_usuario' => $user['apellido_usuario'],
+      'perfil_id' => $user['perfil_id'],
+      'email_usuario' => $user['email_usuario']
+    ]);
 
 
     return redirect()->to('/')->with('success', 'Inicio de sesión exitoso.');
@@ -144,5 +144,4 @@ class Usuario extends BaseController
     session()->destroy();
     return redirect()->to('/');
   }
-
 }

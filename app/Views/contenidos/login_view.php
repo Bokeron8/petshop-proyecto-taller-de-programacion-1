@@ -16,8 +16,8 @@ body {
                 <h1 class="h3 mb-3 fw-normal ">Iniciar sesion</h1>
             </div>
 
-            <div class="form-floating"> <input type="email" class="form-control" id="floatingInput"
-                    placeholder="name@example.com" name="email">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                 <label for="floatingInput">Correo electronico</label>
                 <?php if (session()->has('validation') && session('validation')->hasError('email')) : ?>
                 <div class="alert alert-danger error-container" role="alert">
