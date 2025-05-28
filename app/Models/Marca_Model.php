@@ -13,5 +13,5 @@ class Marca_Model extends Model
 
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['id_marca', 'descripcion_marca'];
+    protected $allowedFields = ['descripcion_marca'];
 }

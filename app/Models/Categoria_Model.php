@@ -13,5 +13,5 @@ class Categoria_Model extends Model
 
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['id_categoria', 'descripcion_categoria'];
+    protected $allowedFields = ['descripcion_categoria'];
 }

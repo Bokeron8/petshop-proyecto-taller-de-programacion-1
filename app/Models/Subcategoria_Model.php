@@ -13,5 +13,5 @@ class Subcategoria_Model extends Model
 
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['id_subcategoria', 'descripcion_subcategoria'];
+    protected $allowedFields = ['descripcion_subcategoria'];
 }
