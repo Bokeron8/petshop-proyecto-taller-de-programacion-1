@@ -22,21 +22,21 @@ body {
 
         <?= form_open_multipart("", ['class' => 'd-flex flex-column gap-2']) ?>
         <div class="form-floating">
-            <?= form_input(['name' => 'nombre_producto', 'class' => 'form-control', 'id' => 'nombre_producto', 'placeholder' => 'Toalla canina']) ?>
+            <?= form_input(['name' => 'nombre_producto', 'class' => 'form-control', 'id' => 'nombre_producto', 'placeholder' => 'Name']) ?>
             <?= form_label('Nombre del producto', 'nombre_producto') ?>
         </div>
 
         <div class="form-floating">
-            <?= form_input(['name' => 'descripcion_producto', 'class' => 'form-control']) ?>
+            <?= form_input(['name' => 'descripcion_producto', 'class' => 'form-control', 'id' => 'descripcion_producto', 'placeholder' => 'Desc']) ?>
             <?= form_label('Descripcion del producto', 'descripcion_producto') ?>
         </div>
         <div class="row gy-2 gx-3 align-items-center">
             <div class="col-6">
-                <label class="visually-hidden" for="autoSizingInput">Name</label>
+                <label class="visually-hidden" for="autoSizingInput"></label>
                 <input type="text" class="form-control" id="autoSizingInput" placeholder="Stock">
             </div>
             <div class="col-6">
-                <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                <label class="visually-hidden" for="autoSizingInputGroup"></label>
                 <div class="input-group">
                     <div class="input-group-text">$</div>
                     <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Precio">
@@ -44,26 +44,20 @@ body {
             </div>
         </div>
         <div class="form-floating">
-            <?= form_input(['name' => 'imagen_producto', 'class' => 'form-control']) ?>
+            <?= form_input(['name' => 'imagen_producto', 'class' => 'form-control','type' => 'file']) ?>
             <?= form_label('Imagen del producto', 'imagen_producto') ?>
         </div>
         <div class="form-floating">
-            <?php
-
-            use App\Controllers\CategoriaController;
-
-            $controller = new CategoriaController();
-            $categorias = $controller->obtener_categoria();
-            ?>
+        
             <?= form_dropdown(['name' => 'categoria_producto', 'class' => 'form-control'], $categorias, [0]) ?>
             <?= form_label('Categoria del producto', 'categoria_producto') ?>
         </div>
         <div class="form-floating">
-            <?= form_dropdown(['name' => 'subcategoria_producto', 'class' => 'form-control']) ?>
+            <?= form_dropdown(['name' => 'subcategoria_producto', 'class' => 'form-control'], $subcategorias, [0]) ?>
             <?= form_label('SubCategoria del producto', 'subcategoria_producto') ?>
         </div>
         <div class="form-floating">
-            <?= form_dropdown(['name' => 'marca_producto', 'class' => 'form-control']) ?>
+            <?= form_dropdown(['name' => 'marca_producto', 'class' => 'form-control'], $marcas, [0]) ?>
             <?= form_label('Marca del producto', 'marca_producto') ?>
         </div>
 

@@ -3,10 +3,48 @@
 namespace App\Controllers;
 
 use App\Models\Producto_Model;
+use App\Models\Categoria_Model;
+use App\Models\Subcategoria_Model;
+use App\Models\Marca_Model;
 
 class ProductoController extends BaseController
 {
+    public function form_gestionar_producto()
+    {
+        $categoriaModel = new Categoria_Model();
+        $subcategoriaModel = new Subcategoria_Model();
+        $marcaModel = new Marca_Model();
 
+        // Obtener los datos como array asociativo para el dropdown
+        $categorias = $categoriaModel->findAll();
+        $subcategorias = $subcategoriaModel->findAll();
+        $marcas = $marcaModel->findAll();
+
+        // Armar opciones para el dropdown
+        $opcionesCategorias = ['0' => 'Seleccionar categoría'];
+        foreach ($categorias as $cat) {
+            $opcionesCategorias[$cat['id_categoria']] = $cat['descripcion_categoria'];
+        }
+
+        $opcionesSubcategorias = ['0' => 'Seleccionar subcategoría'];
+        foreach ($subcategorias as $sub) {
+            $opcionesSubcategorias[$sub['id_subcategoria']] = $sub['descripcion_subcategoria'];
+        }
+
+        $opcionesMarcas = ['0' => 'Seleccionar marca'];
+        foreach ($marcas as $marca) {
+            $opcionesMarcas[$marca['id_marca']] = $marca['descripcion_marca'];
+        }
+
+        // Pasar los datos a la vista
+        return view('Backend/gestionar_view', [
+        'categorias' => $opcionesCategorias,
+        'subcategorias' => $opcionesSubcategorias,
+        'marcas' => $opcionesMarcas,
+        'title' => 'Gestion-Productos'
+        ]);
+
+    }
 
     public function registrarProducto()
     {
