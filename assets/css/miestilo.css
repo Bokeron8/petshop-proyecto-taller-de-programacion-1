@@ -159,3 +159,8 @@ div.content>* {
     font-size: 1rem;
     margin-top: .5rem;
 }
+
+#descripcion_producto {
+    max-height: 10%;
+    height: 100px;
+}

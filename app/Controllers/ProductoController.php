@@ -34,23 +34,22 @@ class ProductoController extends BaseController
             $opcionesMarcas[$marca['id_marca']] = $marca['descripcion_marca'];
         }
 
-        return view('Backend/gestionar_view', [
+        $validation = session()->getFlashdata('validation');
+
+        return view('Backend/agregar_view', [
             'categorias' => $opcionesCategorias,
             'subcategorias' => $opcionesSubcategorias,
             'marcas' => $opcionesMarcas,
-            'title' => 'Gestion-Productos'
+            'validation' => $validation,
+            'title' => 'Agregar productos - Full animal'
         ]);
     }
 
     public function registrarProducto()
     {
-    
-
-        $validation = \Config\Services::validation();
-        $request = \Config\Services::request();
         $model = new Producto_Model();
 
-        $validation->setRules([
+        $rules = [
             'nombre_producto' => [
                 'rules' => 'required|min_length[3]|max_length[50]',
                 'errors' => [
@@ -112,10 +111,12 @@ class ProductoController extends BaseController
                     'max_size' => 'La imagen no puede superar los 2MB.'
                 ]
             ]
-        ]);
+        ];
 
-        if (!$validation->withRequest($request)->run()) {
-            return redirect()->back()->withInput()->with('validation', $validation);
+
+        if (!$this->validate($rules)) {
+
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
         $imagen = $this->request->getFile('imagen_producto');
@@ -135,7 +136,7 @@ class ProductoController extends BaseController
         ];
 
         if ($model->insert($data)) {
-            return redirect()->to('/producto/form_gestionar_producto')->with('success', 'Producto agregado correctamente.');
+            return redirect()->back()->withInput()->with('success', 'Producto agregado correctamente.');
         } else {
             return redirect()->back()->withInput()->with('error', 'Hubo un error al guardar el producto.');
         }

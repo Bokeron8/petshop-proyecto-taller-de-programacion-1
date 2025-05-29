@@ -19,6 +19,7 @@ if ($usuario && $usuario['perfil_id'] == 2) {
         ["texto" => "Listar Productos", "href" => 'admin/usuarios'],
         ["texto" => "Gestionar Productos", "href" => 'admin/gestionar-productos'],
         ["texto" => "Listar Ventas", "href" => 'admin/reportes'],
+        ["texto" => "Agrega Productos", "href" => 'admin/agregar-productos']
     ];
 }
 ?>
@@ -48,10 +49,7 @@ if ($usuario && $usuario['perfil_id'] == 2) {
                 <i class="fa fa-sign-out"></i>
             </a>
             <?php elseif ($usuario['perfil_id'] == 2): ?>
-            <!-- ADMIN -->
-            <a class="btn btn-outline-warning fs-5 me-2" href="<?= base_url('/admin') ?>">
-                <i class="fa fa-cogs"></i>
-            </a>
+
             <a class="btn btn-outline-warning fs-5" href="<?= base_url('/logout') ?>">
                 <i class="fa fa-sign-out"></i>
             </a>
@@ -99,11 +97,9 @@ if ($usuario && $usuario['perfil_id'] == 2) {
                 <?php elseif ($usuario['perfil_id'] == 2): ?>
                 <!-- ADMIN -->
                 <span class="navbar-text text-white puppy fs-4 me-2">
-                    Hola <?= esc($usuario['nombre_usuario']) ?>!
+                    <?= esc($usuario['nombre_usuario']) ?>
                 </span>
-                <a class="btn btn-outline-warning fs-5 me-2" href="<?= base_url('/admin') ?>">
-                    Administrar
-                </a>
+
                 <a class="btn btn-outline-warning fs-5" href="<?= base_url('/logout') ?>">
                     Cerrar sesión
                 </a>
