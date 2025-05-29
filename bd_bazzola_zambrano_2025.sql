@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2025 a las 17:06:22
+-- Tiempo de generación: 29-05-2025 a las 17:00:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -53,6 +53,14 @@ CREATE TABLE `marcas` (
   `id_marca` int(11) NOT NULL,
   `descripcion_marca` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `marcas`
+--
+
+INSERT INTO `marcas` (`id_marca`, `descripcion_marca`) VALUES
+(1, 'Pedigree'),
+(2, 'Whiskas');
 
 -- --------------------------------------------------------
 
@@ -119,6 +127,14 @@ CREATE TABLE `productos` (
   `estado_producto` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `id_marca_producto`, `id_categoria_producto`, `id_subcategoria_producto`, `stock_producto`, `precio_producto`, `imagen_producto`, `estado_producto`) VALUES
+(1, 'Bolsa de Alimento', '20kg', 1, 1, 1, 12, 13, '1748527634_79dfa5a1ab3a27ed660e.png', 1),
+(2, 'Bolsa de Alimento de Whiskas 20kg', 'alimento blsldapsdasdp 20kg', 2, 1, 2, 12, 1, '1748529256_2d76d4f5b47ad99ece7b.png', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -129,6 +145,14 @@ CREATE TABLE `subcategorias` (
   `id_subcategoria` int(11) NOT NULL,
   `descripcion_subcategoria` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `subcategorias`
+--
+
+INSERT INTO `subcategorias` (`id_subcategoria`, `descripcion_subcategoria`) VALUES
+(1, 'Perro'),
+(2, 'Gato');
 
 -- --------------------------------------------------------
 
@@ -155,7 +179,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `dni_usuario`, `domicilio_usuario`, `email_usuario`, `contraseña_usuario`, `estado_usuario`, `telefono_usuario`, `perfil_id`) VALUES
 (3, 'ar', 'za', 0, '', 'asd@gmail.com', '$2y$10$P63HZRlrY7T.o60ZU/BncO/CvMh8pHDvGM9f8E0UnYepwS6GB5dx.', 1, 0, 2),
-(4, 'mensajes', 'asdasd', 0, '', 'nospamfranco2@gmail.com', '$2y$10$n/cUYTtE2smWaF4fnpgx3.J7ufN2PO86hJSKGRnvRH1KnYMdkv3bu', 1, 0, 1);
+(4, 'mensajes', 'asdasd', 0, '', 'nospamfranco2@gmail.com', '$2y$10$n/cUYTtE2smWaF4fnpgx3.J7ufN2PO86hJSKGRnvRH1KnYMdkv3bu', 1, 0, 1),
+(5, 'mensajes', 'asdasd', 0, '', 'nospamfranco3@gmail.com', '$2y$10$GZWr12fHoPZFLrThyKrT5.Q3FLG0VWtMmMOWm0ZLKvQTOE.mO0th2', 1, 0, 2);
 
 --
 -- Índices para tablas volcadas
@@ -222,7 +247,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
@@ -240,19 +265,19 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategorias`
 --
 ALTER TABLE `subcategorias`
-  MODIFY `id_subcategoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_subcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
