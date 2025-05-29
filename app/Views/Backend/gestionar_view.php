@@ -20,7 +20,7 @@ body {
             <h1 class="h3 mb-3 fw-normal ">Agregar producto</h1>
         </div>
 
-        <?= form_open_multipart("", ['class' => 'd-flex flex-column gap-2']) ?>
+        <?= form_open_multipart('/admin/gestionar-productos', ['class' => 'd-flex flex-column gap-2']) ?>
         <div class="form-floating">
             <?= form_input(['name' => 'nombre_producto', 'class' => 'form-control', 'id' => 'nombre_producto', 'placeholder' => 'Name']) ?>
             <?= form_label('Nombre del producto', 'nombre_producto') ?>
@@ -33,13 +33,13 @@ body {
         <div class="row gy-2 gx-3 align-items-center">
             <div class="col-6">
                 <label class="visually-hidden" for="autoSizingInput"></label>
-                <input type="text" class="form-control" id="autoSizingInput" placeholder="Stock">
+                <input type="text" name="stock_producto" class="form-control" id="autoSizingInput" placeholder="Stock">
             </div>
             <div class="col-6">
                 <label class="visually-hidden" for="autoSizingInputGroup"></label>
                 <div class="input-group">
                     <div class="input-group-text">$</div>
-                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Precio">
+                    <input type="text" name="precio_producto" class="form-control" id="autoSizingInputGroup" placeholder="Precio">
                 </div>
             </div>
         </div>
@@ -60,7 +60,8 @@ body {
             <?= form_dropdown(['name' => 'marca_producto', 'class' => 'form-control'], $marcas, [0]) ?>
             <?= form_label('Marca del producto', 'marca_producto') ?>
         </div>
-
+        <br>
+        <?= form_submit('guardar', 'Agregar producto', ['class' => 'btn btn-warning']) ?>
         <?= form_close() ?>
 
     </main>

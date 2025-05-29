@@ -21,5 +21,5 @@ $routes->post('/register', 'Usuario::register');
 $routes->get('logout', 'Usuario::logout');
 
 
-
 $routes->get('/admin/gestionar-productos', 'ProductoController::form_gestionar_producto');
+$routes->post('/admin/gestionar-productos', 'ProductoController::registrarProducto');

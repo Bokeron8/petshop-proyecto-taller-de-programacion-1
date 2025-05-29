@@ -15,12 +15,10 @@ class ProductoController extends BaseController
         $subcategoriaModel = new Subcategoria_Model();
         $marcaModel = new Marca_Model();
 
-        // Obtener los datos como array asociativo para el dropdown
         $categorias = $categoriaModel->findAll();
         $subcategorias = $subcategoriaModel->findAll();
         $marcas = $marcaModel->findAll();
 
-        // Armar opciones para el dropdown
         $opcionesCategorias = ['0' => 'Seleccionar categoría'];
         foreach ($categorias as $cat) {
             $opcionesCategorias[$cat['id_categoria']] = $cat['descripcion_categoria'];
@@ -36,74 +34,110 @@ class ProductoController extends BaseController
             $opcionesMarcas[$marca['id_marca']] = $marca['descripcion_marca'];
         }
 
-        // Pasar los datos a la vista
         return view('Backend/gestionar_view', [
-        'categorias' => $opcionesCategorias,
-        'subcategorias' => $opcionesSubcategorias,
-        'marcas' => $opcionesMarcas,
-        'title' => 'Gestion-Productos'
+            'categorias' => $opcionesCategorias,
+            'subcategorias' => $opcionesSubcategorias,
+            'marcas' => $opcionesMarcas,
+            'title' => 'Gestion-Productos'
         ]);
-
     }
 
     public function registrarProducto()
     {
+    
+
         $validation = \Config\Services::validation();
         $request = \Config\Services::request();
-
         $model = new Producto_Model();
 
-
-        // Reglas de validación
         $validation->setRules([
-            'nombre' => [
-                'label' => 'Nombre',
+            'nombre_producto' => [
                 'rules' => 'required|min_length[3]|max_length[50]',
                 'errors' => [
-                    'required' => 'El {field} es obligatorio.',
-                    'min_length' => 'El {field} debe tener al menos {param} caracteres.',
-                    'max_length' => 'El {field} no puede superar los {param} caracteres.'
+                    'required' => 'El nombre del producto es obligatorio.',
+                    'min_length' => 'El nombre debe tener al menos {param} caracteres.',
+                    'max_length' => 'El nombre no puede superar los {param} caracteres.'
                 ]
             ],
-            'email' => [
-                'label' => 'Correo electrónico',
-                'rules' => 'required|valid_email|max_length[50]',
+            'descripcion_producto' => [
+                'rules' => 'required|min_length[3]|max_length[50]',
                 'errors' => [
-                    'required' => 'El {field} es obligatorio.',
-                    'valid_email' => 'El {field} debe ser un correo electrónico válido.',
-                    'max_length' => 'El {field} no puede superar los {param} caracteres.'
+                    'required' => 'La descripción del producto es obligatoria.',
+                    'min_length' => 'La descripción debe tener al menos {param} caracteres.',
+                    'max_length' => 'La descripción no puede superar los {param} caracteres.'
                 ]
             ],
-            'mensaje' => [
-                'label' => 'Mensaje',
-                'rules' => 'required|min_length[10]|max_length[500]',
+            'stock_producto' => [
+                'rules' => 'required|integer|greater_than_equal_to[0]',
                 'errors' => [
-                    'required' => 'Debes escribir un mensaje.',
-                    'min_length' => 'El mensaje debe tener al menos {param} caracteres.',
-                    'max_length' => 'El mensaje no puede tener más de {param} caracteres.'
+                    'required' => 'El stock es obligatorio.',
+                    'integer' => 'El stock debe ser un número entero.',
+                    'greater_than_equal_to' => 'El stock no puede ser negativo.'
                 ]
             ],
+            'precio_producto' => [
+                'rules' => 'required|numeric|greater_than_equal_to[0]',
+                'errors' => [
+                    'required' => 'El precio es obligatorio.',
+                    'numeric' => 'El precio debe ser un número.',
+                    'greater_than_equal_to' => 'El precio no puede ser negativo.'
+                ]
+            ],
+            'categoria_producto' => [
+                'rules' => 'required|is_not_unique[categorias.id_categoria]',
+                'errors' => [
+                    'required' => 'La categoría es obligatoria.',
+                    'is_not_unique' => 'La categoría seleccionada no es válida.'
+                ]
+            ],
+            'subcategoria_producto' => [
+                'rules' => 'required|is_not_unique[subcategorias.id_subcategoria]',
+                'errors' => [
+                    'required' => 'La subcategoría es obligatoria.',
+                    'is_not_unique' => 'La subcategoría seleccionada no es válida.'
+                ]
+            ],
+            'marca_producto' => [
+                'rules' => 'required|is_not_unique[marcas.id_marca]',
+                'errors' => [
+                    'required' => 'La marca es obligatoria.',
+                    'is_not_unique' => 'La marca seleccionada no es válida.'
+                ]
+            ],
+            'imagen_producto' => [
+                'rules' => 'uploaded[imagen_producto]|is_image[imagen_producto]|max_size[imagen_producto,2048]',
+                'errors' => [
+                    'uploaded' => 'La imagen es obligatoria.',
+                    'is_image' => 'El archivo debe ser una imagen válida.',
+                    'max_size' => 'La imagen no puede superar los 2MB.'
+                ]
+            ]
         ]);
 
-        // Validar los datos del formulario
-        if ($validation->withRequest($request)->run()) {
-            $data = [
-                'nombre_mensaje' => $this->request->getPost('nombre'),
-                'email_mensaje'  => $this->request->getPost('email'),
-                'mensaje'        => $this->request->getPost('mensaje'),
-            ];
-            // Guardar en base de datos
-            if ($model->insert($data)) {
-                return redirect()->to('/')->with('success', 'Mensaje enviado correctamente.');
-            } else {
-                return redirect()->back()->withInput()->with('error', 'Hubo un error al enviar el mensaje.');
-            }
+        if (!$validation->withRequest($request)->run()) {
+            return redirect()->back()->withInput()->with('validation', $validation);
+        }
+
+        $imagen = $this->request->getFile('imagen_producto');
+        $nombreImagen = $imagen->getRandomName();
+        $imagen->move('assets/uploads', $nombreImagen);
+
+        $data = [
+            'nombre_producto' => $this->request->getPost('nombre_producto'),
+            'descripcion_producto' => $this->request->getPost('descripcion_producto'),
+            'stock_producto' => $this->request->getPost('stock_producto'),
+            'precio_producto' => $this->request->getPost('precio_producto'),
+            'id_categoria_producto' => $this->request->getPost('categoria_producto'),
+            'id_subcategoria_producto' => $this->request->getPost('subcategoria_producto'),
+            'id_marca_producto' => $this->request->getPost('marca_producto'),
+            'imagen_producto' => $nombreImagen,
+            'estado_producto' => 1
+        ];
+
+        if ($model->insert($data)) {
+            return redirect()->to('/producto/form_gestionar_producto')->with('success', 'Producto agregado correctamente.');
         } else {
-            $data = [
-                'title' => 'Contacto - Full animal',
-                'validation' => $validation,
-            ];
-            return view('contenidos/contactos_view', $data);
+            return redirect()->back()->withInput()->with('error', 'Hubo un error al guardar el producto.');
         }
     }
 }

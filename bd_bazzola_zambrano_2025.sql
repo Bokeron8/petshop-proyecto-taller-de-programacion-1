@@ -115,7 +115,7 @@ CREATE TABLE `productos` (
   `id_subcategoria_producto` int(11) NOT NULL,
   `stock_producto` int(11) NOT NULL,
   `precio_producto` float NOT NULL,
-  `imagen_producto` blob NOT NULL,
+  `imagen_producto` varchar(200) NOT NULL,
   `estado_producto` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
