@@ -9,7 +9,7 @@ use App\Models\Marca_Model;
 
 class ProductoController extends BaseController
 {
-    public function form_gestionar_producto()
+    public function form_agregar_producto()
     {
         $categoriaModel = new Categoria_Model();
         $subcategoriaModel = new Subcategoria_Model();
@@ -141,4 +141,167 @@ class ProductoController extends BaseController
             return redirect()->back()->withInput()->with('error', 'Hubo un error al guardar el producto.');
         }
     }
+
+    public function gestionar_productos()
+    {
+        $productoModel = new \App\Models\Producto_Model();
+        $productos = $productoModel->obtener_con_todo();
+
+        return view('Backend/gestionar_view', ['productos' => $productos,'title' => 'Gestionar productos - Full animal']);
+    }
+
+    public function activar($id)
+    {
+        $productoModel = new \App\Models\Producto_Model();
+        $productoModel->update($id, ['estado_producto' => 1]);
+
+        return redirect()->to(base_url('admin/gestionar-productos'));
+    }
+
+    public function desactivar($id)
+    {
+    $productoModel = new \App\Models\Producto_Model();
+    $productoModel->update($id, ['estado_producto' => 0]);
+
+    return redirect()->to(base_url('admin/gestionar-productos'));
+    }
+
+    public function editar_Producto($id)
+    {
+        $productoModel = new Producto_Model();
+        $categoriaModel = new Categoria_Model();
+        $subcategoriaModel = new Subcategoria_Model();
+        $marcaModel = new Marca_Model();
+
+        $producto = $productoModel->where('id_producto', $id)->first();
+
+        if (!$producto) {
+            return redirect()->to('/admin/gestionar-productos')->with('error', 'Producto no encontrado');
+        }
+
+        $opcionesCategorias = ['0' => 'Seleccionar categoría'];
+        foreach ($categoriaModel->findAll() as $cat) {
+            $opcionesCategorias[$cat['id_categoria']] = $cat['descripcion_categoria'];
+        }
+
+        $opcionesSubcategorias = ['0' => 'Seleccionar subcategoría'];
+        foreach ($subcategoriaModel->findAll() as $sub) {
+            $opcionesSubcategorias[$sub['id_subcategoria']] = $sub['descripcion_subcategoria'];
+        }
+
+        $opcionesMarcas = ['0' => 'Seleccionar marca'];
+        foreach ($marcaModel->findAll() as $marca) {
+            $opcionesMarcas[$marca['id_marca']] = $marca['descripcion_marca'];
+        }
+
+        return view('Backend/editar_view', [
+            'producto' => $producto,
+            'categorias' => $opcionesCategorias,
+            'subcategorias' => $opcionesSubcategorias,
+            'marcas' => $opcionesMarcas,
+            'title' => 'Editar productos - Full animal'
+        ]);
+    }
+
+    public function actualizarProducto($id)
+    {
+        $productoModel = new Producto_Model();
+
+        $productoExistente = $productoModel->where('id_producto', $id)->first();
+        if (!$productoExistente) {
+            return redirect()->to('/admin/gestionar-productos')->with('error', 'Producto no encontrado');
+        }
+
+
+        $rules = [
+            'nombre_producto' => [
+                'rules' => 'required|min_length[3]|max_length[50]',
+                'errors' => [
+                    'required' => 'El nombre del producto es obligatorio.',
+                    'min_length' => 'El nombre debe tener al menos {param} caracteres.',
+                    'max_length' => 'El nombre no puede superar los {param} caracteres.'
+                ]
+            ],
+            'descripcion_producto' => [
+                'rules' => 'required|min_length[3]|max_length[50]',
+                'errors' => [
+                    'required' => 'La descripción del producto es obligatoria.',
+                    'min_length' => 'La descripción debe tener al menos {param} caracteres.',
+                    'max_length' => 'La descripción no puede superar los {param} caracteres.'
+                ]
+            ],
+            'stock_producto' => [
+                'rules' => 'required|integer|greater_than_equal_to[0]',
+                'errors' => [
+                    'required' => 'El stock es obligatorio.',
+                    'integer' => 'El stock debe ser un número entero.',
+                    'greater_than_equal_to' => 'El stock no puede ser negativo.'
+                ]
+            ],
+            'precio_producto' => [
+                'rules' => 'required|numeric|greater_than_equal_to[0]',
+                'errors' => [
+                    'required' => 'El precio es obligatorio.',
+                    'numeric' => 'El precio debe ser un número.',
+                    'greater_than_equal_to' => 'El precio no puede ser negativo.'
+                ]
+            ],
+            'categoria_producto' => [
+                'rules' => 'required|is_not_unique[categorias.id_categoria]',
+                'errors' => [
+                    'required' => 'La categoría es obligatoria.',
+                    'is_not_unique' => 'La categoría seleccionada no es válida.'
+                ]
+            ],
+            'subcategoria_producto' => [
+                'rules' => 'required|is_not_unique[subcategorias.id_subcategoria]',
+                'errors' => [
+                    'required' => 'La subcategoría es obligatoria.',
+                    'is_not_unique' => 'La subcategoría seleccionada no es válida.'
+                ]
+            ],
+            'marca_producto' => [
+                'rules' => 'required|is_not_unique[marcas.id_marca]',
+                'errors' => [
+                    'required' => 'La marca es obligatoria.',
+                    'is_not_unique' => 'La marca seleccionada no es válida.'
+                ]
+            ]
+        ];
+        
+
+        if ($this->request->getFile('imagen_producto')->isValid()) {
+            $rules['imagen_producto'] = 'is_image[imagen_producto]|max_size[imagen_producto,2048]';
+        }
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+       
+
+        $imagen = $this->request->getFile('imagen_producto');
+        if ($imagen->isValid() && !$imagen->hasMoved()) {
+            $nombreImagen = $imagen->getRandomName();
+            $imagen->move('assets/uploads', $nombreImagen);
+        } else {
+            $nombreImagen = $productoExistente['imagen_producto'];
+        }
+
+        $data = [
+            'nombre_producto' => $this->request->getPost('nombre_producto'),
+            'descripcion_producto' => $this->request->getPost('descripcion_producto'),
+            'stock_producto' => $this->request->getPost('stock_producto'),
+            'precio_producto' => $this->request->getPost('precio_producto'),
+            'id_categoria_producto' => $this->request->getPost('categoria_producto'),
+            'id_subcategoria_producto' => $this->request->getPost('subcategoria_producto'),
+            'id_marca_producto' => $this->request->getPost('marca_producto'),
+            'imagen_producto' => $nombreImagen
+        ];
+
+        $productoModel->update($id, $data);
+
+        return redirect()->to('/admin/gestionar-productos')->with('success', 'Producto actualizado correctamente.');
+    }
+
+
 }
