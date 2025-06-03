@@ -63,7 +63,7 @@ body {
                 <label class="visually-hidden" for="autoSizingInputGroup"></label>
                 <div class="input-group">
                     <div class="input-group-text">$</div>
-                    <input type="number" name="precio_producto" class="form-control" id="autoSizingInputGroup"
+                    <input type="float" name="precio_producto" class="form-control" id="autoSizingInputGroup"
                         placeholder="Precio">
                     <?php if (isset($errors['precio_producto'])) : ?>
                     <div class="alert alert-danger error-container" role="alert">
