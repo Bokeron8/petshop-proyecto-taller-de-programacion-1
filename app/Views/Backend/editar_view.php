@@ -34,9 +34,9 @@ body {
 
             <?php $errors = session('errors') ?>
             <?php if (isset($errors['nombre_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['nombre_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['nombre_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
 
@@ -50,33 +50,36 @@ body {
             ], esc($producto['descripcion_producto'])) ?>
             <?= form_label('Descripción del producto', 'descripcion_producto') ?>
             <?php if (isset($errors['descripcion_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['descripcion_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['descripcion_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
 
         <div class="row gy-2 gx-3 align-items-center">
             <div class="col-6">
+
                 <input type="number" name="stock_producto" class="form-control" placeholder="Stock"
                     value="<?= esc($producto['stock_producto']) ?>">
                 <?php if (isset($errors['stock_producto'])) : ?>
-                    <div class="alert alert-danger error-container" role="alert">
-                        <span><?= esc($errors['stock_producto']) ?></span>
-                    </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['stock_producto']) ?></span>
+                </div>
                 <?php endif; ?>
+
             </div>
             <div class="col-6">
+
                 <div class="input-group">
                     <div class="input-group-text">$</div>
                     <input type="number" step="0.01" name="precio_producto" class="form-control" placeholder="Precio"
                         value="<?= esc($producto['precio_producto']) ?>">
-                    <?php if (isset($errors['precio_producto'])) : ?>
-                        <div class="alert alert-danger error-container" role="alert">
-                            <span><?= esc($errors['precio_producto']) ?></span>
-                        </div>
-                    <?php endif; ?>
                 </div>
+                <?php if (isset($errors['precio_producto'])) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['precio_producto']) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -89,9 +92,9 @@ body {
             <?= form_label('Imagen del producto', 'imagen_producto') ?>
             <small class="form-text text-muted">Dejar en blanco para mantener la imagen actual</small>
             <?php if (isset($errors['imagen_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['imagen_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['imagen_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
 
@@ -103,9 +106,9 @@ body {
             ) ?>
             <?= form_label('Categoría del producto', 'categoria_producto') ?>
             <?php if (isset($errors['categoria_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['categoria_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['categoria_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
 
@@ -117,9 +120,9 @@ body {
             ) ?>
             <?= form_label('Subcategoría del producto', 'subcategoria_producto') ?>
             <?php if (isset($errors['subcategoria_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['subcategoria_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['subcategoria_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
 
@@ -131,9 +134,9 @@ body {
             ) ?>
             <?= form_label('Marca del producto', 'marca_producto') ?>
             <?php if (isset($errors['marca_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['marca_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['marca_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
 

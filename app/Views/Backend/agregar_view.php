@@ -63,14 +63,14 @@ body {
                 <label class="visually-hidden" for="autoSizingInputGroup"></label>
                 <div class="input-group">
                     <div class="input-group-text">$</div>
-                    <input type="float" name="precio_producto" class="form-control" id="autoSizingInputGroup"
-                        placeholder="Precio">
-                    <?php if (isset($errors['precio_producto'])) : ?>
-                    <div class="alert alert-danger error-container" role="alert">
-                        <span><?= esc($errors['precio_producto']) ?></span>
-                    </div>
-                    <?php endif; ?>
+                    <input type="number" step="0.01" name="precio_producto" class="form-control"
+                        id="autoSizingInputGroup" placeholder="Precio">
                 </div>
+                <?php if (isset($errors['precio_producto'])) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['precio_producto']) ?></span>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
         <div class="form-floating">

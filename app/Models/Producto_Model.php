@@ -17,13 +17,36 @@ class Producto_Model extends Model
 
     public function obtener_con_todo()
     {
-        return $this->db->table('productos p')
-            ->select('p.*, m.descripcion_marca, c.descripcion_categoria, s.descripcion_subcategoria')
-            ->join('marcas m', 'p.id_marca_producto = m.id_marca')
-            ->join('categorias c', 'p.id_categoria_producto = c.id_categoria')
-            ->join('subcategorias s', 'p.id_subcategoria_producto = s.id_subcategoria')
-            ->get()
-            ->getResultArray();
+        return $this->baseQuery()->findAll();
     }
 
+    // En tu modelo ProductoModel
+    public function baseQuery()
+    {
+        return $this->join('marcas', 'marcas.id_marca = productos.id_marca_producto')
+            ->join('categorias', 'categorias.id_categoria = productos.id_categoria_producto')
+            ->join('subcategorias', 'subcategorias.id_subcategoria = productos.id_subcategoria_producto');
+    }
+
+    public function getProductosFiltrados($filtros = [])
+    {
+        $query = $this->baseQuery();
+        if (!empty($filtros['estado_producto'])) {
+            $query->where('productos.estado_producto', $filtros['estado_producto']);
+        }
+
+        if (!empty($filtros['id_marca'])) {
+            $query->where('productos.id_marca_producto', $filtros['id_marca']);
+        }
+
+        if (!empty($filtros['id_categoria'])) {
+            $query->where('productos.id_categoria_producto', $filtros['id_categoria']);
+        }
+
+        if (!empty($filtros['nombre'])) {
+            $query->like('productos.nombre', $filtros['nombre']);
+        }
+
+        return $query->findAll();
+    }
 }

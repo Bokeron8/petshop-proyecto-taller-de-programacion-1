@@ -147,7 +147,7 @@ class ProductoController extends BaseController
         $productoModel = new \App\Models\Producto_Model();
         $productos = $productoModel->obtener_con_todo();
 
-        return view('Backend/gestionar_view', ['productos' => $productos,'title' => 'Gestionar productos - Full animal']);
+        return view('Backend/gestionar_view', ['productos' => $productos, 'title' => 'Gestionar productos - Full animal']);
     }
 
     public function activar($id)
@@ -160,10 +160,10 @@ class ProductoController extends BaseController
 
     public function desactivar($id)
     {
-    $productoModel = new \App\Models\Producto_Model();
-    $productoModel->update($id, ['estado_producto' => 0]);
+        $productoModel = new \App\Models\Producto_Model();
+        $productoModel->update($id, ['estado_producto' => 0]);
 
-    return redirect()->to(base_url('admin/gestionar-productos'));
+        return redirect()->to(base_url('admin/gestionar-productos'));
     }
 
     public function editar_Producto($id)
@@ -268,7 +268,7 @@ class ProductoController extends BaseController
                 ]
             ]
         ];
-        
+
 
         if ($this->request->getFile('imagen_producto')->isValid()) {
             $rules['imagen_producto'] = 'is_image[imagen_producto]|max_size[imagen_producto,2048]';
@@ -277,7 +277,7 @@ class ProductoController extends BaseController
         if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-       
+
 
         $imagen = $this->request->getFile('imagen_producto');
         if ($imagen->isValid() && !$imagen->hasMoved()) {
@@ -302,6 +302,4 @@ class ProductoController extends BaseController
 
         return redirect()->to('/admin/gestionar-productos')->with('success', 'Producto actualizado correctamente.');
     }
-
-
 }

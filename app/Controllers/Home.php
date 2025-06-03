@@ -2,6 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\Producto_Model;
+use App\Models\Categoria_Model;
+use App\Models\Subcategoria_Model;
+use App\Models\Marca_Model;
+
 class Home extends BaseController
 {
     public function index()
@@ -50,5 +55,50 @@ class Home extends BaseController
             'title' => 'Iniciar Sesion - Full animal',
         ];
         return view('contenidos/login_view', $data);
+    }
+
+    public function productos()
+    {
+        $categoriaModel = new Categoria_Model();
+        $subcategoriaModel = new Subcategoria_Model();
+        $marcaModel = new Marca_Model();
+
+        $categorias = $categoriaModel->findAll();
+        $subcategorias = $subcategoriaModel->findAll();
+        $marcas = $marcaModel->findAll();
+
+        $opcionesCategorias = ['0' => 'Seleccionar categoría'];
+        foreach ($categorias as $cat) {
+            $opcionesCategorias[$cat['id_categoria']] = $cat['descripcion_categoria'];
+        }
+
+        $opcionesSubcategorias = ['0' => 'Seleccionar subcategoría'];
+        foreach ($subcategorias as $sub) {
+            $opcionesSubcategorias[$sub['id_subcategoria']] = $sub['descripcion_subcategoria'];
+        }
+
+        $opcionesMarcas = ['0' => 'Seleccionar marca'];
+        foreach ($marcas as $marca) {
+            $opcionesMarcas[$marca['id_marca']] = $marca['descripcion_marca'];
+        }
+        $modelo = new Producto_Model();
+
+        $idMarca = $this->request->getGet('marca_producto');
+        $idCategoria = $this->request->getGet('categoria_producto');
+
+        // Puedes pasarlos a tu modelo
+        $filtros = [
+            'estado_producto' => true,
+            'id_marca' => $idMarca,
+            'id_categoria' => $idCategoria,
+        ];
+        $data = [
+            'title' => 'Catalogo - Full animal',
+            'marcas' => $opcionesMarcas,
+            'categorias' => $opcionesCategorias,
+            'subcategorias' => $opcionesSubcategorias,
+            'productos' => $modelo->getProductosFiltrados($filtros)
+        ];
+        return view('contenidos/catalogo_view', $data);
     }
 }

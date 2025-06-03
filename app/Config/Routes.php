@@ -11,7 +11,7 @@ $routes->get('/comercializacion', 'Home::comercializacion');
 $routes->get('/contacto', 'Home::contacto');
 $routes->get('/terminos-usos', 'Home::terminos');
 $routes->get('/login', 'Home::login');
-
+$routes->get('/productos', 'Home::productos');
 
 $routes->get('tarjeta/(:num)', 'Home::tarjeta/$1');
 $routes->get('saludo/(:segment)', 'Home::saludo/$1');

@@ -5,7 +5,7 @@ $usuario = session('usuario');
 // Links por defecto (visitante)
 $links = [
     ["texto" => "Inicio", "href" => ''],
-    ["texto" => "Productos", "href" => 'productos'],
+    ["texto" => "Catalogo", "href" => 'productos'],
     ["texto" => "¿Quiénes somos?", "href" => 'quienes-somos'],
     ["texto" => "Comercializacion", "href" => 'comercializacion'],
     ["texto" => "Contacto", "href" => 'contacto'],
