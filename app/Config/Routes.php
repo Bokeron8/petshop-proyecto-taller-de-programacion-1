@@ -21,5 +21,11 @@ $routes->post('/register', 'Usuario::register');
 $routes->get('logout', 'Usuario::logout');
 
 
-$routes->get('/admin/agregar-productos', 'ProductoController::form_gestionar_producto');
+$routes->get('/admin/agregar-productos', 'ProductoController::form_agregar_producto');
 $routes->post('/admin/agregar-productos', 'ProductoController::registrarProducto');
+
+$routes->get('admin/gestionar-productos', 'ProductoController::gestionar_productos');
+$routes->get('admin/activar/(:num)', 'ProductoController::activar/$1');
+$routes->get('admin/desactivar/(:num)', 'ProductoController::desactivar/$1');
+$routes->get('admin/editar-producto/(:num)', 'ProductoController::editar_Producto/$1');
+$routes->post('admin/editar-producto/(:num)', 'ProductoController::actualizarProducto/$1');
