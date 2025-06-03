@@ -7,7 +7,7 @@ $links = [
     ["texto" => "Inicio", "href" => ''],
     ["texto" => "Productos", "href" => 'productos'],
     ["texto" => "¿Quiénes somos?", "href" => 'quienes-somos'],
-    ["texto" => "Comercialización", "href" => 'comercializacion'],
+    ["texto" => "Comercializacion", "href" => 'comercializacion'],
     ["texto" => "Contacto", "href" => 'contacto'],
     ["texto" => "Términos y Usos", "href" => 'terminos-usos'],
 ];
@@ -19,7 +19,7 @@ if ($usuario && $usuario['perfil_id'] == 2) {
         ["texto" => "Listar Productos", "href" => 'admin/usuarios'],
         ["texto" => "Gestionar Productos", "href" => 'admin/gestionar-productos'],
         ["texto" => "Listar Ventas", "href" => 'admin/reportes'],
-        ["texto" => "Agrega Productos", "href" => 'admin/agregar-productos']
+        ["texto" => "Agregar Productos", "href" => 'admin/agregar-productos']
     ];
 }
 ?>
