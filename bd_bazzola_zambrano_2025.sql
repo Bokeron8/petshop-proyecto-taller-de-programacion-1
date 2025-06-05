@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2025 a las 17:00:06
+-- Tiempo de generación: 05-06-2025 a las 17:05:46
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -132,8 +132,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `id_marca_producto`, `id_categoria_producto`, `id_subcategoria_producto`, `stock_producto`, `precio_producto`, `imagen_producto`, `estado_producto`) VALUES
-(1, 'Bolsa de Alimento', '20kg', 1, 1, 1, 12, 13, '1748527634_79dfa5a1ab3a27ed660e.png', 1),
-(2, 'Bolsa de Alimento de Whiskas 20kg', 'alimento blsldapsdasdp 20kg', 2, 1, 2, 12, 1, '1748529256_2d76d4f5b47ad99ece7b.png', 1);
+(1, 'Bolsa de alimento', '20kg', 1, 4, 2, 1, 13.5, '1748527634_79dfa5a1ab3a27ed660e.png', 1),
+(2, 'Bolsa de Alimento de Whiskas 20kg', 'alimento blsldapsdasdp 20kg', 1, 1, 2, 12, 1, '1748529256_2d76d4f5b47ad99ece7b.png', 1),
+(3, 'Cepillo', 'Cepillo que cepilla animales', 1, 5, 1, 3333, 123, '1749134161_f1cb3f0b860f9b5944d7.jpg', 1),
+(4, 'Shampoo', 'Shampoo para pulgas', 2, 5, 2, 11, 300, '1749134212_5fd432378d0bc955445f.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -265,7 +267,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `subcategorias`
