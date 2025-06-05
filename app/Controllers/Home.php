@@ -83,21 +83,29 @@ class Home extends BaseController
         }
         $modelo = new Producto_Model();
 
-        $idMarca = $this->request->getGet('marca_producto');
-        $idCategoria = $this->request->getGet('categoria_producto');
+        $idMarca = $this->request->getGet('marca_producto') ?? 0;
+        $idCategoria = $this->request->getGet('categoria_producto') ?? 0;
+        $minPrice = $this->request->getGet('min_price') ?? 0;
+        $maxPrice = $this->request->getGet('max_price') ?? 999999;
 
         // Puedes pasarlos a tu modelo
         $filtros = [
             'estado_producto' => true,
             'id_marca' => $idMarca,
             'id_categoria' => $idCategoria,
+            'min_price' => $minPrice,
+            'max_price' => $maxPrice
         ];
         $data = [
             'title' => 'Catalogo - Full animal',
             'marcas' => $opcionesMarcas,
             'categorias' => $opcionesCategorias,
             'subcategorias' => $opcionesSubcategorias,
-            'productos' => $modelo->getProductosFiltrados($filtros)
+            'productos' => $modelo->getProductosFiltrados($filtros),
+            'categoria' => $idCategoria,
+            'marca' => $idMarca,
+            'minPrice' => $minPrice,
+            'maxPrice' => $maxPrice
         ];
         return view('contenidos/catalogo_view', $data);
     }

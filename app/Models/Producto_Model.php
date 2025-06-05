@@ -45,9 +45,18 @@ class Producto_Model extends Model
             $query->where('productos.id_categoria_producto', $filtros['id_categoria']);
         }
 
+        if (!empty($filtros['min_price'])) {
+            $query->where('productos.precio_producto >', $filtros['min_price']);
+        }
+
+        if (!empty($filtros['max_price'])) {
+            $query->where('productos.precio_producto <', $filtros['max_price']);
+        }
+
         if (!empty($filtros['nombre'])) {
             $query->like('productos.nombre', $filtros['nombre']);
         }
+
 
         return $query->findAll();
     }
