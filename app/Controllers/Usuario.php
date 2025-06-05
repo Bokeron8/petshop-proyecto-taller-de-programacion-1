@@ -12,7 +12,7 @@ class Usuario extends BaseController
     $model = new Usuarios_Model();
 
     $rules = [
-      'email' => [
+      'email_login' => [
         'label' => 'Correo electrónico',
         'rules' => 'required|valid_email',
         'errors' => [
@@ -20,7 +20,7 @@ class Usuario extends BaseController
           'valid_email' => 'El {field} no es válido.'
         ]
       ],
-      'password' => [
+      'password_login' => [
         'label' => 'Contraseña',
         'rules' => 'required|min_length[6]',
         'errors' => [
@@ -37,15 +37,15 @@ class Usuario extends BaseController
     }
 
     $data = [
-      'email' => $this->request->getPost('email'),
-      'password' => $this->request->getPost('password'),
+      'email' => $this->request->getPost('email_login'),
+      'password' => $this->request->getPost('password_login'),
     ];
 
     $user = $model->where('email_usuario', $data['email'])->first();
 
     if (!$user || !password_verify($data['password'], $user['contraseña_usuario'])) {
       // Agregar error manualmente
-      $validation->setError('password', 'Email o contraseña incorrectos.');
+      $validation->setError('password_login', 'Email o contraseña incorrectos.');
 
       return redirect()->back()
         ->withInput()

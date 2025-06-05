@@ -5,10 +5,10 @@
 
 <?php
 $cards = [
-    ["titulo" => "Alimentos", "href" => '#', "alt" => "Imagen de comida para perros", "imgSrc" => "assets/img/alimento.avif"],
-    ["titulo" => "Accesorios y Juguetes", "href" => '#', "alt" => "Imagen de juguetes para perros", "imgSrc" => "assets/img/accesorios.avif"],
-    ["titulo" => "Higiene", "href" => '#', "alt" => "Imagen de shampoos para perros y gatos", "imgSrc" => "assets/img/shampoo.avif"],
-    ["titulo" => "Medicamentos", "href" => '#', "alt" => "Imagen de veterinario atendiendo a un perro", "imgSrc" => "assets/img/veterinario.avif"]
+    ["titulo" => "Alimentos", "href" => '/productos?categoria_producto=1', "alt" => "Imagen de comida para perros", "imgSrc" => "assets/img/alimento.avif"],
+    ["titulo" => "Accesorios", "href" => '/productos?categoria_producto=4', "alt" => "Imagen de juguetes para perros", "imgSrc" => "assets/img/accesorios.avif"],
+    ["titulo" => "Higiene", "href" => '/productos?categoria_producto=5', "alt" => "Imagen de shampoos para perros y gatos", "imgSrc" => "assets/img/shampoo.avif"],
+    ["titulo" => "Medicamentos", "href" => '/productos?categoria_producto=2', "alt" => "Imagen de veterinario atendiendo a un perro", "imgSrc" => "assets/img/veterinario.avif"]
 ];
 ?>
 
@@ -29,7 +29,7 @@ $cards = [
                         alt="<?= $value['alt'] ?>">
                     <div class="card-body">
                         <h5 class="card-title puppy fw-bold"><?= $value['titulo'] ?></h5>
-                        <a href="#" class="btn btn-outline-warning meow">Ver productos</a>
+                        <a href="<?= base_url($value['href']) ?>" class="btn btn-outline-warning meow">Ver productos</a>
                     </div>
                 </div>
             </div>
@@ -56,25 +56,25 @@ $cards = [
 
                         <div class="carousel-item active">
                             <a href="#">
-                                <img src="<?= base_url("assets/img/producto1.jpg") ?>" class="d-block w-100 carousel-images"
-                                alt="Imagen 1">
+                                <img src="<?= base_url("assets/img/producto1.jpg") ?>"
+                                    class="d-block w-100 carousel-images" alt="Imagen 1">
                             </a>
-                            
+
                         </div>
 
                         <div class="carousel-item">
                             <a href="#">
-                                <img src="<?= base_url("assets/img/producto2.jpg") ?>" class="d-block w-100 carousel-images"
-                                alt="Imagen 2">
+                                <img src="<?= base_url("assets/img/producto2.jpg") ?>"
+                                    class="d-block w-100 carousel-images" alt="Imagen 2">
                             </a>
                         </div>
 
                         <div class="carousel-item">
-                             <a href="#">
+                            <a href="#">
                                 <img src="<?= base_url("assets/img/producto3.jpg") ?>"
-                                class="d-block w-100 carousel-images object-fit-fill" alt="Imagen 2">
+                                    class="d-block w-100 carousel-images object-fit-fill" alt="Imagen 2">
                             </a>
-                        
+
                         </div>
                     </div>
 

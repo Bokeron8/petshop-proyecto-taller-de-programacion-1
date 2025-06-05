@@ -17,21 +17,22 @@ body {
             </div>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    name="email_login">
                 <label for="floatingInput">Correo electronico</label>
-                <?php if (session()->has('validation') && session('validation')->hasError('email')) : ?>
+                <?php if (session()->has('validation') && session('validation')->hasError('email_login')) : ?>
                 <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc(session('validation')->getError('email')) ?></span>
+                    <span><?= esc(session('validation')->getError('email_login')) ?></span>
                 </div>
                 <?php endif; ?>
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                    name="password">
+                    name="password_login">
                 <label for="floatingPassword">Contraseña</label>
-                <?php if (session()->has('validation') && session('validation')->hasError('password')) : ?>
+                <?php if (session()->has('validation') && session('validation')->hasError('password_login')) : ?>
                 <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc(session('validation')->getError('password')) ?></span>
+                    <span><?= esc(session('validation')->getError('password_login')) ?></span>
                 </div>
                 <?php endif; ?>
             </div>

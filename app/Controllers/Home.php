@@ -88,6 +88,7 @@ class Home extends BaseController
         $minPrice = $this->request->getGet('min_price') ?? 0;
         $maxPrice = $this->request->getGet('max_price') ?? 999999;
 
+
         // Puedes pasarlos a tu modelo
         $filtros = [
             'estado_producto' => true,

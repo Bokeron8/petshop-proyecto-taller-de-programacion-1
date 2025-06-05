@@ -164,3 +164,13 @@ div.content>* {
     max-height: 10%;
     height: 100px;
 }
+
+.btn-agregar {
+    white-space: normal;
+    /* Permite que el texto haga salto de línea */
+    word-wrap: break-word;
+    /* Para romper palabras largas */
+    text-align: center;
+    /* Centrar el texto */
+    /* Ajusta padding si quieres */
+}
