@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2025 a las 17:05:46
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Host: localhost
+-- Generation Time: Jun 06, 2025 at 05:25 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd_bazzola_zambrano_2025`
+-- Database: `bd_bazzola_zambrano_2025`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -33,7 +33,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`id_categoria`, `descripcion_categoria`) VALUES
@@ -46,7 +46,29 @@ INSERT INTO `categorias` (`id_categoria`, `descripcion_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `marcas`
+-- Table structure for table `categorias_productos`
+--
+
+CREATE TABLE `categorias_productos` (
+  `id_categorias_producto` int(11) NOT NULL,
+  `id_producto_categorias_productos` int(11) NOT NULL,
+  `id_categoria_categorias_productos` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categorias_productos`
+--
+
+INSERT INTO `categorias_productos` (`id_categorias_producto`, `id_producto_categorias_productos`, `id_categoria_categorias_productos`) VALUES
+(18, 9, 2),
+(19, 9, 4),
+(20, 9, 5),
+(21, 8, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `marcas`
 --
 
 CREATE TABLE `marcas` (
@@ -55,7 +77,7 @@ CREATE TABLE `marcas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `marcas`
+-- Dumping data for table `marcas`
 --
 
 INSERT INTO `marcas` (`id_marca`, `descripcion_marca`) VALUES
@@ -65,7 +87,7 @@ INSERT INTO `marcas` (`id_marca`, `descripcion_marca`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mensajes`
+-- Table structure for table `mensajes`
 --
 
 CREATE TABLE `mensajes` (
@@ -76,7 +98,7 @@ CREATE TABLE `mensajes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `mensajes`
+-- Dumping data for table `mensajes`
 --
 
 INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaje`) VALUES
@@ -92,7 +114,7 @@ INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaj
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `perfiles`
+-- Table structure for table `perfiles`
 --
 
 CREATE TABLE `perfiles` (
@@ -101,7 +123,7 @@ CREATE TABLE `perfiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `perfiles`
+-- Dumping data for table `perfiles`
 --
 
 INSERT INTO `perfiles` (`id_perfil`, `descripcion_perfil`) VALUES
@@ -111,7 +133,7 @@ INSERT INTO `perfiles` (`id_perfil`, `descripcion_perfil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Table structure for table `productos`
 --
 
 CREATE TABLE `productos` (
@@ -119,8 +141,6 @@ CREATE TABLE `productos` (
   `nombre_producto` varchar(50) NOT NULL,
   `descripcion_producto` varchar(50) NOT NULL,
   `id_marca_producto` int(11) NOT NULL,
-  `id_categoria_producto` int(11) NOT NULL,
-  `id_subcategoria_producto` int(11) NOT NULL,
   `stock_producto` int(11) NOT NULL,
   `precio_producto` float NOT NULL,
   `imagen_producto` varchar(200) NOT NULL,
@@ -128,38 +148,23 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `productos`
+-- Dumping data for table `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `id_marca_producto`, `id_categoria_producto`, `id_subcategoria_producto`, `stock_producto`, `precio_producto`, `imagen_producto`, `estado_producto`) VALUES
-(1, 'Bolsa de alimento', '20kg', 1, 4, 2, 1, 13.5, '1748527634_79dfa5a1ab3a27ed660e.png', 1),
-(2, 'Bolsa de Alimento de Whiskas 20kg', 'alimento blsldapsdasdp 20kg', 1, 1, 2, 12, 1, '1748529256_2d76d4f5b47ad99ece7b.png', 1),
-(3, 'Cepillo', 'Cepillo que cepilla animales', 1, 5, 1, 3333, 123, '1749134161_f1cb3f0b860f9b5944d7.jpg', 1),
-(4, 'Shampoo', 'Shampoo para pulgas', 2, 5, 2, 11, 300, '1749134212_5fd432378d0bc955445f.jpg', 1);
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `id_marca_producto`, `stock_producto`, `precio_producto`, `imagen_producto`, `estado_producto`) VALUES
+(1, 'Bolsa de alimento', '20kg', 1, 1, 13.5, '1748527634_79dfa5a1ab3a27ed660e.png', 1),
+(2, 'Bolsa de Alimento de Whiskas 20kg', 'alimento blsldapsdasdp 20kg', 1, 12, 1, '1748529256_2d76d4f5b47ad99ece7b.png', 1),
+(3, 'Cepillo', 'Cepillo que cepilla animales', 1, 3333, 123, '1749134161_f1cb3f0b860f9b5944d7.jpg', 1),
+(4, 'Shampoo', 'Shampoo para pulgas', 2, 11, 300, '1749134212_5fd432378d0bc955445f.jpg', 1),
+(6, 'prueba', 'producto de prueba', 1, 123, 123, '1749213976_c03c98ede44505491a1f.png', 1),
+(7, 'prueba', 'producto de prueba', 1, 213, 213, '1749214002_ec88601a680cf6ae4e6e.jpg', 1),
+(8, 'asdasd', 'asdasd', 1, 123213, 213213, '1749214295_3421b6b94cc384f310e9.png', 1),
+(9, 'pruebaxd', 'asdaxd', 1, 1, 1, '1749214364_469621753f792c932a57.png', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `subcategorias`
---
-
-CREATE TABLE `subcategorias` (
-  `id_subcategoria` int(11) NOT NULL,
-  `descripcion_subcategoria` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `subcategorias`
---
-
-INSERT INTO `subcategorias` (`id_subcategoria`, `descripcion_subcategoria`) VALUES
-(1, 'Perro'),
-(2, 'Gato');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -176,7 +181,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `dni_usuario`, `domicilio_usuario`, `email_usuario`, `contraseña_usuario`, `estado_usuario`, `telefono_usuario`, `perfil_id`) VALUES
@@ -185,50 +190,50 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `dni
 (5, 'mensajes', 'asdasd', 0, '', 'nospamfranco3@gmail.com', '$2y$10$GZWr12fHoPZFLrThyKrT5.Q3FLG0VWtMmMOWm0ZLKvQTOE.mO0th2', 1, 0, 2);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indices de la tabla `marcas`
+-- Indexes for table `categorias_productos`
+--
+ALTER TABLE `categorias_productos`
+  ADD PRIMARY KEY (`id_categorias_producto`),
+  ADD KEY `id_categoria` (`id_categoria_categorias_productos`),
+  ADD KEY `id_producto` (`id_producto_categorias_productos`);
+
+--
+-- Indexes for table `marcas`
 --
 ALTER TABLE `marcas`
   ADD PRIMARY KEY (`id_marca`);
 
 --
--- Indices de la tabla `mensajes`
+-- Indexes for table `mensajes`
 --
 ALTER TABLE `mensajes`
   ADD PRIMARY KEY (`id_mensaje`);
 
 --
--- Indices de la tabla `perfiles`
+-- Indexes for table `perfiles`
 --
 ALTER TABLE `perfiles`
   ADD PRIMARY KEY (`id_perfil`);
 
 --
--- Indices de la tabla `productos`
+-- Indexes for table `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`),
-  ADD KEY `id_categoria_producto` (`id_categoria_producto`),
-  ADD KEY `id_marca_producto` (`id_marca_producto`),
-  ADD KEY `id_subcategoria_producto` (`id_subcategoria_producto`);
+  ADD KEY `id_marca_producto` (`id_marca_producto`);
 
 --
--- Indices de la tabla `subcategorias`
---
-ALTER TABLE `subcategorias`
-  ADD PRIMARY KEY (`id_subcategoria`);
-
---
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
@@ -236,65 +241,70 @@ ALTER TABLE `usuarios`
   ADD KEY `perfil_id` (`perfil_id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `marcas`
+-- AUTO_INCREMENT for table `categorias_productos`
+--
+ALTER TABLE `categorias_productos`
+  MODIFY `id_categorias_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `marcas`
 --
 ALTER TABLE `marcas`
   MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `mensajes`
+-- AUTO_INCREMENT for table `mensajes`
 --
 ALTER TABLE `mensajes`
   MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `perfiles`
+-- AUTO_INCREMENT for table `perfiles`
 --
 ALTER TABLE `perfiles`
   MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `productos`
+-- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `subcategorias`
---
-ALTER TABLE `subcategorias`
-  MODIFY `id_subcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `productos`
+-- Constraints for table `categorias_productos`
+--
+ALTER TABLE `categorias_productos`
+  ADD CONSTRAINT `categorias_productos_ibfk_1` FOREIGN KEY (`id_categoria_categorias_productos`) REFERENCES `categorias` (`id_categoria`),
+  ADD CONSTRAINT `categorias_productos_ibfk_2` FOREIGN KEY (`id_producto_categorias_productos`) REFERENCES `productos` (`id_producto`);
+
+--
+-- Constraints for table `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_categoria_producto`) REFERENCES `categorias` (`id_categoria`),
-  ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`id_marca_producto`) REFERENCES `marcas` (`id_marca`),
-  ADD CONSTRAINT `productos_ibfk_3` FOREIGN KEY (`id_subcategoria_producto`) REFERENCES `subcategorias` (`id_subcategoria`);
+  ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`id_marca_producto`) REFERENCES `marcas` (`id_marca`);
 
 --
--- Filtros para la tabla `usuarios`
+-- Constraints for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`perfil_id`) REFERENCES `perfiles` (`id_perfil`);
