@@ -17,7 +17,7 @@ class Producto_Model extends Model
 
     public function obtener_con_todo()
     {
-        return $this->baseQuery()->getResultArray();
+        return $this->baseQuery()->get()->getResultArray();
     }
 
     // En tu modelo ProductoModel
@@ -30,7 +30,7 @@ class Producto_Model extends Model
                 productos.*,
                 marcas.descripcion_marca AS descripcion_marca,
                 GROUP_CONCAT(categorias.descripcion_categoria SEPARATOR ", ") AS descripcion_categoria')
-            ->groupBy('productos.id_producto')->get();
+            ->groupBy('productos.id_producto');
     }
 
     public function getProductosFiltrados($filtros = [])
@@ -46,8 +46,8 @@ class Producto_Model extends Model
             $query->where('productos.id_marca_producto', $filtros['id_marca']);
         }
 
-        if (!empty($filtros['id_categoria'])) {
-            $query->where('productos.id_categoria_producto', $filtros['id_categoria']);
+        if (!empty($filtros['categorias_id'])) {
+            $query->whereIn('categorias_productos.id_categoria_categorias_productos', $filtros['categorias_id']);
         }
 
         if (!empty($filtros['min_price'])) {
@@ -63,6 +63,6 @@ class Producto_Model extends Model
         }
 
 
-        return $query->findAll();
+        return $query->get()->getResultArray();
     }
 }

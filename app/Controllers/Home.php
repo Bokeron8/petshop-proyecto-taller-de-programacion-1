@@ -60,11 +60,9 @@ class Home extends BaseController
     public function productos()
     {
         $categoriaModel = new Categoria_Model();
-        $subcategoriaModel = new Subcategoria_Model();
         $marcaModel = new Marca_Model();
 
         $categorias = $categoriaModel->findAll();
-        $subcategorias = $subcategoriaModel->findAll();
         $marcas = $marcaModel->findAll();
 
         $opcionesCategorias = ['0' => 'Seleccionar categoría'];
@@ -72,10 +70,7 @@ class Home extends BaseController
             $opcionesCategorias[$cat['id_categoria']] = $cat['descripcion_categoria'];
         }
 
-        $opcionesSubcategorias = ['0' => 'Seleccionar subcategoría'];
-        foreach ($subcategorias as $sub) {
-            $opcionesSubcategorias[$sub['id_subcategoria']] = $sub['descripcion_subcategoria'];
-        }
+
 
         $opcionesMarcas = ['0' => 'Seleccionar marca'];
         foreach ($marcas as $marca) {
@@ -84,7 +79,7 @@ class Home extends BaseController
         $modelo = new Producto_Model();
 
         $idMarca = $this->request->getGet('marca_producto') ?? 0;
-        $idCategoria = $this->request->getGet('categoria_producto') ?? 0;
+        $categoriasId = $this->request->getGet('categoria_producto') ?? [];
         $minPrice = $this->request->getGet('min_price') ?? 0;
         $maxPrice = $this->request->getGet('max_price') ?? 999999;
 
@@ -93,7 +88,7 @@ class Home extends BaseController
         $filtros = [
             'estado_producto' => true,
             'id_marca' => $idMarca,
-            'id_categoria' => $idCategoria,
+            'categorias_id' => $categoriasId,
             'min_price' => $minPrice,
             'max_price' => $maxPrice
         ];
@@ -101,9 +96,8 @@ class Home extends BaseController
             'title' => 'Catalogo - Full animal',
             'marcas' => $opcionesMarcas,
             'categorias' => $opcionesCategorias,
-            'subcategorias' => $opcionesSubcategorias,
             'productos' => $modelo->getProductosFiltrados($filtros),
-            'categoria' => $idCategoria,
+            'categorias_seleccionadas' => $categoriasId,
             'marca' => $idMarca,
             'minPrice' => $minPrice,
             'maxPrice' => $maxPrice

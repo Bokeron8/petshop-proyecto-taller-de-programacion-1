@@ -7,10 +7,10 @@
 helper('form');
 ?>
 <style>
-body {
-    background-color: rgba(0, 0, 0, 0.9);
+    body {
+        background-color: rgba(0, 0, 0, 0.9);
 
-}
+    }
 </style>
 
 <div class="d-flex align-items-center py-4 h-auto row me-0">
@@ -34,9 +34,9 @@ body {
 
             <?php $errors = session('errors') ?>
             <?php if (isset($errors['nombre_producto'])) : ?>
-            <div class="alert alert-danger error-container" role="alert">
-                <span><?= esc($errors['nombre_producto']) ?></span>
-            </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['nombre_producto']) ?></span>
+                </div>
             <?php endif; ?>
         </div>
 
@@ -50,9 +50,9 @@ body {
             ], esc($producto['descripcion_producto'])) ?>
             <?= form_label('Descripción del producto', 'descripcion_producto') ?>
             <?php if (isset($errors['descripcion_producto'])) : ?>
-            <div class="alert alert-danger error-container" role="alert">
-                <span><?= esc($errors['descripcion_producto']) ?></span>
-            </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['descripcion_producto']) ?></span>
+                </div>
             <?php endif; ?>
         </div>
 
@@ -62,9 +62,9 @@ body {
                 <input type="number" name="stock_producto" class="form-control" placeholder="Stock"
                     value="<?= esc($producto['stock_producto']) ?>">
                 <?php if (isset($errors['stock_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['stock_producto']) ?></span>
-                </div>
+                    <div class="alert alert-danger error-container" role="alert">
+                        <span><?= esc($errors['stock_producto']) ?></span>
+                    </div>
                 <?php endif; ?>
 
             </div>
@@ -76,9 +76,9 @@ body {
                         value="<?= esc($producto['precio_producto']) ?>">
                 </div>
                 <?php if (isset($errors['precio_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['precio_producto']) ?></span>
-                </div>
+                    <div class="alert alert-danger error-container" role="alert">
+                        <span><?= esc($errors['precio_producto']) ?></span>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
@@ -92,39 +92,14 @@ body {
             <?= form_label('Imagen del producto', 'imagen_producto') ?>
             <small class="form-text text-muted">Dejar en blanco para mantener la imagen actual</small>
             <?php if (isset($errors['imagen_producto'])) : ?>
-            <div class="alert alert-danger error-container" role="alert">
-                <span><?= esc($errors['imagen_producto']) ?></span>
-            </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['imagen_producto']) ?></span>
+                </div>
             <?php endif; ?>
         </div>
 
-        <div class="form-floating">
-            <?= form_dropdown(
-                ['name' => 'categoria_producto', 'class' => 'form-control'],
-                $categorias,
-                $producto['id_categoria_producto']
-            ) ?>
-            <?= form_label('Categoría del producto', 'categoria_producto') ?>
-            <?php if (isset($errors['categoria_producto'])) : ?>
-            <div class="alert alert-danger error-container" role="alert">
-                <span><?= esc($errors['categoria_producto']) ?></span>
-            </div>
-            <?php endif; ?>
-        </div>
 
-        <div class="form-floating">
-            <?= form_dropdown(
-                ['name' => 'subcategoria_producto', 'class' => 'form-control'],
-                $subcategorias,
-                $producto['id_subcategoria_producto']
-            ) ?>
-            <?= form_label('Subcategoría del producto', 'subcategoria_producto') ?>
-            <?php if (isset($errors['subcategoria_producto'])) : ?>
-            <div class="alert alert-danger error-container" role="alert">
-                <span><?= esc($errors['subcategoria_producto']) ?></span>
-            </div>
-            <?php endif; ?>
-        </div>
+
 
         <div class="form-floating">
             <?= form_dropdown(
@@ -134,10 +109,24 @@ body {
             ) ?>
             <?= form_label('Marca del producto', 'marca_producto') ?>
             <?php if (isset($errors['marca_producto'])) : ?>
-            <div class="alert alert-danger error-container" role="alert">
-                <span><?= esc($errors['marca_producto']) ?></span>
-            </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['marca_producto']) ?></span>
+                </div>
             <?php endif; ?>
+        </div>
+
+        <div class="form-floating">
+
+            <?= form_dropdown(['name' => 'categoria_productoo', 'class' => 'form-control', 'id' => 'categoria_dropdown'], $categorias, [0]) ?>
+            <?= form_label('Categoria del producto', 'categoria_productoo') ?>
+            <?php if (isset($errors['categoria_producto'])) : ?>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['categoria_producto']) ?></span>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <div class="tag-container d-flex gap-1 flex-wrap">
         </div>
 
         <br>
@@ -145,6 +134,70 @@ body {
         <?= form_close() ?>
     </main>
 </div>
+
+<script>
+    let $ = (string) => document.querySelector(string)
+
+    let tag_container = $('.tag-container');
+    let categoria_dropdown = $('#categoria_dropdown');
+    let categorias = ['<?= implode("', '", $categorias) ?>'];
+    const tag_id_list = [<?= $producto['categorias_id'] ?>].map(String);
+
+    tag_id_list.forEach(id => {
+        const hiddenInput = document.createElement('input')
+        hiddenInput.type = 'hidden';
+        hiddenInput.value = id;
+        hiddenInput.name = 'categoria_producto[]'
+
+        const tag = document.createElement('span')
+        tag.textContent = categorias[id];
+        tag.className = 'rounded-pill bg-warning p-2'
+
+        const removeButton = document.createElement('button')
+
+        removeButton.className = 'bg-transparent border-0 fa fa-times'
+        removeButton.addEventListener('click', () => {
+            tag_id_list.splice(tag_id_list.indexOf(id), 1)
+            tag.remove()
+        });
+
+        tag.appendChild(removeButton)
+        tag.appendChild(hiddenInput)
+        tag_container.appendChild(tag)
+    });
+
+    tag_id_list.push('0')
+
+    categoria_dropdown.addEventListener("click", (e) => {
+        const selected_category_id = e.target.value
+        if (tag_id_list.includes(selected_category_id)) {
+            return
+        }
+        tag_id_list.push(selected_category_id)
+
+        const hiddenInput = document.createElement('input')
+        hiddenInput.type = 'hidden';
+        hiddenInput.value = selected_category_id;
+        hiddenInput.name = 'categoria_producto[]'
+
+        const tag = document.createElement('span')
+        tag.textContent = categorias[selected_category_id];
+        tag.className = 'rounded-pill bg-warning p-2'
+
+        const removeButton = document.createElement('button')
+
+        removeButton.className = 'bg-transparent border-0 fa fa-times'
+        removeButton.addEventListener('click', () => {
+            tag_id_list.splice(tag_id_list.indexOf(selected_category_id), 1)
+            tag.remove()
+        });
+
+        tag.appendChild(removeButton)
+        tag.appendChild(hiddenInput)
+        tag_container.appendChild(tag)
+
+    });
+</script>
 
 
 <?php $this->endSection(); ?>

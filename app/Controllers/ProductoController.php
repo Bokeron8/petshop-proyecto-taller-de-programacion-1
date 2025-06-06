@@ -75,14 +75,20 @@ class ProductoController extends BaseController
                     'numeric' => 'El precio debe ser un número.',
                     'greater_than_equal_to' => 'El precio no puede ser negativo.'
                 ]
-            ],/*
+            ],
             'categoria_producto' => [
-                'rules' => 'required|is_not_unique[categorias.id_categoria]',
+                'rules' => 'required',
                 'errors' => [
-                    'required' => 'La categoría es obligatoria.',
-                    'is_not_unique' => 'La categoría seleccionada no es válida.'
+                    'required' => 'Debes seleccionar al menos una categoría.'
                 ]
-            ],*/
+            ],
+            'categoria_producto.*' => [
+                'rules' => 'is_not_unique[categorias.id_categoria]',
+                'errors' => [
+                    'is_not_unique' => 'Una o más categorías seleccionadas no son válidas.'
+                ]
+            ],
+
 
             'marca_producto' => [
                 'rules' => 'required|is_not_unique[marcas.id_marca]',
@@ -169,7 +175,17 @@ class ProductoController extends BaseController
         $categoriaModel = new Categoria_Model();
         $marcaModel = new Marca_Model();
 
-        $producto = $productoModel->where('id_producto', $id)->first();
+        $producto = $productoModel
+            ->join('marcas', 'marcas.id_marca = productos.id_marca_producto')
+            ->join('categorias_productos', 'categorias_productos.id_producto_categorias_productos = productos.id_producto')
+            ->join('categorias', 'categorias.id_categoria = categorias_productos.id_categoria_categorias_productos')
+            ->select('
+            productos.*,
+            marcas.descripcion_marca AS descripcion_marca,
+            GROUP_CONCAT(categorias.id_categoria SEPARATOR ", ") AS categorias_id')
+            ->groupBy('productos.id_producto')
+            ->where('id_producto', $id)
+            ->first();
 
         if (!$producto) {
             return redirect()->to('/admin/gestionar-productos')->with('error', 'Producto no encontrado');
@@ -198,7 +214,7 @@ class ProductoController extends BaseController
     public function actualizarProducto($id)
     {
         $productoModel = new Producto_Model();
-
+        $categoria_Producto_Model = new Categoria_Producto_Model();
         $productoExistente = $productoModel->where('id_producto', $id)->first();
         if (!$productoExistente) {
             return redirect()->to('/admin/gestionar-productos')->with('error', 'Producto no encontrado');
@@ -239,17 +255,15 @@ class ProductoController extends BaseController
                 ]
             ],
             'categoria_producto' => [
-                'rules' => 'required|is_not_unique[categorias.id_categoria]',
+                'rules' => 'required',
                 'errors' => [
-                    'required' => 'La categoría es obligatoria.',
-                    'is_not_unique' => 'La categoría seleccionada no es válida.'
+                    'required' => 'Debes seleccionar al menos una categoría.'
                 ]
             ],
-            'subcategoria_producto' => [
-                'rules' => 'required|is_not_unique[subcategorias.id_subcategoria]',
+            'categoria_producto.*' => [
+                'rules' => 'is_not_unique[categorias.id_categoria]',
                 'errors' => [
-                    'required' => 'La subcategoría es obligatoria.',
-                    'is_not_unique' => 'La subcategoría seleccionada no es válida.'
+                    'is_not_unique' => 'Una o más categorías seleccionadas no son válidas.'
                 ]
             ],
             'marca_producto' => [
@@ -284,13 +298,20 @@ class ProductoController extends BaseController
             'descripcion_producto' => $this->request->getPost('descripcion_producto'),
             'stock_producto' => $this->request->getPost('stock_producto'),
             'precio_producto' => $this->request->getPost('precio_producto'),
-            'id_categoria_producto' => $this->request->getPost('categoria_producto'),
-            'id_subcategoria_producto' => $this->request->getPost('subcategoria_producto'),
             'id_marca_producto' => $this->request->getPost('marca_producto'),
             'imagen_producto' => $nombreImagen
         ];
+        $categorias = $this->request->getPost('categoria_producto');
 
         $productoModel->update($id, $data);
+        $categoria_Producto_Model->where('id_producto_categorias_productos', $id)->delete();
+        foreach ($categorias as $categoria) {
+
+            $categoria_Producto_Model->insert([
+                'id_producto_categorias_productos' => $id,
+                'id_categoria_categorias_productos' => $categoria
+            ]);
+        }
 
         return redirect()->to('/admin/gestionar-productos')->with('success', 'Producto actualizado correctamente.');
     }

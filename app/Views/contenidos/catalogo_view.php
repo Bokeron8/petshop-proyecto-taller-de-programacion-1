@@ -22,23 +22,8 @@ helper('form');
             </button>
             <div class="collapse" id="collapseExample">
                 <?= form_open('/productos', ['class' => 'd-flex flex-column gap-2', 'method' => 'GET']) ?>
-                <div>
-                    <?= form_dropdown(
-                        ['name' => 'categoria_producto', 'class' => 'form-control'],
-                        $categorias,
-                        selected: esc($categoria)
 
-                    ) ?>
 
-                </div>
-
-                <div>
-                    <?= form_dropdown(
-                        ['name' => 'subcategoria_producto', 'class' => 'form-control'],
-                        $subcategorias,
-                    ) ?>
-
-                </div>
 
                 <div>
                     <?= form_dropdown(
@@ -49,6 +34,13 @@ helper('form');
                     ) ?>
 
                 </div>
+                <div>
+                    <?= form_dropdown(['name' => 'categoria_productoo', 'class' => 'form-control', 'id' => 'categoria_dropdown'], $categorias, [0]) ?>
+
+                </div>
+                <div class="tag-container d-flex gap-1 flex-wrap">
+                </div>
+
                 <div class="row">
                     <div class="col">
                         <label for="minPrice" class="form-label">Precio minimo</label>
@@ -167,6 +159,69 @@ helper('form');
                         });
                 });
             });
+        });
+    </script>
+    <script>
+        let $ = (string) => document.querySelector(string)
+
+        let tag_container = $('.tag-container');
+        let categoria_dropdown = $('#categoria_dropdown');
+        let categorias = ['<?= implode("', '", $categorias) ?>'];
+        const tag_id_list = ['<?= implode("', '", $categorias_seleccionadas) ?>']
+
+        tag_id_list.forEach(id => {
+            const hiddenInput = document.createElement('input')
+            hiddenInput.type = 'hidden';
+            hiddenInput.value = id;
+            hiddenInput.name = 'categoria_producto[]'
+
+            const tag = document.createElement('span')
+            tag.textContent = categorias[id];
+            tag.className = 'rounded-pill bg-warning p-2'
+
+            const removeButton = document.createElement('button')
+
+            removeButton.className = 'bg-transparent border-0 fa fa-times'
+            removeButton.addEventListener('click', () => {
+                tag_id_list.splice(tag_id_list.indexOf(id), 1)
+                tag.remove()
+            });
+
+            tag.appendChild(removeButton)
+            tag.appendChild(hiddenInput)
+            tag_container.appendChild(tag)
+        });
+
+        tag_id_list.push('0')
+
+        categoria_dropdown.addEventListener("click", (e) => {
+            const selected_category_id = e.target.value
+            if (tag_id_list.includes(selected_category_id)) {
+                return
+            }
+            tag_id_list.push(selected_category_id)
+
+            const hiddenInput = document.createElement('input')
+            hiddenInput.type = 'hidden';
+            hiddenInput.value = selected_category_id;
+            hiddenInput.name = 'categoria_producto[]'
+
+            const tag = document.createElement('span')
+            tag.textContent = categorias[selected_category_id];
+            tag.className = 'rounded-pill bg-warning p-2'
+
+            const removeButton = document.createElement('button')
+
+            removeButton.className = 'bg-transparent border-0 fa fa-times'
+            removeButton.addEventListener('click', () => {
+                tag_id_list.splice(tag_id_list.indexOf(selected_category_id), 1)
+                tag.remove()
+            });
+
+            tag.appendChild(removeButton)
+            tag.appendChild(hiddenInput)
+            tag_container.appendChild(tag)
+
         });
     </script>
 
