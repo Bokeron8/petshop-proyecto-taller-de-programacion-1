@@ -13,7 +13,7 @@ class Producto_Model extends Model
 
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['id_producto', 'nombre_producto', 'descripcion_producto', 'id_marca_producto', 'id_categoria_producto', 'id_subcategoria_producto', 'stock_producto', 'precio_producto', 'imagen_producto', 'estado_producto'];
+    protected $allowedFields = ['nombre_producto', 'descripcion_producto', 'id_marca_producto', 'stock_producto', 'precio_producto', 'imagen_producto', 'estado_producto'];
 
     public function obtener_con_todo()
     {

@@ -135,11 +135,11 @@ class ProductoController extends BaseController
 
             foreach ($categorias as $categoria) {
                 $categoria_Producto_Model->insert([
-                    'id_producto' => $product_id,
-                    'id_categoria' => $categoria
+                    'id_producto_categorias_productos' => $product_id,
+                    'id_categoria_categorias_productos' => $categoria
                 ]);
             }
-            return redirect()->back()->withInput()->with('success', 'Producto agregado correctamente.');
+            return redirect()->back()->with('success', 'Producto agregado correctamente.');
         } else {
             return redirect()->back()->withInput()->with('error', 'Hubo un error al guardar el producto.');
         }

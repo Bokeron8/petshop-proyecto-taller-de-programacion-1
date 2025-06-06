@@ -94,8 +94,8 @@ helper('form');
         </div>
         <div class="form-floating">
 
-            <?= form_dropdown(['name' => 'categoria_productoo', 'class' => 'form-control', 'id' => 'categoria_dropdown'], $categorias, [0]) ?>
-            <?= form_label('Categoria del producto', 'categoria_productoo') ?>
+            <?= form_dropdown(['name' => 'categoria_producto', 'class' => 'form-control', 'id' => 'categoria_dropdown'], $categorias, [0]) ?>
+            <?= form_label('Categoria del producto', 'categoria_producto') ?>
             <?php if (isset($errors['categoria_producto'])) : ?>
                 <div class="alert alert-danger error-container" role="alert">
                     <span><?= esc($errors['categoria_producto']) ?></span>
