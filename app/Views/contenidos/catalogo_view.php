@@ -107,6 +107,7 @@ helper('form');
                             <?= form_hidden('id', $producto['id_producto']) ?>
                             <?= form_hidden('nombre', $producto['nombre_producto']) ?>
                             <?= form_hidden('precio', $producto['precio_producto']) ?>
+                            <?= form_hidden('imagen', 'assets/uploads/' . $producto['imagen_producto']) ?>
                             <?= form_submit('agregar', 'Agregar al carrito', ['class' => 'btn btn-warning sans-deva btn-agregar w-100']) ?>
                             <?= form_close() ?>
                             <?php endif; ?>

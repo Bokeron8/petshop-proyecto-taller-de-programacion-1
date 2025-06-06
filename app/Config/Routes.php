@@ -32,3 +32,6 @@ $routes->post('admin/editar-producto/(:num)', 'ProductoController::actualizarPro
 
 $routes->get('carrito', 'CarritoController::verCarrito');
 $routes->post('agregar-carrito', 'CarritoController::agregarProducto');
+$routes->get('vaciarCarrito', 'CarritoController::vaciarCarrito');
+$routes->get('eliminarProducto/(:any)', 'CarritoController::eliminarProducto/$1');
+$routes->get('reducirProducto/(:any)', 'CarritoController::reducirCantidad/$1');
