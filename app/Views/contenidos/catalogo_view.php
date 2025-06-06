@@ -82,6 +82,8 @@ helper('form');
                                     <?= $producto['stock_producto']; ?></h6>
                                 <h6 class="card-subtitle mb-2 text-body-secondary ">Precio:
                                     $<?= $producto['precio_producto']; ?></h6>
+                                <a href="<?= base_url('producto/' . $producto['id_producto']) ?>" class="btn btn-outline-warning">Ver más</a>
+
                                 <?php if (session('usuario')) : ?>
                                     <?= form_open('/agregar-carrito', ['class' => 'formAgregarCarrito ']); ?>
                                     <?= form_hidden('id', $producto['id_producto']) ?>

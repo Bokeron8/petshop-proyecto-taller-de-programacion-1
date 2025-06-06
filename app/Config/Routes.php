@@ -35,3 +35,5 @@ $routes->post('agregar-carrito', 'CarritoController::agregarProducto');
 $routes->get('vaciarCarrito', 'CarritoController::vaciarCarrito');
 $routes->get('eliminarProducto/(:any)', 'CarritoController::eliminarProducto/$1');
 $routes->get('reducirProducto/(:any)', 'CarritoController::reducirCantidad/$1');
+
+$routes->get('producto/(:num)', 'ProductoController::ver_producto/$1');

@@ -315,4 +315,23 @@ class ProductoController extends BaseController
 
         return redirect()->to('/admin/gestionar-productos')->with('success', 'Producto actualizado correctamente.');
     }
+
+
+    public function ver_producto($id)
+    {
+        $productoModel = new \App\Models\Producto_Model();
+        $producto = $productoModel->where('id_producto', $id)->first();
+
+        if (!$producto) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado.");
+        }
+
+        $data = [
+            'producto' => $producto,
+            'title' => 'Detalle del producto - Full Animal'
+        ];
+
+        return view('contenidos/producto_view', $data);
+    }
+
 }

@@ -32,9 +32,9 @@
                                     <span>Sin imagen</span>
                                 <?php endif; ?>
                             </td>
-                            <td><?= number_format($item['price'], 2) ?> €</td>
+                            <td>$<?= number_format($item['price'], 2) ?></td>
                             <td><?= esc($item['qty']) ?></td>
-                            <td><?= number_format($item['subtotal'], 2) ?> €</td>
+                            <td>$<?= number_format($item['subtotal'], 2) ?></td>
                             <td>
                                 <!-- Botón para eliminar un producto -->
                                 <a href="<?= base_url('reducirProducto/' . $item['rowid']) ?>" class="btn btn-warning btn-sm" role="button">Quitar 1</a>
@@ -46,7 +46,7 @@
                     <?php endforeach; ?>
                     <tr>
                         <td colspan="4" class="text-end"><strong>Total:</strong></td>
-                        <td><strong><?= number_format($total, 2) ?> €</strong></td>
+                        <td><strong>$<?= number_format($total, 2) ?></strong></td>
                         <td>
                             <!-- Botón para vaciar el carrito -->
                             <a href="<?= base_url('vaciarCarrito') ?>" class="btn btn-danger btn-sm" role="button">Vaciar Carrito</a>

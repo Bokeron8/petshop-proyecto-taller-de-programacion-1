@@ -55,7 +55,7 @@ $cards = [
                     <div class="carousel-inner">
 
                         <div class="carousel-item active">
-                            <a href="#">
+                            <a href="<?= base_url('producto/17') ?>">
                                 <img src="<?= base_url("assets/img/producto1.jpg") ?>"
                                     class="d-block w-100 carousel-images" alt="Imagen 1">
                             </a>
@@ -63,14 +63,14 @@ $cards = [
                         </div>
 
                         <div class="carousel-item">
-                            <a href="#">
+                            <a href="<?= base_url('producto/18') ?>">
                                 <img src="<?= base_url("assets/img/producto2.jpg") ?>"
                                     class="d-block w-100 carousel-images" alt="Imagen 2">
                             </a>
                         </div>
 
                         <div class="carousel-item">
-                            <a href="#">
+                            <a href="<?= base_url('producto/19') ?>">
                                 <img src="<?= base_url("assets/img/producto3.jpg") ?>"
                                     class="d-block w-100 carousel-images object-fit-fill" alt="Imagen 2">
                             </a>
