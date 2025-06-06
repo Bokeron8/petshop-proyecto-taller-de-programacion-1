@@ -13,5 +13,5 @@ class Categoria_Producto_Model extends Model
 
   protected $returnType     = 'array';
 
-  protected $allowedFields = ['id_producto', 'id_categoria'];
+  protected $allowedFields = ['id_producto_categorias_productos', 'id_categoria_categorias_productos'];
 }

@@ -17,15 +17,20 @@ class Producto_Model extends Model
 
     public function obtener_con_todo()
     {
-        return $this->baseQuery()->findAll();
+        return $this->baseQuery()->getResultArray();
     }
 
     // En tu modelo ProductoModel
     public function baseQuery()
     {
         return $this->join('marcas', 'marcas.id_marca = productos.id_marca_producto')
-            ->join('categorias', 'categorias.id_categoria = productos.id_categoria_producto')
-            ->join('subcategorias', 'subcategorias.id_subcategoria = productos.id_subcategoria_producto');
+            ->join('categorias_productos', 'categorias_productos.id_producto_categorias_productos = productos.id_producto')
+            ->join('categorias', 'categorias.id_categoria = categorias_productos.id_categoria_categorias_productos')
+            ->select('
+                productos.*,
+                marcas.descripcion_marca AS descripcion_marca,
+                GROUP_CONCAT(categorias.descripcion_categoria SEPARATOR ", ") AS descripcion_categoria')
+            ->groupBy('productos.id_producto')->get();
     }
 
     public function getProductosFiltrados($filtros = [])
