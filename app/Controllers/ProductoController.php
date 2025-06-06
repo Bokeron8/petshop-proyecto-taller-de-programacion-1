@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Producto_Model;
 use App\Models\Categoria_Model;
-use App\Models\Subcategoria_Model;
+use App\Models\Categoria_Producto_Model;
 use App\Models\Marca_Model;
 
 class ProductoController extends BaseController
@@ -12,21 +12,15 @@ class ProductoController extends BaseController
     public function form_agregar_producto()
     {
         $categoriaModel = new Categoria_Model();
-        $subcategoriaModel = new Subcategoria_Model();
+        $categoria_Producto_Model = new Categoria_Producto_Model();
         $marcaModel = new Marca_Model();
 
         $categorias = $categoriaModel->findAll();
-        $subcategorias = $subcategoriaModel->findAll();
         $marcas = $marcaModel->findAll();
 
         $opcionesCategorias = ['0' => 'Seleccionar categoría'];
         foreach ($categorias as $cat) {
             $opcionesCategorias[$cat['id_categoria']] = $cat['descripcion_categoria'];
-        }
-
-        $opcionesSubcategorias = ['0' => 'Seleccionar subcategoría'];
-        foreach ($subcategorias as $sub) {
-            $opcionesSubcategorias[$sub['id_subcategoria']] = $sub['descripcion_subcategoria'];
         }
 
         $opcionesMarcas = ['0' => 'Seleccionar marca'];
@@ -38,7 +32,6 @@ class ProductoController extends BaseController
 
         return view('Backend/agregar_view', [
             'categorias' => $opcionesCategorias,
-            'subcategorias' => $opcionesSubcategorias,
             'marcas' => $opcionesMarcas,
             'validation' => $validation,
             'title' => 'Agregar productos - Full animal'
@@ -48,6 +41,7 @@ class ProductoController extends BaseController
     public function registrarProducto()
     {
         $model = new Producto_Model();
+        $categoria_Producto_Model = new Categoria_Producto_Model();
 
         $rules = [
             'nombre_producto' => [
@@ -81,21 +75,15 @@ class ProductoController extends BaseController
                     'numeric' => 'El precio debe ser un número.',
                     'greater_than_equal_to' => 'El precio no puede ser negativo.'
                 ]
-            ],
+            ],/*
             'categoria_producto' => [
                 'rules' => 'required|is_not_unique[categorias.id_categoria]',
                 'errors' => [
                     'required' => 'La categoría es obligatoria.',
                     'is_not_unique' => 'La categoría seleccionada no es válida.'
                 ]
-            ],
-            'subcategoria_producto' => [
-                'rules' => 'required|is_not_unique[subcategorias.id_subcategoria]',
-                'errors' => [
-                    'required' => 'La subcategoría es obligatoria.',
-                    'is_not_unique' => 'La subcategoría seleccionada no es válida.'
-                ]
-            ],
+            ],*/
+
             'marca_producto' => [
                 'rules' => 'required|is_not_unique[marcas.id_marca]',
                 'errors' => [
@@ -121,21 +109,30 @@ class ProductoController extends BaseController
 
         $imagen = $this->request->getFile('imagen_producto');
         $nombreImagen = $imagen->getRandomName();
-        $imagen->move('assets/uploads', $nombreImagen);
 
         $data = [
             'nombre_producto' => $this->request->getPost('nombre_producto'),
             'descripcion_producto' => $this->request->getPost('descripcion_producto'),
             'stock_producto' => $this->request->getPost('stock_producto'),
             'precio_producto' => $this->request->getPost('precio_producto'),
-            'id_categoria_producto' => $this->request->getPost('categoria_producto'),
-            'id_subcategoria_producto' => $this->request->getPost('subcategoria_producto'),
             'id_marca_producto' => $this->request->getPost('marca_producto'),
             'imagen_producto' => $nombreImagen,
             'estado_producto' => 1
         ];
 
-        if ($model->insert($data)) {
+        $categorias = $this->request->getPost('categoria_producto');
+
+        $product_id = $model->insert($data);
+
+        if ($product_id) {
+            $imagen->move('assets/uploads', $nombreImagen);
+
+            foreach ($categorias as $categoria) {
+                $categoria_Producto_Model->insert([
+                    'id_producto' => $product_id,
+                    'id_categoria' => $categoria
+                ]);
+            }
             return redirect()->back()->withInput()->with('success', 'Producto agregado correctamente.');
         } else {
             return redirect()->back()->withInput()->with('error', 'Hubo un error al guardar el producto.');
@@ -170,7 +167,6 @@ class ProductoController extends BaseController
     {
         $productoModel = new Producto_Model();
         $categoriaModel = new Categoria_Model();
-        $subcategoriaModel = new Subcategoria_Model();
         $marcaModel = new Marca_Model();
 
         $producto = $productoModel->where('id_producto', $id)->first();
@@ -184,10 +180,7 @@ class ProductoController extends BaseController
             $opcionesCategorias[$cat['id_categoria']] = $cat['descripcion_categoria'];
         }
 
-        $opcionesSubcategorias = ['0' => 'Seleccionar subcategoría'];
-        foreach ($subcategoriaModel->findAll() as $sub) {
-            $opcionesSubcategorias[$sub['id_subcategoria']] = $sub['descripcion_subcategoria'];
-        }
+
 
         $opcionesMarcas = ['0' => 'Seleccionar marca'];
         foreach ($marcaModel->findAll() as $marca) {
@@ -197,7 +190,6 @@ class ProductoController extends BaseController
         return view('Backend/editar_view', [
             'producto' => $producto,
             'categorias' => $opcionesCategorias,
-            'subcategorias' => $opcionesSubcategorias,
             'marcas' => $opcionesMarcas,
             'title' => 'Editar productos - Full animal'
         ]);
