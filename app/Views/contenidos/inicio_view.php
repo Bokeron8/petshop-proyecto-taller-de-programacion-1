@@ -5,10 +5,10 @@
 
 <?php
 $cards = [
-    ["titulo" => "Alimentos", "href" => '/productos?categoria_producto=1', "alt" => "Imagen de comida para perros", "imgSrc" => "assets/img/alimento.avif"],
-    ["titulo" => "Accesorios", "href" => '/productos?categoria_producto=4', "alt" => "Imagen de juguetes para perros", "imgSrc" => "assets/img/accesorios.avif"],
-    ["titulo" => "Higiene", "href" => '/productos?categoria_producto=5', "alt" => "Imagen de shampoos para perros y gatos", "imgSrc" => "assets/img/shampoo.avif"],
-    ["titulo" => "Medicamentos", "href" => '/productos?categoria_producto=2', "alt" => "Imagen de veterinario atendiendo a un perro", "imgSrc" => "assets/img/veterinario.avif"]
+    ["titulo" => "Alimentos", "href" => '/productos?categoria_producto[]=1', "alt" => "Imagen de comida para perros", "imgSrc" => "assets/img/alimento.avif"],
+    ["titulo" => "Accesorios y Juguetes", "href" => '/productos?categoria_producto[]=3&categoria_producto[]=4', "alt" => "Imagen de juguetes para perros", "imgSrc" => "assets/img/accesorios.avif"],
+    ["titulo" => "Higiene", "href" => '/productos?categoria_producto[]=5', "alt" => "Imagen de shampoos para perros y gatos", "imgSrc" => "assets/img/shampoo.avif"],
+    ["titulo" => "Medicamentos", "href" => '/productos?categoria_producto[]=2', "alt" => "Imagen de veterinario atendiendo a un perro", "imgSrc" => "assets/img/veterinario.avif"]
 ];
 ?>
 
@@ -23,16 +23,16 @@ $cards = [
             <h1 class="text-center title">Nuestros Productos</h1>
             <?php foreach ($cards as $titulo => $value): ?>
 
-            <div class="col-md-3 col-6 mb-2">
-                <div class="card h-100">
-                    <img src="<?= base_url($value['imgSrc']) ?>" class="card-img-top carta-productos"
-                        alt="<?= $value['alt'] ?>">
-                    <div class="card-body">
-                        <h5 class="card-title puppy fw-bold"><?= $value['titulo'] ?></h5>
-                        <a href="<?= base_url($value['href']) ?>" class="btn btn-outline-warning meow">Ver productos</a>
+                <div class="col-md-3 col-6 mb-2">
+                    <div class="card h-100">
+                        <img src="<?= base_url($value['imgSrc']) ?>" class="card-img-top carta-productos"
+                            alt="<?= $value['alt'] ?>">
+                        <div class="card-body">
+                            <h5 class="card-title puppy fw-bold"><?= $value['titulo'] ?></h5>
+                            <a href="<?= base_url($value['href']) ?>" class="btn btn-outline-warning meow">Ver productos</a>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php endforeach ?>
 
         </div>
