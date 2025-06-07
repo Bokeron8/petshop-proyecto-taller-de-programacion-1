@@ -170,7 +170,9 @@ helper('form');
         let categoria_dropdown = $('#categoria_dropdown');
         let categorias = ['<?= implode("', '", $categorias) ?>'];
         const tag_id_list = ['<?= implode("', '", $categorias_seleccionadas) ?>']
-
+        if (tag_id_list.includes("")) {
+            tag_id_list.pop()
+        }
         tag_id_list.forEach(id => {
             const hiddenInput = document.createElement('input')
             hiddenInput.type = 'hidden';
