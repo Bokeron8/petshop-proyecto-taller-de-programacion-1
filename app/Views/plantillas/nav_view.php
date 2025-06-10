@@ -16,7 +16,7 @@ $links = [
 if ($usuario && $usuario['perfil_id'] == 2) {
     $links = [
         ["texto" => "Ver Consultas", "href" => 'admin/mensajes'],
-        ["texto" => "Listar Productos", "href" => 'admin/usuarios'],
+        ["texto" => "Listar Usuarios", "href" => 'admin/usuarios'],
         ["texto" => "Gestionar Productos", "href" => 'admin/gestionar-productos'],
         ["texto" => "Listar Ventas", "href" => 'admin/reportes'],
         ["texto" => "Agregar Productos", "href" => 'admin/agregar-productos']

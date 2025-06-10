@@ -39,3 +39,6 @@ $routes->get('reducirProducto/(:any)', 'CarritoController::reducirCantidad/$1');
 $routes->get('producto/(:num)', 'ProductoController::ver_producto/$1');
 
 $routes->get('admin/mensajes', 'Mensaje::verMensajes');
+$routes->get('admin/usuarios', 'Usuario::listarUsuarios');
+$routes->get('usuarios/eliminarUsuario/(:num)', 'Usuario::eliminarUsuario/$1');
+$routes->get('usuarios/activarUsuario/(:num)', 'Usuario::activarUsuario/$1');

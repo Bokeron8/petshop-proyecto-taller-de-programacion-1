@@ -144,4 +144,55 @@ class Usuario extends BaseController
     session()->destroy();
     return redirect()->to('/');
   }
+
+  public function listarUsuarios()
+  {
+      $estado = $this->request->getGet('estado');
+      $usuarioModel = new \App\Models\Usuarios_Model();
+
+      $builder = $usuarioModel->select('usuarios.*, perfiles.descripcion_perfil')
+          ->join('perfiles', 'usuarios.perfil_id = perfiles.id_perfil', 'left');
+
+      if ($estado !== null && $estado !== '') {
+          $builder->where('usuarios.estado_usuario', $estado);
+      }
+
+      $data = [
+          'usuarios' => $builder->findAll(),
+          'estadoFiltro' => $estado ?? '',
+          'title' => 'Usuarios - Ful Animal'
+      ];
+
+      return view('Backend/listar_usuarios_view', $data);
+  }
+
+  public function eliminarUsuario($id)
+  {
+      $usuarioModel = new \App\Models\Usuarios_Model();
+
+      $usuario = $usuarioModel->find($id);
+
+      if ($usuario) {
+          $usuarioModel->update($id, ['estado_usuario' => 0]); // Baja lógica
+          return redirect()->back()->with('success', 'Usuario eliminado correctamente.');
+      }
+
+      return redirect()->back()->with('error', 'Usuario no encontrado.');
+  }
+
+  public function activarUsuario($id)
+  {
+      $usuarioModel = new \App\Models\Usuarios_Model();
+
+      $usuario = $usuarioModel->find($id);
+
+      if ($usuario) {
+          $usuarioModel->update($id, ['estado_usuario' => 1]); // Subida lógica
+          return redirect()->back()->with('success', 'Usuario activado correctamente.');
+      }
+
+      return redirect()->back()->with('error', 'Usuario no encontrado.');
+  }
+
+
 }
