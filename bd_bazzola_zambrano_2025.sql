@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2025 a las 21:10:28
+-- Tiempo de generación: 10-06-2025 a las 17:40:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -99,22 +99,9 @@ CREATE TABLE `mensajes` (
   `id_mensaje` int(11) NOT NULL,
   `nombre_mensaje` varchar(50) NOT NULL,
   `email_mensaje` varchar(50) NOT NULL,
-  `mensaje` text NOT NULL
+  `mensaje` text NOT NULL,
+  `fecha_mensaje` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `mensajes`
---
-
-INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaje`) VALUES
-(1, 'Juan Pérez', 'juan@example.com', 'Este es un mensaje de prueba.'),
-(3, 'a', 'nospamfranco@gmail.com', 'eeee putooooo'),
-(4, 'mensajes', 'nospamfranco@gmail.com', 'aaaassssss'),
-(5, 'mensajes', 'nospamfranco@gmail.com', 'puto'),
-(6, 'prueba', 'sdasdq@gmail.com', 'xdxdxdxdxd'),
-(7, 'prueba', 'sdasdq@gmail.com', 'hpla'),
-(8, '', '', 'asdasdasdasdasdasdasd123123'),
-(9, 'mensajes', 'nospamfranco@gmail.com', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
 
 -- --------------------------------------------------------
 

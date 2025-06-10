@@ -13,5 +13,5 @@ class Mensaje_Model extends Model
 
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['nombre_mensaje', 'email_mensaje', 'mensaje'];
+    protected $allowedFields = ['nombre_mensaje', 'email_mensaje', 'mensaje', 'fecha_mensaje'];
 }

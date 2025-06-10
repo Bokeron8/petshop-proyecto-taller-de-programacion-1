@@ -56,7 +56,7 @@ class Mensaje extends BaseController
             ];
             // Guardar en base de datos
             if ($model->insert($data)) {
-                return redirect()->to('/')->with('success', 'Mensaje enviado correctamente.');
+                return redirect()->to('/contacto')->with('success', 'Mensaje enviado correctamente.');
             } else {
                 return redirect()->back()->withInput()->with('error', 'Hubo un error al enviar el mensaje.');
             }
@@ -68,4 +68,32 @@ class Mensaje extends BaseController
             return view('contenidos/contactos_view', $data);
         }
     }
+
+    public function verMensajes()
+    {
+        $mensajeModel = new \App\Models\Mensaje_Model();
+
+        $fechaInicio = $this->request->getGet('fecha_inicio');
+        $fechaFin    = $this->request->getGet('fecha_fin');
+
+        $mensajes = [];
+
+        if ($fechaInicio && $fechaFin) {
+            $mensajes = $mensajeModel
+                ->where('fecha_mensaje >=', $fechaInicio)
+                ->where('fecha_mensaje <=', $fechaFin)
+                ->orderBy('fecha_mensaje', 'DESC')
+                ->findAll();
+        } else {
+            $mensajes = $mensajeModel->orderBy('fecha_mensaje', 'DESC')->findAll();
+        }
+
+        return view('Backend/mensajes_view', [
+            'title' => 'Consultas - Full Animal',
+            'mensajes' => $mensajes,
+            'fecha_inicio' => $fechaInicio,
+            'fecha_fin' => $fechaFin,
+        ]);
+}
+
 }
