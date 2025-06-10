@@ -52,6 +52,20 @@ helper('form');
 
     </section>
 
+    <?php if (session()->getFlashdata('success') || session()->getFlashdata('error')): ?>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast align-items-center text-white <?= session()->getFlashdata('success') ? 'bg-success' : 'bg-danger' ?> border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <?= session()->getFlashdata('success') ?? session()->getFlashdata('error') ?>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
+
     <section class="mt-3 ">
         <h1 class="text-center title puppy">Formulario de contacto</h1>
         <?= form_open('/contacto', ['class' => 'border rounded p-3 sans-deva fs-5']) ?>
@@ -96,5 +110,26 @@ helper('form');
     </section>
 
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toastEl = document.getElementById('liveToast');
+        if (toastEl) {
+            const toast = new bootstrap.Toast(toastEl, {
+                delay: 4000, // duración en milisegundos 
+                autohide: true
+            });
+            toast.show();
+        }
+
+        // Si se mostró un mensaje de éxito, reiniciar el formulario
+        <?php if (session()->getFlashdata('success')): ?>
+            const form = document.querySelector('form');
+            if (form) {
+                form.reset();
+            }
+        <?php endif; ?>
+    });
+</script>
 
 <?php $this->endSection(); ?>
