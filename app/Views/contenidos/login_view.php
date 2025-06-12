@@ -17,9 +17,10 @@ body {
             </div>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
-                    name="email_login">
-                <label for="floatingInput">Correo electronico</label>
+                <input type="email" class="form-control" id="emailInputLogin" placeholder="name@example.com"
+                    name="email_login" value="<?= old('email_login') ?>">
+
+                <label for="emailInputLogin">Correo electronico</label>
                 <?php if (session()->has('validation') && session('validation')->hasError('email_login')) : ?>
                 <div class="alert alert-danger error-container" role="alert">
                     <span><?= esc(session('validation')->getError('email_login')) ?></span>
@@ -51,7 +52,9 @@ body {
             </div>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="nameInput" placeholder="Marcos" name="name">
+                <input type="text" class="form-control" id="nameInput" placeholder="Marcos" name="name"
+                    value="<?= set_value('name') ?>">
+
                 <label for="floatingInput">Nombre</label>
                 <?php if (session()->has('validation') && session('validation')->hasError('name')) : ?>
                 <div class="alert alert-danger error-container" role="alert">
@@ -60,7 +63,9 @@ body {
                 <?php endif; ?>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="surnameInput" placeholder="Mazzanti" name="surname">
+                <input type="text" class="form-control" id="surnameInput" placeholder="Mazzanti" name="surname"
+                    value="<?= set_value('surname') ?>">
+
                 <label for="floatingInput">Apellido</label>
                 <?php if (session()->has('validation') && session('validation')->hasError('surname')) : ?>
                 <div class="alert alert-danger error-container" role="alert">
@@ -70,8 +75,10 @@ body {
             </div>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
-                <label for="floatingInput">Correo electronico</label>
+                <input type="email" class="form-control" id="emailInputRegister" placeholder="name@example.com"
+                    name="email" value="<?= set_value('email') ?>">
+
+                <label for="emailInputRegister">Correo electronico</label>
                 <?php if (session()->has('validation') && session('validation')->hasError('email')) : ?>
                 <div class="alert alert-danger error-container" role="alert">
                     <span><?= esc(session('validation')->getError('email')) ?></span>

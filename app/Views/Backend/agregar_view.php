@@ -7,10 +7,10 @@
 helper('form');
 ?>
 <style>
-    body {
-        background-color: rgba(0, 0, 0, 0.9);
+body {
+    background-color: rgba(0, 0, 0, 0.9);
 
-    }
+}
 </style>
 
 <div class="d-flex align-items-center py-4 h-auto row me-0">
@@ -26,37 +26,52 @@ helper('form');
 
         <?= form_open_multipart('/admin/agregar-productos', ['class' => 'd-flex flex-column gap-2']) ?>
         <div class="form-floating">
-            <?= form_input(['name' => 'nombre_producto', 'class' => 'form-control', 'id' => 'nombre_producto', 'placeholder' => 'Name']) ?>
+            <?= form_input([
+                'name' => 'nombre_producto',
+                'class' => 'form-control',
+                'id' => 'nombre_producto',
+                'placeholder' => 'Name',
+                'value' => set_value('nombre_producto')
+            ]) ?>
+
             <?= form_label('Nombre del producto', 'nombre_producto') ?>
             <?php $errors = session('errors') ?>
 
             <?php if (isset($errors['nombre_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['nombre_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['nombre_producto']) ?></span>
+            </div>
             <?php endif; ?>
 
 
         </div>
 
         <div class="form-floating">
-            <?= form_textarea(['name' => 'descripcion_producto', 'class' => 'form-control', 'id' => 'descripcion_producto', 'placeholder' => 'Desc']) ?>
+            <?= form_textarea([
+                'name' => 'descripcion_producto',
+                'class' => 'form-control',
+                'id' => 'descripcion_producto',
+                'placeholder' => 'Desc',
+                'value' => set_value('descripcion_producto')
+            ]) ?>
+
             <?= form_label('Descripcion del producto', 'descripcion_producto') ?>
             <?php if (isset($errors['descripcion_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['descripcion_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['descripcion_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
         <div class="row gy-2 gx-3 align-items-center">
             <div class="col-6">
                 <label class="visually-hidden" for="autoSizingInput"></label>
-                <input type="number" name="stock_producto" class="form-control" id="autoSizingInput"
-                    placeholder="Stock">
+                <input type="number" name="stock_producto" class="form-control" id="autoSizingInput" placeholder="Stock"
+                    value="<?= set_value('stock_producto') ?>">
+
                 <?php if (isset($errors['stock_producto'])) : ?>
-                    <div class="alert alert-danger error-container" role="alert">
-                        <span><?= esc($errors['stock_producto']) ?></span>
-                    </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['stock_producto']) ?></span>
+                </div>
                 <?php endif; ?>
             </div>
             <div class="col-6">
@@ -64,12 +79,13 @@ helper('form');
                 <div class="input-group">
                     <div class="input-group-text">$</div>
                     <input type="number" step="0.01" name="precio_producto" class="form-control"
-                        id="autoSizingInputGroup" placeholder="Precio">
+                        id="autoSizingInputGroup" placeholder="Precio" value="<?= set_value('precio_producto') ?>">
+
                 </div>
                 <?php if (isset($errors['precio_producto'])) : ?>
-                    <div class="alert alert-danger error-container" role="alert">
-                        <span><?= esc($errors['precio_producto']) ?></span>
-                    </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($errors['precio_producto']) ?></span>
+                </div>
                 <?php endif; ?>
             </div>
         </div>
@@ -77,19 +93,22 @@ helper('form');
             <?= form_input(['name' => 'imagen_producto', 'class' => 'form-control', 'type' => 'file']) ?>
             <?= form_label('Imagen del producto', 'imagen_producto') ?>
             <?php if (isset($errors['imagen_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['imagen_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['imagen_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
 
         <div class="form-floating">
-            <?= form_dropdown(['name' => 'marca_producto', 'class' => 'form-control'], $marcas, [0]) ?>
+            <?= form_dropdown([
+                'name' => 'marca_producto',
+                'class' => 'form-control'
+            ], $marcas, set_value('marca_producto')) ?>
             <?= form_label('Marca del producto', 'marca_producto') ?>
             <?php if (isset($errors['marca_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['marca_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['marca_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
         <div class="form-floating">
@@ -97,9 +116,9 @@ helper('form');
             <?= form_dropdown(['name' => 'categoria_producto', 'class' => 'form-control', 'id' => 'categoria_dropdown'], $categorias, [0]) ?>
             <?= form_label('Categoria del producto', 'categoria_producto') ?>
             <?php if (isset($errors['categoria_producto'])) : ?>
-                <div class="alert alert-danger error-container" role="alert">
-                    <span><?= esc($errors['categoria_producto']) ?></span>
-                </div>
+            <div class="alert alert-danger error-container" role="alert">
+                <span><?= esc($errors['categoria_producto']) ?></span>
+            </div>
             <?php endif; ?>
         </div>
         <div class="tag-container d-flex gap-1 flex-wrap">
@@ -112,41 +131,41 @@ helper('form');
 </div>
 
 <script>
-    let $ = (string) => document.querySelector(string)
+let $ = (string) => document.querySelector(string)
 
-    let tag_container = $('.tag-container');
-    let categoria_dropdown = $('#categoria_dropdown');
-    let categorias = ['<?= implode("', '", $categorias) ?>'];
-    const tag_id_list = ['0'];
-    categoria_dropdown.addEventListener("click", (e) => {
-        const selected_category_id = e.target.value
-        if (tag_id_list.includes(selected_category_id)) {
-            return
-        }
-        tag_id_list.push(selected_category_id)
+let tag_container = $('.tag-container');
+let categoria_dropdown = $('#categoria_dropdown');
+let categorias = ['<?= implode("', '", $categorias) ?>'];
+const tag_id_list = ['0'];
+categoria_dropdown.addEventListener("click", (e) => {
+    const selected_category_id = e.target.value
+    if (tag_id_list.includes(selected_category_id)) {
+        return
+    }
+    tag_id_list.push(selected_category_id)
 
-        const hiddenInput = document.createElement('input')
-        hiddenInput.type = 'hidden';
-        hiddenInput.value = selected_category_id;
-        hiddenInput.name = 'categoria_producto[]'
+    const hiddenInput = document.createElement('input')
+    hiddenInput.type = 'hidden';
+    hiddenInput.value = selected_category_id;
+    hiddenInput.name = 'categoria_producto[]'
 
-        const tag = document.createElement('span')
-        tag.textContent = categorias[selected_category_id];
-        tag.className = 'rounded-pill bg-warning p-2'
+    const tag = document.createElement('span')
+    tag.textContent = categorias[selected_category_id];
+    tag.className = 'rounded-pill bg-warning p-2'
 
-        const removeButton = document.createElement('button')
+    const removeButton = document.createElement('button')
 
-        removeButton.className = 'bg-transparent border-0 fa fa-times'
-        removeButton.addEventListener('click', () => {
-            console.log(tag_id_list.splice(tag_id_list.indexOf(selected_category_id), 1))
-            tag.remove()
-        });
-
-        tag.appendChild(removeButton)
-        tag.appendChild(hiddenInput)
-        tag_container.appendChild(tag)
-
+    removeButton.className = 'bg-transparent border-0 fa fa-times'
+    removeButton.addEventListener('click', () => {
+        console.log(tag_id_list.splice(tag_id_list.indexOf(selected_category_id), 1))
+        tag.remove()
     });
+
+    tag.appendChild(removeButton)
+    tag.appendChild(hiddenInput)
+    tag_container.appendChild(tag)
+
+});
 </script>
 
 
