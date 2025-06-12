@@ -21,16 +21,22 @@ $routes->post('/register', 'Usuario::register');
 $routes->get('logout', 'Usuario::logout');
 
 
-$routes->get('/admin/agregar-productos', 'ProductoController::form_agregar_producto');
-$routes->post('/admin/agregar-productos', 'ProductoController::registrarProducto');
+$routes->group('admin', ['filter' => 'admin'], function ($routes) {
+    $routes->get('agregar-productos', 'ProductoController::form_agregar_producto');
+    $routes->post('agregar-productos', 'ProductoController::registrarProducto');
 
-$routes->get('admin/gestionar-productos', 'ProductoController::gestionar_productos');
-$routes->get('admin/activar/(:num)', 'ProductoController::activar/$1');
-$routes->get('admin/desactivar/(:num)', 'ProductoController::desactivar/$1');
-$routes->get('admin/editar-producto/(:num)', 'ProductoController::editar_Producto/$1');
-$routes->post('admin/editar-producto/(:num)', 'ProductoController::actualizarProducto/$1');
+    $routes->get('gestionar-productos', 'ProductoController::gestionar_productos');
+    $routes->get('activar/(:num)', 'ProductoController::activar/$1');
+    $routes->get('desactivar/(:num)', 'ProductoController::desactivar/$1');
+    $routes->get('editar-producto/(:num)', 'ProductoController::editar_Producto/$1');
+    $routes->post('editar-producto/(:num)', 'ProductoController::actualizarProducto/$1');
 
-$routes->get('carrito', 'CarritoController::verCarrito');
+    $routes->get('mensajes', 'Mensaje::verMensajes');
+    $routes->get('usuarios', 'Usuario::listarUsuarios');
+});
+
+
+$routes->get('carrito', 'CarritoController::verCarrito', ['filter' => 'auth']);
 $routes->post('agregar-carrito', 'CarritoController::agregarProducto');
 $routes->get('vaciarCarrito', 'CarritoController::vaciarCarrito');
 $routes->get('eliminarProducto/(:any)', 'CarritoController::eliminarProducto/$1');
@@ -38,7 +44,5 @@ $routes->get('reducirProducto/(:any)', 'CarritoController::reducirCantidad/$1');
 
 $routes->get('producto/(:num)', 'ProductoController::ver_producto/$1');
 
-$routes->get('admin/mensajes', 'Mensaje::verMensajes');
-$routes->get('admin/usuarios', 'Usuario::listarUsuarios');
 $routes->get('usuarios/eliminarUsuario/(:num)', 'Usuario::eliminarUsuario/$1');
 $routes->get('usuarios/activarUsuario/(:num)', 'Usuario::activarUsuario/$1');
