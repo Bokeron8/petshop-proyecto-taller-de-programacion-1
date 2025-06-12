@@ -1,12 +1,12 @@
 <?= $this->extend('plantillas/plantilla'); ?>
 <?= $this->section('content'); ?>
 
-<div class="container mt-4">
-    <h1 class="text-center title bg-translucido">Usuarios Registrados</h1>
+<div class="container mt-4 bg-translucido">
+    <h1 class="text-center title ">Usuarios Registrados</h1>
 
     <form method="get" class="row g-3 mb-3">
         <div class="col-auto">
-            <label for="estado" class=" bg- translucido form-label">Filtrar por estado:</label>
+            <label for="estado" class="form-label">Filtrar por estado:</label>
             <select name="estado" id="estado" class="form-select">
                 <option value="" <?= ($estadoFiltro === '') ? 'selected' : '' ?>>Todos</option>
                 <option value="1" <?= ($estadoFiltro === '1') ? 'selected' : '' ?>>Activos</option>
@@ -51,11 +51,11 @@
                     </td>
                     <td>
                         <?php if ($usuario['estado_usuario'] == 1): ?>
-                            <a class="btn btn-danger"
-                                href="<?= base_url('usuarios/eliminarUsuario/' . $usuario['id_usuario']) ?>">Eliminar</a>
+                        <a class="btn btn-danger"
+                            href="<?= base_url('usuarios/eliminarUsuario/' . $usuario['id_usuario']) ?>">Desactivar</a>
                         <?php else: ?>
-                            <a class="btn btn-success"
-                                href="<?= base_url('usuarios/activarUsuario/' . $usuario['id_usuario']) ?>">Activar</a>
+                        <a class="btn btn-success"
+                            href="<?= base_url('usuarios/activarUsuario/' . $usuario['id_usuario']) ?>">Activar</a>
                         <?php endif; ?>
                     </td>
                 </tr>
@@ -65,7 +65,7 @@
 
     </div>
     <?php else : ?>
-        <div class="alert alert-info text-center">No se encontraron usuarios con los criterios seleccionados.</div>
+    <div class="alert alert-info text-center">No se encontraron usuarios con los criterios seleccionados.</div>
     <?php endif; ?>
 </div>
 
