@@ -98,7 +98,7 @@ class ProductoController extends BaseController
                 ]
             ],
             'imagen_producto' => [
-                'rules' => 'uploaded[imagen_producto]|is_image[imagen_producto]|max_size[imagen_producto,2048]',
+                'rules' => 'uploaded[imagen_producto]|max_size[imagen_producto,2048]' . '|mime_in[imagen_producto,image/jpeg,image/png,image/gif,image/webp,image/avif]',
                 'errors' => [
                     'uploaded' => 'La imagen es obligatoria.',
                     'is_image' => 'El archivo debe ser una imagen válida.',
@@ -277,7 +277,7 @@ class ProductoController extends BaseController
 
 
         if ($this->request->getFile('imagen_producto')->isValid()) {
-            $rules['imagen_producto'] = 'is_image[imagen_producto]|max_size[imagen_producto,2048]';
+            $rules['imagen_producto'] = 'max_size[imagen_producto,2048]' . '|mime_in[imagen_producto,image/jpeg,image/png,image/gif,image/webp,image/avif]';
         }
 
         if (!$this->validate($rules)) {
@@ -333,5 +333,4 @@ class ProductoController extends BaseController
 
         return view('contenidos/producto_view', $data);
     }
-
 }
