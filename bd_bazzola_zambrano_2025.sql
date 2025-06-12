@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2025 a las 17:40:54
+-- Tiempo de generación: 12-06-2025 a las 17:03:28
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -60,15 +60,27 @@ CREATE TABLE `categorias_productos` (
 --
 
 INSERT INTO `categorias_productos` (`id_categorias_producto`, `id_producto_categorias_productos`, `id_categoria_categorias_productos`) VALUES
-(18, 9, 2),
-(19, 9, 4),
-(20, 9, 5),
-(21, 8, 5),
-(24, 16, 1),
-(25, 16, 3),
-(26, 17, 3),
-(27, 18, 3),
-(28, 19, 3);
+(32, 16, 1),
+(33, 17, 3),
+(34, 18, 3),
+(35, 19, 3),
+(36, 20, 1),
+(37, 21, 1),
+(38, 22, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_venta`
+--
+
+CREATE TABLE `detalle_venta` (
+  `id_venta` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `detalle_cantidad` int(11) NOT NULL,
+  `detalle_precio` decimal(10,0) NOT NULL,
+  `detalle_subtotal` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -87,7 +99,11 @@ CREATE TABLE `marcas` (
 
 INSERT INTO `marcas` (`id_marca`, `descripcion_marca`) VALUES
 (1, 'Pedigree'),
-(2, 'Whiskas');
+(2, 'Whiskas'),
+(3, 'Dr Perrot'),
+(4, 'Cat Chow'),
+(5, 'Agility'),
+(6, 'Zootec');
 
 -- --------------------------------------------------------
 
@@ -102,6 +118,13 @@ CREATE TABLE `mensajes` (
   `mensaje` text NOT NULL,
   `fecha_mensaje` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaje`, `fecha_mensaje`) VALUES
+(10, 'mensajes', 'nospamfranco3@gmail.com', 'qqqqqqqqqqqqqqqqqqqqqqq', '2025-06-12');
 
 -- --------------------------------------------------------
 
@@ -144,12 +167,13 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `id_marca_producto`, `stock_producto`, `precio_producto`, `imagen_producto`, `estado_producto`) VALUES
-(8, 'asdasd', 'asdasd', 1, 123213, 213213, '1749214295_3421b6b94cc384f310e9.png', 1),
-(9, 'pruebaxd', 'asdaxd', 1, 1, 1, '1749214364_469621753f792c932a57.png', 1),
-(16, 'Bolsa de Alimento 20kg', 'askdoáijaijhofoisd', 1, 156, 21568, '1749234294_fe4f3492552df85e4f20.jpg', 1),
-(17, 'Bola Leon', 'Bola Leon para jugar y masticar', 1, 5, 12.5, '1749236644_b33cb4c09d834a956a51.jpg', 1),
-(18, 'Bola Tigre', 'Bola Tigre para boludear', 1, 6, 12.5, '1749236697_54665aa688d4810ffb6a.jpg', 1),
-(19, 'Bola de Mono', 'ViniJR uh uh uh  ahaha ahah', 1, 7, 12.5, '1749236775_6072896120044aa2d056.jpg', 1);
+(16, 'Bolsa de Alimento 20kg', 'Bolsa de Alimento 20kg Dr Perrot. Perro Adulto.', 3, 20, 22000, '1749735374_5925eebc723e54458017.png', 1),
+(17, 'Bola Leon', 'Bola Leon para jugar y masticar', 6, 5, 12.5, '1749236644_b33cb4c09d834a956a51.jpg', 1),
+(18, 'Bola Tigre', 'Bola Tigre ', 6, 6, 12.5, '1749236697_54665aa688d4810ffb6a.jpg', 1),
+(19, 'Bola de Mono', 'Bola de Mono', 6, 7, 12.5, '1749236775_6072896120044aa2d056.jpg', 1),
+(20, 'Bolsa de Alimento 3kg', 'Bolsa de Alimento 3kg. Pedigree. Perro Adulto.', 1, 25, 6000, '1749736776_2270f3139c8809163d85.avif', 1),
+(21, 'Bolsa de Alimento 1.5kg', 'Bolsa de Alimento 1.5kg. Pedigree. Perro Adulto.', 1, 20, 3000, '1749737107_b281301906f97ffff350.avif', 1),
+(22, 'Bolsa de Alimento 21kg', 'Bolsa de Alimento 21kg. Pedigree. Perro Adulto.', 1, 20, 41000, '1749737175_e24b0d5b858778572bb5.avif', 1);
 
 -- --------------------------------------------------------
 
@@ -178,8 +202,23 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `dni
 (3, 'ar', 'za', 0, '', 'asd@gmail.com', '$2y$10$P63HZRlrY7T.o60ZU/BncO/CvMh8pHDvGM9f8E0UnYepwS6GB5dx.', 1, 0, 2),
 (4, 'mensajes', 'asdasd', 0, '', 'nospamfranco2@gmail.com', '$2y$10$n/cUYTtE2smWaF4fnpgx3.J7ufN2PO86hJSKGRnvRH1KnYMdkv3bu', 1, 0, 1),
 (5, 'mensajes', 'asdasd', 0, '', 'nospamfranco3@gmail.com', '$2y$10$GZWr12fHoPZFLrThyKrT5.Q3FLG0VWtMmMOWm0ZLKvQTOE.mO0th2', 1, 0, 2),
-(6, 'fulanito', 'de tal', 0, '', 'fula@yopmail.com.ar', '$2y$10$kVV4CTMmS8JadbKdVKx0Ge/xX9oMZsm4j72i9bzGxfT19Ev2.lyta', 1, 0, 1),
+(6, 'fulanito', 'de tal', 0, '', 'fula@yopmail.com.ar', '$2y$10$kVV4CTMmS8JadbKdVKx0Ge/xX9oMZsm4j72i9bzGxfT19Ev2.lyta', 0, 0, 1),
 (7, 'Menganito', 'de tal', 0, '', 'menga@yopmail.com.ar', '$2y$10$kgJ0fo7gHnde/SrC3ADPaenp1K0og26.Yp.TcrO7MhPfjWGY3261G', 1, 0, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `venta`
+--
+
+CREATE TABLE `venta` (
+  `venta_id` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `venta_fecha` date NOT NULL,
+  `venta_total` decimal(10,0) NOT NULL,
+  `venta_forma_pago` text NOT NULL,
+  `venta_forma_entrega` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas
@@ -198,6 +237,13 @@ ALTER TABLE `categorias_productos`
   ADD PRIMARY KEY (`id_categorias_producto`),
   ADD KEY `id_categoria` (`id_categoria_categorias_productos`),
   ADD KEY `id_producto` (`id_producto_categorias_productos`);
+
+--
+-- Indices de la tabla `detalle_venta`
+--
+ALTER TABLE `detalle_venta`
+  ADD KEY `id_producto` (`id_producto`),
+  ADD KEY `id_venta` (`id_venta`);
 
 --
 -- Indices de la tabla `marcas`
@@ -233,6 +279,13 @@ ALTER TABLE `usuarios`
   ADD KEY `perfil_id` (`perfil_id`);
 
 --
+-- Indices de la tabla `venta`
+--
+ALTER TABLE `venta`
+  ADD PRIMARY KEY (`venta_id`),
+  ADD KEY `id_cliente` (`id_cliente`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -246,19 +299,19 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `categorias_productos`
 --
 ALTER TABLE `categorias_productos`
-  MODIFY `id_categorias_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_categorias_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `perfiles`
@@ -270,13 +323,19 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `venta`
+--
+ALTER TABLE `venta`
+  MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -290,6 +349,13 @@ ALTER TABLE `categorias_productos`
   ADD CONSTRAINT `categorias_productos_ibfk_2` FOREIGN KEY (`id_producto_categorias_productos`) REFERENCES `productos` (`id_producto`);
 
 --
+-- Filtros para la tabla `detalle_venta`
+--
+ALTER TABLE `detalle_venta`
+  ADD CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
+  ADD CONSTRAINT `detalle_venta_ibfk_2` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`venta_id`);
+
+--
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -300,6 +366,12 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`perfil_id`) REFERENCES `perfiles` (`id_perfil`);
+
+--
+-- Filtros para la tabla `venta`
+--
+ALTER TABLE `venta`
+  ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `usuarios` (`id_usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
