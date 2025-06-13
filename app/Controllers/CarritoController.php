@@ -66,4 +66,99 @@ class CarritoController extends BaseController
 
         return redirect()->to('/carrito'); // redirige a vista del carrito
     }
+
+    public function finalizarCompra()
+    {
+        $cart = \Config\Services::cart();
+        $productoModel = new \App\Models\Producto_Model();
+        $usuarioModel = new \App\Models\Usuarios_Model(); 
+
+        foreach ($cart->contents() as $item) {
+            $producto = $productoModel->where('id_producto', $item['id'])->first();
+            if (!$producto || $producto['stock_producto'] < $item['qty']) {
+                return redirect()->to('/carrito')->with('error', 'Stock insuficiente del producto: ' . $item['name'] .
+                    ' (stock actual: ' . $producto['stock_producto'] . ', cantidad deseada: ' . $item['qty'] . ')');
+            }
+        }
+
+        $clienteId = session()->get('usuario')['id_usuario'];
+        $usuario = $usuarioModel->where('id_usuario', $clienteId)->first();
+
+        return view('contenidos/checkout_view', ['usuario' => $usuario, 'title' => 'checkout - Full Animal']);
+    }
+
+
+    public function procesarVenta()
+{
+    $request = \Config\Services::request();
+    $session = session();
+    $cart = \Config\Services::cart();
+
+    $usuarioModel     = new \App\Models\Usuarios_Model();
+    $ventaModel       = new \App\Models\Venta_Model();
+    $detalleModel     = new \App\Models\Detalle_Model();
+    $productoModel    = new \App\Models\Producto_Model();
+
+    $idUsuario = $session->get('usuario')['id_usuario'];
+
+    // Validación de los datos
+    $rules = [
+        'dni'           => 'required|numeric|exact_length[8]',
+        'telefono'      => 'required|numeric|min_length[6]',
+        'direccion'     => 'required|min_length[5]',
+        'forma_pago'    => 'required',
+        'forma_entrega' => 'required|in_list[0,1]',
+        'confirmacion'  => 'required'
+    ];
+
+    if (!$this->validate($rules)) {
+        return view('contenidos/checkout_view', [
+            'usuario'    => $usuarioModel->find($idUsuario),
+            'validation' => $this->validator,
+            'title'      => 'checkout - Full Animal'
+        ]);
+    }
+
+
+    // ✅ Actualizar usuario
+    $usuarioModel->update($idUsuario, [
+        'dni_usuario'       => $request->getPost('dni'),
+        'telefono_usuario'  => $request->getPost('telefono'),
+        'domicilio_usuario' => $request->getPost('direccion')
+    ]);
+
+    // ✅ Crear la venta
+    $ventaData = [
+        'id_cliente'          => $idUsuario,
+        'venta_fecha'         => date('Y-m-d'),
+        'venta_total'         => $cart->total(),
+        'venta_forma_pago'    => $request->getPost('forma_pago'),
+        'venta_forma_entrega' => $request->getPost('forma_entrega'),
+    ];
+
+    $ventaModel->insert($ventaData);
+    $idVenta = $ventaModel->insertID();
+
+    // ✅ Guardar el detalle y descontar stock
+    foreach ($cart->contents() as $item) {
+        $detalleModel->insert([
+            'id_venta'         => $idVenta,
+            'id_producto'      => $item['id'],
+            'detalle_cantidad' => $item['qty'],
+            'detalle_precio'   => $item['price'],
+            'detalle_subtotal' => $item['qty'] * $item['price']
+        ]);
+
+        // Descontar stock
+        $productoModel->where('id_producto', $item['id'])
+                      ->set('stock_producto', 'stock_producto - ' . $item['qty'], false)
+                      ->update();
+    }
+
+    $cart->destroy(); // Vaciar carrito
+
+    return redirect()->to('/carrito')->with('success', '¡Compra realizada con éxito!');
+}
+
+
 }

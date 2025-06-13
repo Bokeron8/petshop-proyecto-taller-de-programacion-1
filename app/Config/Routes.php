@@ -46,3 +46,6 @@ $routes->get('producto/(:num)', 'ProductoController::ver_producto/$1');
 
 $routes->get('usuarios/eliminarUsuario/(:num)', 'Usuario::eliminarUsuario/$1');
 $routes->get('usuarios/activarUsuario/(:num)', 'Usuario::activarUsuario/$1');
+
+$routes->get('carrito/finalizar', 'CarritoController::finalizarCompra');
+$routes->post('carrito/procesarVenta', 'CarritoController::procesarVenta');
