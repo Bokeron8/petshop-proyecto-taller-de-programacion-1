@@ -13,5 +13,5 @@ class Usuarios_Model extends Model
 
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['descripcion_perfil', 'nombre_usuario', 'apellido_usuario', 'dni_usuario', 'domicilio_usuario', 'email_usuario', 'contraseña_usuario', 'estado_usuario', 'telefono_usuario', 'perfil_id'];
+    protected $allowedFields = ['nombre_usuario', 'apellido_usuario', 'dni_usuario', 'domicilio_usuario', 'email_usuario', 'contraseña_usuario', 'estado_usuario', 'telefono_usuario', 'perfil_id'];
 }

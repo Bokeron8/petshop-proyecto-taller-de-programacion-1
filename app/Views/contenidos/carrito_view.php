@@ -2,6 +2,20 @@
 
 <?php $this->section('content'); ?>
 
+<?php if (session()->getFlashdata('error')): ?>
+<div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
+  <div class="toast align-items-center text-white bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        <?= session()->getFlashdata('error') ?>
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+
+
 <?php helper('form'); ?>
 
 <section class="container bg-translucido">
@@ -62,12 +76,27 @@
     <?php else: ?>
     <p class="text-center sans-deva fs-2">Tu carrito esta vacio.</p>
     <?php endif; ?>
-
-    <div class="text-center mt-3">
-        <a href="<?= base_url('productos') ?>" class="btn btn-secondary">← Seguir comprando</a>
-        <a href="<?= base_url('checkout') ?>" class="btn btn-success">Finalizar compra →</a>
-    </div>
-
+    
+    <?php if (!empty($carrito)) : ?>
+        <div class="text-center mt-3">
+            <a href="<?= base_url('productos') ?>" class="btn btn-secondary">← Seguir comprando</a>
+            <a href="<?= base_url('carrito/finalizar') ?>" class="btn btn-success">Finalizar compra →</a>
+        </div>
+    <?php else: ?>
+        <div class="text-center mt-3">
+        <a href="<?= base_url('productos') ?>" class="btn btn-secondary">← Ir a Comprar</a>
+        </div>
+    
+    <?php endif; ?>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        toastElList.map(function (toastEl) {
+            new bootstrap.Toast(toastEl).show();
+        });
+    });
+</script>
 
 <?php $this->endSection(); ?>
