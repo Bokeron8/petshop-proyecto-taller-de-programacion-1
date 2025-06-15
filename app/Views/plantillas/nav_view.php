@@ -18,7 +18,7 @@ if ($usuario && $usuario['perfil_id'] == 2) {
         ["texto" => "Ver Consultas", "href" => 'admin/mensajes'],
         ["texto" => "Listar Usuarios", "href" => 'admin/usuarios'],
         ["texto" => "Gestionar Productos", "href" => 'admin/gestionar-productos'],
-        ["texto" => "Listar Ventas", "href" => 'admin/reportes'],
+        ["texto" => "Listar Ventas", "href" => 'admin/ventas'],
         ["texto" => "Agregar Productos", "href" => 'admin/agregar-productos']
     ];
 }
@@ -90,6 +90,9 @@ if ($usuario && $usuario['perfil_id'] == 2) {
                 </span>
                 <a class="btn btn-warning puppy fs-5 me-2" href="<?= base_url('/carrito') ?>">
                     <i class="fa fa-shopping-cart"></i>
+                </a>
+                <a class="btn btn-warning puppy fs-5 me-2" href="<?= base_url('/ventas') ?>">
+                    <i class="fa fa-shopping-bag"></i>
                 </a>
                 <a class="btn btn-outline-warning puppy fs-5" href="<?= base_url('/logout') ?>">
                     Cerrar sesion

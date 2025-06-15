@@ -33,6 +33,7 @@ $routes->group('admin', ['filter' => 'admin'], function ($routes) {
 
     $routes->get('mensajes', 'Mensaje::verMensajes');
     $routes->get('usuarios', 'Usuario::listarUsuarios');
+    $routes->get('ventas', 'VentasController::listarVentas');
 });
 
 
@@ -49,3 +50,6 @@ $routes->get('usuarios/activarUsuario/(:num)', 'Usuario::activarUsuario/$1');
 
 $routes->get('carrito/finalizar', 'CarritoController::finalizarCompra');
 $routes->post('carrito/procesarVenta', 'CarritoController::procesarVenta');
+
+$routes->get('ventas', 'VentasController::listarVentas', ['filter' => 'auth']);
+$routes->get('ventas/detalle/(:num)', 'VentasController::detalle/$1');
