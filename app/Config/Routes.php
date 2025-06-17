@@ -34,22 +34,27 @@ $routes->group('admin', ['filter' => 'admin'], function ($routes) {
     $routes->get('mensajes', 'Mensaje::verMensajes');
     $routes->get('usuarios', 'Usuario::listarUsuarios');
     $routes->get('ventas', 'VentasController::listarVentas');
+
+
+    $routes->get('usuarios/eliminarUsuario/(:num)', 'Usuario::eliminarUsuario/$1');
+    $routes->get('usuarios/activarUsuario/(:num)', 'Usuario::activarUsuario/$1');
+});
+
+$routes->group('/', ['filter' => 'auth'], function ($routes) {
+
+    $routes->get('carrito', 'CarritoController::verCarrito');
+    $routes->post('agregar-carrito', 'CarritoController::agregarProducto');
+    $routes->get('vaciarCarrito', 'CarritoController::vaciarCarrito');
+    $routes->get('eliminarProducto/(:any)', 'CarritoController::eliminarProducto/$1');
+    $routes->get('reducirProducto/(:any)', 'CarritoController::reducirCantidad/$1');
+
+    $routes->get('carrito/finalizar', 'CarritoController::finalizarCompra');
+    $routes->post('carrito/procesarVenta', 'CarritoController::procesarVenta');
+
+    $routes->get('ventas', 'VentasController::listarVentas');
+    $routes->get('ventas/detalle/(:num)', 'VentasController::detalle/$1');
 });
 
 
-$routes->get('carrito', 'CarritoController::verCarrito', ['filter' => 'auth']);
-$routes->post('agregar-carrito', 'CarritoController::agregarProducto');
-$routes->get('vaciarCarrito', 'CarritoController::vaciarCarrito');
-$routes->get('eliminarProducto/(:any)', 'CarritoController::eliminarProducto/$1');
-$routes->get('reducirProducto/(:any)', 'CarritoController::reducirCantidad/$1');
 
 $routes->get('producto/(:num)', 'ProductoController::ver_producto/$1');
-
-$routes->get('usuarios/eliminarUsuario/(:num)', 'Usuario::eliminarUsuario/$1');
-$routes->get('usuarios/activarUsuario/(:num)', 'Usuario::activarUsuario/$1');
-
-$routes->get('carrito/finalizar', 'CarritoController::finalizarCompra');
-$routes->post('carrito/procesarVenta', 'CarritoController::procesarVenta');
-
-$routes->get('ventas', 'VentasController::listarVentas', ['filter' => 'auth']);
-$routes->get('ventas/detalle/(:num)', 'VentasController::detalle/$1');
