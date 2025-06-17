@@ -11,10 +11,9 @@ class AdminFilter implements FilterInterface
 
     public function before(RequestInterface $request, $arguments = null)
     {
-
         $usuario = session()->get('usuario');
-        // Verificar si el usuario tiene rol de administrador
-        if ($usuario['perfil_id'] != 2) {
+        // Verificar si el usuario existe y tiene rol de administrador
+        if (!$usuario || !isset($usuario['perfil_id']) || $usuario['perfil_id'] != 2) {
             return redirect()->to('/')
                 ->with('error', 'No tienes permisos de administrador');
         }
