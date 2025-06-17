@@ -15,7 +15,7 @@ class CarritoController extends BaseController
         $data = ['id' => $id, 'qty' => 1, 'price' => $price, 'name' => $name, 'options' => ['imagen' => $imagen]];
         // Insert an array of values
         $cart->insert($data);
-        
+
 
         return $this->response->setJSON(['success' => true, 'message' => 'Producto agregado']);
     }
@@ -71,7 +71,7 @@ class CarritoController extends BaseController
     {
         $cart = \Config\Services::cart();
         $productoModel = new \App\Models\Producto_Model();
-        $usuarioModel = new \App\Models\Usuarios_Model(); 
+        $usuarioModel = new \App\Models\Usuarios_Model();
 
         foreach ($cart->contents() as $item) {
             $producto = $productoModel->where('id_producto', $item['id'])->first();
@@ -80,11 +80,15 @@ class CarritoController extends BaseController
                     ' (stock actual: ' . $producto['stock_producto'] . ', cantidad deseada: ' . $item['qty'] . ')');
             }
         }
-
-        $clienteId = session()->get('usuario')['id_usuario'];
+        $usuario = session()->get('usuario');
+        if (!$usuario || !isset($usuario['id_usuario'])) {
+            return redirect()->to('/')
+                ->with('error', 'No iniciaste sesion');
+        }
+        $clienteId = $usuario['id_usuario'];
         $usuario = $usuarioModel->where('id_usuario', $clienteId)->first();
 
-        return view('contenidos/checkout_view', ['usuario' => $usuario, 'title' => 'checkout - Full Animal']);
+        return view('contenidos/checkout_view', ['usuario' => $usuario, 'title' => 'Checkout - Full Animal']);
     }
 
 
@@ -103,8 +107,8 @@ class CarritoController extends BaseController
 
         // Validación de los datos
         $rules = [
-            'dni'           => 'required|numeric|exact_length[8]',
-            'telefono'      => 'required|numeric|min_length[6]',
+            'dni'           => 'required|numeric|min_length[7]|max_length[8]',
+            'telefono'      => 'required|numeric|exact_length[10]',
             'direccion'     => 'required|min_length[5]',
             'forma_pago'    => 'required',
             'forma_entrega' => 'required|in_list[0,1]',
@@ -115,7 +119,7 @@ class CarritoController extends BaseController
             return view('contenidos/checkout_view', [
                 'usuario'    => $usuarioModel->find($idUsuario),
                 'validation' => $this->validator,
-                'title'      => 'checkout - Full Animal'
+                'title'      => 'Checkout - Full Animal'
             ]);
         }
 
@@ -151,14 +155,12 @@ class CarritoController extends BaseController
 
             // Descontar stock
             $productoModel->where('id_producto', $item['id'])
-                        ->set('stock_producto', 'stock_producto - ' . $item['qty'], false)
-                        ->update();
+                ->set('stock_producto', 'stock_producto - ' . $item['qty'], false)
+                ->update();
         }
 
         $cart->destroy(); // Vaciar carrito
 
-        return redirect()->to('/carrito')->with('success', '¡Compra realizada con éxito!');
+        return redirect()->to('/ventas')->with('success', '¡Compra realizada con éxito!');
     }
-
-
 }
