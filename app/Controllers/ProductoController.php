@@ -319,8 +319,18 @@ class ProductoController extends BaseController
 
     public function ver_producto($id)
     {
-        $productoModel = new \App\Models\Producto_Model();
+        $productoModel = new Producto_Model();
+        $categoriaProductoModel = new Categoria_Producto_Model();
+
         $producto = $productoModel->where('id_producto', $id)->first();
+
+        $categorias = $categoriaProductoModel->where('id_producto_categorias_productos', $id)->findAll();
+        $categoriaIDs = array_column($categorias, 'id_categoria_categorias_productos');
+
+
+
+        $filtros = ['categorias_id' => $categoriaIDs];
+        $productosRelacionados = $productoModel->getProductosFiltrados($filtros);
 
         if (!$producto) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Producto no encontrado.");
@@ -328,7 +338,8 @@ class ProductoController extends BaseController
 
         $data = [
             'producto' => $producto,
-            'title' => 'Detalle del producto - Full Animal'
+            'productos_relacionados' => $productosRelacionados,
+            'title' => $producto['nombre_producto'] . ' - Full Animal'
         ];
 
         return view('contenidos/producto_view', $data);

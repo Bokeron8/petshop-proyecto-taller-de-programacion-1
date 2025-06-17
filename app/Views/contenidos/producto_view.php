@@ -1,6 +1,20 @@
 <?= $this->extend('plantillas/plantilla') ?>
 
 <?= $this->section('content') ?>
+<style>
+.carousel-item>.row>.col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+</style>
 
 <div class="container mt-4">
     <div class="row">
@@ -46,6 +60,91 @@
         </div>
     </div>
 </div>
+
+<div class="container mt-5">
+    <h4 class="mb-3">Productos relacionados</h4>
+    <?php if (!empty($productos_relacionados)) : ?>
+
+
+    <div id="multiCarousel" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <?php
+                $chunked = array_chunk($productos_relacionados, 4); // 4 productos por slide
+                foreach ($chunked as $index => $grupo) : ?>
+            <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
+                <div class="row justify-content-center">
+                    <?php foreach ($grupo as $p) : ?>
+                    <div class="col-12 col-md-6 col-lg-3 mb-3">
+                        <div class="card h-100">
+                            <img src="<?= base_url('assets/uploads/' . $p['imagen_producto']) ?>" class="card-img-top"
+                                alt="<?= esc($p['nombre_producto']) ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= esc($p['nombre_producto']) ?></h5>
+                                <p class="card-text">$<?= number_format($p['precio_producto'], 2) ?></p>
+                                <a href="<?= base_url('producto/' . $p['id_producto']) ?>"
+                                    class="btn btn-primary btn-sm">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php endforeach; ?>
+
+        </div>
+
+        <!-- Controles -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#multiCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#multiCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <div id="multiCarousel" class="carousel slide d-lg-none " data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <?php
+                $chunked = array_chunk($productos_relacionados, 2); // 2 productos por slide
+                foreach ($chunked as $index => $grupo) : ?>
+            <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
+                <div class="row justify-content-center ">
+                    <?php foreach ($grupo as $p) : ?>
+                    <div class="col-6 ">
+                        <div class="card">
+                            <img src="<?= base_url('assets/uploads/' . $p['imagen_producto']) ?>" class="card-img-top"
+                                alt="<?= esc($p['nombre_producto']) ?>" style="width: 100%">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= esc($p['nombre_producto']) ?></h5>
+                                <p class="card-text">$<?= number_format($p['precio_producto'], 2) ?></p>
+                                <a href="<?= base_url('producto/' . $p['id_producto']) ?>"
+                                    class="btn btn-primary btn-sm">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php endforeach; ?>
+
+        </div>
+
+        <!-- Controles -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#multiCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#multiCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <?php else : ?>
+    <p>No hay productos relacionados disponibles.</p>
+    <?php endif; ?>
+</div>
+
+
 
 
 <script>

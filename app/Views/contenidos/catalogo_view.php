@@ -27,7 +27,7 @@ helper('form');
 
                 <div>
                     <?= form_dropdown(
-                        ['name' => 'marca_producto', 'class' => 'form-control'],
+                        ['name' => 'marca_producto', 'class' => 'form-control', 'id' => 'marca-dropdown'],
                         $marcas,
                         selected: esc($marca)
 
@@ -61,6 +61,7 @@ helper('form');
 
                 </div>
                 <?= form_submit(value: 'Aplicar filtros', extra: ['class' => 'btn btn-warning']) ?>
+                <button class="btn btn-primary" id="btn-restart">Reiniciar filtros</button>
             </div>
             <?= form_close() ?>
         </div>
@@ -167,11 +168,14 @@ helper('form');
     </script>
     <script>
     let $ = (string) => document.querySelector(string)
-
+    let btn_restart = $('#btn-restart');
+    let marca_dropdown = $('#marca-dropdown');
+    let max_price_input = $('#maxPrice');
+    let min_price_input = $('#minPrice');
     let tag_container = $('.tag-container');
     let categoria_dropdown = $('#categoria_dropdown');
     let categorias = ['<?= implode("', '", $categorias) ?>'];
-    const tag_id_list = ['<?= implode("', '", $categorias_seleccionadas) ?>']
+    let tag_id_list = ['<?= implode("', '", $categorias_seleccionadas) ?>']
     if (tag_id_list.includes("")) {
         tag_id_list.pop()
     }
@@ -183,7 +187,7 @@ helper('form');
 
         const tag = document.createElement('span')
         tag.textContent = categorias[id];
-        tag.className = 'rounded-pill bg-warning p-2'
+        tag.className = 'rounded-pill bg-warning p-2 categorias'
 
         const removeButton = document.createElement('button')
 
@@ -214,7 +218,7 @@ helper('form');
 
         const tag = document.createElement('span')
         tag.textContent = categorias[selected_category_id];
-        tag.className = 'rounded-pill bg-warning p-2'
+        tag.className = 'rounded-pill bg-warning p-2 categorias'
 
         const removeButton = document.createElement('button')
 
@@ -229,6 +233,16 @@ helper('form');
         tag_container.appendChild(tag)
 
     });
+
+    btn_restart.addEventListener("click", () => {
+        marca_dropdown.value = 0;
+        max_price_input.value = 999999;
+        min_price_input.value = 0;
+        let lista_categorias = document.querySelectorAll('.categorias')
+        lista_categorias.forEach((el) => {
+            el.remove()
+        })
+    })
     </script>
 
 
