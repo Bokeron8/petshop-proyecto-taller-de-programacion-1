@@ -16,12 +16,14 @@
 
         <div class="card mb-4">
             <div class="card-body">
+
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">ID Venta</th>
+
                                 <?php if ($esAdmin): ?>
+                                    <th scope="col">ID Venta</th>
                                     <th>Cliente</th>
                                 <?php endif; ?>
                                 <th scope="col">Fecha</th>
@@ -34,14 +36,14 @@
                         <tbody id="listaVentas">
                             <?php foreach ($ventas as $venta): ?>
                                 <tr>
-                                    <td><?= esc($venta['venta_id']) ?></td>
                                     <?php if ($esAdmin): ?>
+                                        <td><?= esc($venta['venta_id']) ?></td>
                                         <td><?= esc($venta['nombre_usuario']) . ' ' . esc($venta['apellido_usuario']) ?></td>
                                     <?php endif; ?>
                                     <td><?= esc($venta['venta_fecha']) ?></td>
                                     <td>$<?= number_format($venta['venta_total'], 2) ?></td>
                                     <td><?= esc($venta['venta_forma_pago']) ?></td>
-                                    <td><?= esc($venta['venta_forma_entrega']) ?></td>
+                                    <td><?= esc($venta['venta_forma_entrega'] ? "Envio" : "Retiro en local") ?></td>
                                     <td>
                                         <a href="<?= base_url('/ventas/detalle/' . $venta['venta_id']) ?>"
                                             class="btn btn-sm btn-warning">

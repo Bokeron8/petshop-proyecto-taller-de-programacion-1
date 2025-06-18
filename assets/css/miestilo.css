@@ -31,6 +31,30 @@
     font-display: sans-serif;
 }
 
+:root {
+    --bs-primary: #fd7e14; /* Naranja para el color primario */
+    --bs-primary-rgb: 253, 126, 20;
+}
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+.btn-primary:hover {
+    background-color: #e66b0e; /* Un tono más oscuro de naranja al pasar el mouse */
+    border-color: #e66b0e;
+}
+.table-primary {
+    --bs-table-bg: rgba(var(--bs-primary-rgb), 0.1);
+    --bs-table-border-color: rgba(var(--bs-primary-rgb), 0.2);
+    color: var(--bs-primary);
+}
+
 body {
     background-image: url("../img/bg2.png");
     background-color: rgba(255, 255, 255, 0.8);
