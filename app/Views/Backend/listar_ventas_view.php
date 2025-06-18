@@ -70,6 +70,7 @@
             Swal.fire({
                 title: '<i class="fa fa-paw" aria-hidden="true" style="font-size: 100px; color: orange;"></i> <h1> Gracias por tu compra! </h1>',
                 text: "Nos comunicaremos con usted a la brevedad!!",
+                timer: 2000
             });
 
         <?php endif; ?>
