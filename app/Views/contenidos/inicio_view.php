@@ -13,12 +13,19 @@ $cards = [
 ?>
 
 <section>
+    <section class="container mt-3">
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+        <?php endif; ?>
+    </section>
+
     <section class="mb-2">
         <img src="<?= base_url('assets/img/petshop_hero.png') ?>" class="d-block w-100 carousel-hero"
             alt="Portada petshop">
     </section>
 
     <section class="container mt-3 bg-translucido">
+
         <div class="row" data-aos="fade-up">
             <h1 class="text-center title">Nuestros Productos</h1>
             <?php foreach ($cards as $titulo => $value): ?>
