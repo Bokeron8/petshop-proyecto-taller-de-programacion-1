@@ -52,19 +52,6 @@ helper('form');
 
     </section>
 
-    <?php if (session()->getFlashdata('success') || session()->getFlashdata('error')): ?>
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="liveToast" class="toast align-items-center text-white <?= session()->getFlashdata('success') ? 'bg-success' : 'bg-danger' ?> border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                    <?= session()->getFlashdata('success') ?? session()->getFlashdata('error') ?>
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
-            </div>
-        </div>
-    </div>
-    <?php endif; ?>
-
 
     <section class="mt-3 ">
         <h1 class="text-center title puppy">Formulario de contacto</h1>
@@ -74,9 +61,9 @@ helper('form');
             <label for="nombre" class="form-label">Nombre:</label>
             <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre..." name="nombre">
             <?php if (isset($validation) && $validation->hasError('nombre')) : ?>
-            <div class="alert alert-danger error-container" role="alert">
-                <span><?= esc($validation->getError('nombre')) ?></span>
-            </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($validation->getError('nombre')) ?></span>
+                </div>
             <?php endif; ?>
 
         </div>
@@ -85,9 +72,9 @@ helper('form');
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                 placeholder="Ingresa tu email..." name="email">
             <?php if (isset($validation) && $validation->hasError('email')) : ?>
-            <div class="alert alert-danger error-container" role="alert">
-                <span><?= esc($validation->getError('email')) ?></span>
-            </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($validation->getError('email')) ?></span>
+                </div>
             <?php endif; ?>
 
         </div>
@@ -98,9 +85,9 @@ helper('form');
                 placeholder="Mensaje a la empresa..." name="mensaje"></textarea>
 
             <?php if (isset($validation) && $validation->hasError('mensaje')) : ?>
-            <div class="alert alert-danger error-container" role="alert">
-                <span><?= esc($validation->getError('mensaje')) ?></span>
-            </div>
+                <div class="alert alert-danger error-container" role="alert">
+                    <span><?= esc($validation->getError('mensaje')) ?></span>
+                </div>
             <?php endif; ?>
 
         </div>
@@ -112,15 +99,9 @@ helper('form');
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const toastEl = document.getElementById('liveToast');
-        if (toastEl) {
-            const toast = new bootstrap.Toast(toastEl, {
-                delay: 4000, // duración en milisegundos 
-                autohide: true
-            });
-            toast.show();
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+
+
 
         // Si se mostró un mensaje de éxito, reiniciar el formulario
         <?php if (session()->getFlashdata('success')): ?>
@@ -128,6 +109,11 @@ helper('form');
             if (form) {
                 form.reset();
             }
+            Swal.fire({
+                title: '<i class="fa fa-paw" aria-hidden="true" style="font-size: 100px; color: orange;"></i> <h1> Gracias por su mensaje! </h1>',
+                text: "Nos comunicaremos con usted a la brevedad!!",
+                timer: 2000
+            });
         <?php endif; ?>
     });
 </script>
