@@ -13,11 +13,13 @@ $cards = [
 ?>
 
 <section>
-    <section class="container mt-3">
-        <?php if (session()->getFlashdata('error')): ?>
+    <?php if (session()->getFlashdata('error')): ?>
+        <section class="container mt-3">
+
             <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
-        <?php endif; ?>
-    </section>
+
+        </section>
+    <?php endif; ?>
 
     <section class="mb-2">
         <img src="<?= base_url('assets/img/petshop_hero.png') ?>" class="d-block w-100 carousel-hero"
