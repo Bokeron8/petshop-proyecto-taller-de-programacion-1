@@ -45,6 +45,16 @@
     background-color: var(--bs-primary);
     border-color: var(--bs-primary);
 }
+.btn-ver-mas {
+    border-color: var(--bs-primary);
+    color: rgba(0, 0, 0, 0.877) !important;
+}
+
+.btn-ver-mas:hover {
+    background-color: #e66b0e; /* Un tono más oscuro de naranja al pasar el mouse */
+    border-color: #e66b0e;
+}
+
 .btn-primary:hover {
     background-color: #e66b0e; /* Un tono más oscuro de naranja al pasar el mouse */
     border-color: #e66b0e;
