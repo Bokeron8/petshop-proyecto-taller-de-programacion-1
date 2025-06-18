@@ -20,7 +20,7 @@ helper('form');
                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Filtrar por
             </button>
-            <div class="collapse" id="collapseExample">
+            <div class="collapse show" id="collapseExample">
                 <?= form_open('/productos', ['class' => 'd-flex flex-column gap-2', 'method' => 'GET']) ?>
 
 
