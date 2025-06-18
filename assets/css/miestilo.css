@@ -47,12 +47,15 @@
 }
 .btn-ver-mas {
     border-color: var(--bs-primary);
-    color: var(--bs-primary) !important;
+    color: var(--bs-primary);
+    font-weight: 500 !important;
 }
 
 .btn-ver-mas:hover {
     background-color: #ffb138; /* Un tono más oscuro de naranja al pasar el mouse */
     border-color: #ffb138;
+    color: black;
+    font-weight: 400 !important;
 }
 
 .btn-primary:hover {
