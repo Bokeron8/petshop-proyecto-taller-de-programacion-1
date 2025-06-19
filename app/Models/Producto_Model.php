@@ -89,6 +89,8 @@ class Producto_Model extends Model
           $query->orderBy('productos.nombre_producto', 'ASC');
           break;
       }
+    } else {
+      $query->orderBy('productos.nombre_producto', 'ASC');
     }
 
 
