@@ -45,7 +45,7 @@ class ProductoController extends BaseController
 
         $rules = [
             'nombre_producto' => [
-                'rules' => 'required|min_length[3]|max_length[50]',
+                'rules' => 'required|min_length[3]|max_length[100]',
                 'errors' => [
                     'required' => 'El nombre del producto es obligatorio.',
                     'min_length' => 'El nombre debe tener al menos {param} caracteres.',
@@ -53,7 +53,7 @@ class ProductoController extends BaseController
                 ]
             ],
             'descripcion_producto' => [
-                'rules' => 'required|min_length[3]|max_length[50]',
+                'rules' => 'required|min_length[3]|max_length[1000]',
                 'errors' => [
                     'required' => 'La descripción del producto es obligatoria.',
                     'min_length' => 'La descripción debe tener al menos {param} caracteres.',
@@ -246,7 +246,7 @@ class ProductoController extends BaseController
 
         $rules = [
             'nombre_producto' => [
-                'rules' => 'required|min_length[3]|max_length[50]',
+                'rules' => 'required|min_length[3]|max_length[100]',
                 'errors' => [
                     'required' => 'El nombre del producto es obligatorio.',
                     'min_length' => 'El nombre debe tener al menos {param} caracteres.',
@@ -254,7 +254,7 @@ class ProductoController extends BaseController
                 ]
             ],
             'descripcion_producto' => [
-                'rules' => 'required|min_length[3]|max_length[50]',
+                'rules' => 'required|min_length[3]|max_length[1000]',
                 'errors' => [
                     'required' => 'La descripción del producto es obligatoria.',
                     'min_length' => 'La descripción debe tener al menos {param} caracteres.',

@@ -5,24 +5,24 @@
 <div class="container mt-4 mb-5 p-4 rounded shadow-sm"
     style="background-color:rgb(238, 237, 237); border: 1px solid #e0e0e0;">
     <?php if (session()->getFlashdata('error')): ?>
-        <div class="alert alert-danger text-center fade show" role="alert">
-            <?= session()->getFlashdata('error') ?>
-        </div>
+    <div class="alert alert-danger text-center fade show" role="alert">
+        <?= session()->getFlashdata('error') ?>
+    </div>
     <?php endif; ?>
 
     <?php if (isset($validation)): ?>
-        <div class="alert alert-danger" role="alert">
-            <h4 class="alert-heading">Errores en el formulario:</h4>
-            <ul class="mb-0">
-                <?= $validation->listErrors('list') ?>
-            </ul>
-        </div>
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Errores en el formulario:</h4>
+        <ul class="mb-0">
+            <?= $validation->listErrors('list') ?>
+        </ul>
+    </div>
     <?php endif; ?>
 
     <h2 class="mb-4 text-center" style="color: #343a40;">Finalizar Compra</h2>
     <hr class="mb-4">
 
-    <?= form_open('carrito/procesarVenta', ['id' => 'checkoutForm']); ?>
+    <?= form_open('carrito/procesarVenta', ['id' => 'checkoutForm', 'novalidate' => 'novalidate']); ?>
 
     <div class="row">
         <div class="col-md-6">
@@ -30,19 +30,19 @@
 
             <div class="mb-3">
                 <label for="dni" class="form-label">DNI:</label>
-                <input type="number" name="dni" id="dni" class="form-control" placeholder="Ej: 12345678"
-                    value="<?= esc($usuario['dni_usuario'] ?? '') ?>" required min="1000000" max="99999999">
+                <input type="text" name="dni" id="dni" class="form-control" placeholder="Ej: 12345678"
+                    value="<?= esc($usuario['dni_usuario'] ?? '') ?>" pattern="^[1-9][0-9]{7}$" required>
                 <div class="invalid-feedback">
-                    Por favor, ingresa un DNI válido (8 dígitos).
+                    El DNI debe tener exactamente 8 dígitos y no comenzar con 0.
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="telefono" class="form-label">Teléfono:</label>
                 <input type="tel" name="telefono" id="telefono" class="form-control" placeholder="Ej: 3794123456"
-                    value="<?= esc($usuario['telefono_usuario'] ?? '') ?>" required>
+                    value="<?= esc($usuario['telefono_usuario'] ?? '') ?>" pattern="^[1-9][0-9]{9,10}$" required>
                 <div class="invalid-feedback">
-                    Por favor, ingresa un número de teléfono válido.
+                    El número de teléfono debe tener entre 10 y 11 dígitos, sin el +54.
                 </div>
             </div>
 
@@ -120,121 +120,5 @@
 
     <?= form_close(); ?>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-
-        const checkoutForm = document.getElementById('checkoutForm');
-        const domicilioInput = document.getElementById('domicilio');
-        const envioDomicilioRadio = document.getElementById('envioDomicilio');
-        const retiroLocalRadio = document.getElementById('retiroLocal');
-
-        // Function to toggle domicilio field requirement
-        function toggleDomicilioRequirement() {
-            if (envioDomicilioRadio.checked) {
-                domicilioInput.setAttribute('required', 'required');
-                domicilioInput.parentNode.classList.remove('d-none'); // Show parent div if hidden
-            } else {
-                domicilioInput.removeAttribute('required');
-                domicilioInput.classList.remove('is-invalid'); // Clear validation if no longer required
-                domicilioInput.parentNode.classList.add('d-none'); // Hide parent div
-            }
-        }
-
-        // Initial state based on pre-selected radio or default
-        toggleDomicilioRequirement();
-
-        // Add event listeners to radio buttons
-        envioDomicilioRadio.addEventListener('change', toggleDomicilioRequirement);
-        retiroLocalRadio.addEventListener('change', toggleDomicilioRequirement);
-
-        checkoutForm.addEventListener('submit', function(event) {
-            let isValid = true;
-
-            // Clear previous validation messages
-            checkoutForm.querySelectorAll('.is-invalid').forEach(element => {
-                element.classList.remove('is-invalid');
-            });
-            checkoutForm.querySelectorAll('.invalid-feedback').forEach(element => {
-                element.style.display = 'none';
-            });
-
-            // Validate DNI
-            const dni = document.getElementById('dni');
-            if (!dni.value || dni.value.length < 7 || dni.value.length >
-                8) { // Assuming DNI is 7 or 8 digits
-                dni.classList.add('is-invalid');
-                dni.nextElementSibling.style.display = 'block';
-                isValid = false;
-            }
-
-            // Validate Teléfono (basic check for non-empty)
-            const telefono = document.getElementById('telefono');
-            if (!telefono.value.trim()) {
-                telefono.classList.add('is-invalid');
-                telefono.nextElementSibling.style.display = 'block';
-                isValid = false;
-            }
-
-            // Validate Domicilio if "Envío a domicilio" is selected
-            if (envioDomicilioRadio.checked && !domicilioInput.value.trim()) {
-                domicilioInput.classList.add('is-invalid');
-                domicilioInput.nextElementSibling.style.display = 'block';
-                isValid = false;
-            }
-
-            // Validate Forma de pago
-            const formaPago = document.getElementById('forma_pago');
-            if (!formaPago.value) {
-                formaPago.classList.add('is-invalid');
-                formaPago.nextElementSibling.style.display = 'block';
-                isValid = false;
-            }
-
-            // Validate Forma de entrega
-            const formaEntregaRadios = document.querySelectorAll('input[name="forma_entrega"]');
-            let formaEntregaSelected = false;
-            for (const radio of formaEntregaRadios) {
-                if (radio.checked) {
-                    formaEntregaSelected = true;
-                    break;
-                }
-            }
-            if (!formaEntregaSelected) {
-                // Find the closest invalid-feedback for the radio group and show it
-                document.querySelector('.form-check-inline .invalid-feedback').style.display = 'block';
-                isValid = false;
-            }
-
-
-            // Validate Terms & Conditions
-            const termsCheck = document.getElementById('termsCheck');
-            if (!termsCheck.checked) {
-                termsCheck.classList.add('is-invalid');
-                termsCheck.nextElementSibling.style.display = 'block';
-                isValid = false;
-            }
-
-            // Validate Data Confirmation
-            const confirmacionCheck = document.getElementById('confirmacionCheck');
-            if (!confirmacionCheck.checked) {
-                confirmacionCheck.classList.add('is-invalid');
-                confirmacionCheck.nextElementSibling.style.display = 'block';
-                isValid = false;
-            }
-
-            if (!isValid) {
-                event.preventDefault(); // Prevent form submission
-            } else {
-                // Optionally, disable the submit button to prevent double submission
-                const submitButton = checkoutForm.querySelector('button[type="submit"]');
-                submitButton.disabled = true;
-                submitButton.textContent = 'Procesando...';
-
-            }
-        });
-    });
-</script>
 
 <?= $this->endSection(); ?>

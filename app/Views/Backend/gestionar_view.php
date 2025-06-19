@@ -13,9 +13,10 @@
                 <select name="categoria" id="categoria" class="form-select">
                     <option value="">-- Todas --</option>
                     <?php foreach ($categorias as $categoria): ?>
-                        <option value="<?= $categoria['id_categoria'] ?>" <?= ($categoriaSeleccionada == $categoria['id_categoria']) ? 'selected' : '' ?>>
-                            <?= esc($categoria['descripcion_categoria']) ?>
-                        </option>
+                    <option value="<?= $categoria['id_categoria'] ?>"
+                        <?= ($categoriaSeleccionada == $categoria['id_categoria']) ? 'selected' : '' ?>>
+                        <?= esc($categoria['descripcion_categoria']) ?>
+                    </option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -23,8 +24,7 @@
             <!-- Búsqueda por nombre -->
             <div class="col-md-4">
                 <label for="nombre">Buscar por nombre:</label>
-                <input type="text" name="nombre" id="nombre" class="form-control"
-                    value="<?= esc($nombreBuscado) ?>">
+                <input type="text" name="nombre" id="nombre" class="form-control" value="<?= esc($nombreBuscado) ?>">
             </div>
 
             <!-- Botón de búsqueda -->
@@ -49,31 +49,38 @@
         </thead>
         <tbody>
             <?php foreach ($productos as $producto): ?>
-                <tr>
-                    <td><?= esc($producto['nombre_producto']) ?></td>
-                    <td><?= esc($producto['descripcion_producto']) ?></td>
-                    <td><?= esc($producto['descripcion_marca']) ?></td>
-                    <td><?= esc($producto['descripcion_categoria']) ?></td>
-                    <td><?= esc($producto['stock_producto']) ?></td>
-                    <td>$<?= number_format($producto['precio_producto'], 2) ?></td>
-                    <td>
-                        <img src="<?= base_url('assets/uploads/' . $producto['imagen_producto']) ?>" alt="Imagen producto"
-                            width="100">
-                    </td>
-                    <td>
-                        <a class="btn btn-warning"
-                            href="<?= base_url('admin/editar-producto/' . $producto['id_producto']) ?>">Editar</a>
-                    </td>
-                    <td>
-                        <?php if ($producto['estado_producto'] == 1): ?>
-                            <a class="btn btn-success"
-                                href="<?= base_url('admin/desactivar/' . $producto['id_producto']) ?>">Eliminar</a>
-                        <?php else: ?>
-                            <a class="btn btn-danger"
-                                href="<?= base_url('admin/activar/' . $producto['id_producto']) ?>">Activar</a>
-                        <?php endif; ?>
-                    </td>
-                </tr>
+            <tr>
+                <td><?= esc($producto['nombre_producto']) ?></td>
+                <td>
+                    <span style="overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;"><?= esc($producto['descripcion_producto']) ?>
+                    </span>
+                </td>
+                <td><?= esc($producto['descripcion_marca']) ?></td>
+                <td><?= esc($producto['descripcion_categoria']) ?></td>
+                <td><?= esc($producto['stock_producto']) ?></td>
+                <td>$<?= number_format($producto['precio_producto'], 2) ?></td>
+                <td>
+                    <img src="<?= base_url('assets/uploads/' . $producto['imagen_producto']) ?>" alt="Imagen producto"
+                        width="100">
+                </td>
+                <td>
+                    <a class="btn btn-warning"
+                        href="<?= base_url('admin/editar-producto/' . $producto['id_producto']) ?>">Editar</a>
+                </td>
+                <td>
+                    <?php if ($producto['estado_producto'] == 1): ?>
+                    <a class="btn btn-success"
+                        href="<?= base_url('admin/desactivar/' . $producto['id_producto']) ?>">Eliminar</a>
+                    <?php else: ?>
+                    <a class="btn btn-danger"
+                        href="<?= base_url('admin/activar/' . $producto['id_producto']) ?>">Activar</a>
+                    <?php endif; ?>
+                </td>
+            </tr>
             <?php endforeach; ?>
         </tbody>
     </table>

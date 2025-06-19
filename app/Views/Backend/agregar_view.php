@@ -19,7 +19,20 @@ body {
             <i class="fa fa-paw title" style="font-size: 64px;" aria-hidden="true"></i>
 
 
+            <?php if (session()->getFlashdata('error')): ?>
+            <section class="container mt-3">
 
+                <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+
+            </section>
+            <?php endif; ?>
+            <?php if (session()->getFlashdata('success')): ?>
+            <section class="container mt-3">
+
+                <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+
+            </section>
+            <?php endif; ?>
             <h1 class="h3 mb-3 fw-normal ">Agregar producto</h1>
         </div>
 

@@ -32,19 +32,24 @@
 }
 
 :root {
-    --bs-primary: #fd7e14; /* Naranja para el color primario */
+    --bs-primary: #fd7e14;
+    /* Naranja para el color primario */
     --bs-primary-rgb: 253, 126, 20;
 }
+
 .bg-primary {
     background-color: var(--bs-primary) !important;
 }
+
 .text-primary {
     color: var(--bs-primary) !important;
 }
+
 .btn-primary {
     background-color: var(--bs-primary);
     border-color: var(--bs-primary);
 }
+
 .btn-ver-mas {
     border-color: var(--bs-primary);
     color: var(--bs-primary);
@@ -52,16 +57,19 @@
 }
 
 .btn-ver-mas:hover {
-    background-color: #ffb138; /* Un tono más oscuro de naranja al pasar el mouse */
+    background-color: #ffb138;
+    /* Un tono más oscuro de naranja al pasar el mouse */
     border-color: #ffb138;
     color: black;
     font-weight: 400 !important;
 }
 
 .btn-primary:hover {
-    background-color: #e66b0e; /* Un tono más oscuro de naranja al pasar el mouse */
+    background-color: #e66b0e;
+    /* Un tono más oscuro de naranja al pasar el mouse */
     border-color: #e66b0e;
 }
+
 .table-primary {
     --bs-table-bg: rgba(var(--bs-primary-rgb), 0.1);
     --bs-table-border-color: rgba(var(--bs-primary-rgb), 0.2);
@@ -74,7 +82,7 @@ body {
     background-blend-mode: hard-light;
 }
 
-div.content > * {
+div.content>* {
     margin-bottom: 1rem;
 }
 
@@ -212,31 +220,54 @@ div.content > * {
     /* Ajusta padding si quieres */
 }
 
+
 /* custom.css */
 
+
 /* Estilos para checkboxes y radios de Bootstrap */
+
 .form-check-input {
-    border: 1px solid #ced4da; /* Un borde gris claro para distinguirlos del fondo */
+    border: 1px solid #ced4da;
+    /* Un borde gris claro para distinguirlos del fondo */
     /* Puedes ajustar el color si lo necesitas, por ejemplo: #999 */
 }
 
+
 /* Opcional: Cuando están enfocados (tab), mejora el contraste del borde */
+
 .form-check-input:focus {
-    border-color: #80bdff; /* Color de foco por defecto de Bootstrap */
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Sombra de foco de Bootstrap */
+    border-color: #80bdff;
+    /* Color de foco por defecto de Bootstrap */
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    /* Sombra de foco de Bootstrap */
 }
 
+
 /* Opcional: Cuando están deshabilitados, para que sigan siendo visibles */
+
 .form-check-input:disabled {
     border-color: #e9ecef;
     background-color: #e9ecef;
 }
 
+
 /* Si quieres que el "check" o el "punto" sean de un color específico al estar marcados */
+
 .form-check-input:checked {
-    background-color: #0d6efd; /* Color azul por defecto de Bootstrap para el marcado */
-    border-color: #0d6efd; /* Asegura que el borde también sea del color de acento */
+    background-color: #0d6efd;
+    /* Color azul por defecto de Bootstrap para el marcado */
+    border-color: #0d6efd;
+    /* Asegura que el borde también sea del color de acento */
     /* Si tu tema usa verde (como el botón de confirmar compra), podrías usar: */
     /* background-color: #28a745; */
     /* border-color: #28a745; */
+}
+
+.card-title {
+    /* limitar máximo 2 líneas */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }

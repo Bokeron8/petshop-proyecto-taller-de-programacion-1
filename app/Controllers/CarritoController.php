@@ -107,13 +107,51 @@ class CarritoController extends BaseController
 
         // Validación de los datos
         $rules = [
-            'dni'           => 'required|numeric|min_length[7]|max_length[8]',
-            'telefono'      => 'required|numeric|exact_length[10]',
-            'direccion'     => 'required|min_length[5]',
-            'forma_pago'    => 'required',
-            'forma_entrega' => 'required|in_list[0,1]',
-            'confirmacion'  => 'required'
+            'dni' => [
+                'rules' => 'required|numeric|min_length[7]|max_length[8]',
+                'errors' => [
+                    'required'   => 'El DNI es obligatorio.',
+                    'numeric'    => 'El DNI debe contener solo números.',
+                    'min_length' => 'El DNI debe tener al menos {param} dígitos.',
+                    'max_length' => 'El DNI no puede tener más de {param} dígitos.'
+                ]
+            ],
+            'telefono' => [
+                'rules' => 'required|numeric|exact_length[10]',
+                'errors' => [
+                    'required'     => 'El número de teléfono es obligatorio.',
+                    'numeric'      => 'El teléfono debe contener solo números.',
+                    'exact_length' => 'El teléfono debe tener exactamente {param} dígitos.'
+                ]
+            ],
+            'direccion' => [
+                'rules' => 'required|min_length[5]',
+                'errors' => [
+                    'required'   => 'La dirección es obligatoria.',
+                    'min_length' => 'La dirección debe tener al menos {param} caracteres.'
+                ]
+            ],
+            'forma_pago' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes seleccionar una forma de pago.'
+                ]
+            ],
+            'forma_entrega' => [
+                'rules' => 'required|in_list[0,1]',
+                'errors' => [
+                    'required' => 'Debes seleccionar una forma de entrega.',
+                    'in_list'  => 'La forma de entrega seleccionada no es válida.'
+                ]
+            ],
+            'confirmacion' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Debes confirmar que tus datos son correctos.'
+                ]
+            ]
         ];
+
 
         if (!$this->validate($rules)) {
             return view('contenidos/checkout_view', [

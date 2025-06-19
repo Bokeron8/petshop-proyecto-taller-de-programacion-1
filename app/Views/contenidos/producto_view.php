@@ -14,13 +14,22 @@
     object-fit: cover;
     border-radius: 10px;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+    /* Fondo oscuro semitransparente */
+    top: 45%;
+    height: 40px;
+    width: 40px;
+
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fondo oscuro semitransparente */
     background-size: 100% 100%;
+    border-radius: 50%;
 }
 </style>
 
@@ -74,7 +83,7 @@
     <?php if (!empty($productos_relacionados)) : ?>
 
 
-    <div id="multiCarousel" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
+    <div id="carouselGrande" class="carousel slide d-none d-md-block" data-bs-ride="carousel">
         <div class="carousel-inner">
 
             <?php
@@ -83,16 +92,20 @@
             <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
                 <div class="row justify-content-center">
                     <?php foreach ($grupo as $p) : ?>
-                    <div class="col-12 col-md-6 col-lg-3 mb-3">
-                        <div class="card h-100">
+                    <div class="col-3 mb-3 d-flex" style="height: 80%;">
+
+                        <div class="card w-100 d-flex flex-column">
                             <img src="<?= base_url('assets/uploads/' . $p['imagen_producto']) ?>" class="card-img-top"
-                                alt="<?= esc($p['nombre_producto']) ?>">
-                            <div class="card-body">
+                                alt="<?= esc($p['nombre_producto']) ?>"
+                                style="width: 100%; aspect-ratio: 14/16; object-fit: cover;">
+
+                            <div class="card-body d-flex flex-column justify-content-between">
                                 <h5 class="card-title"><?= esc($p['nombre_producto']) ?></h5>
                                 <p class="card-text">$<?= number_format($p['precio_producto'], 2) ?></p>
                                 <a href="<?= base_url('producto/' . $p['id_producto']) ?>"
-                                    class="btn btn-primary btn-sm">Ver más</a>
+                                    class="btn btn-primary btn-sm mt-auto">Ver más</a>
                             </div>
+
                         </div>
                     </div>
                     <?php endforeach; ?>
@@ -103,14 +116,15 @@
         </div>
 
         <!-- Controles -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#multiCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGrande" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#multiCarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselGrande" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
         </button>
+
     </div>
-    <div id="multiCarousel" class="carousel slide d-lg-none " data-bs-ride="carousel">
+    <div id="multiCarousel" class="carousel slide d-md-none " data-bs-ride="carousel">
         <div class="carousel-inner">
 
             <?php
@@ -119,18 +133,21 @@
             <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
                 <div class="row justify-content-center ">
                     <?php foreach ($grupo as $p) : ?>
-                    <div class="col-6 ">
-                        <div class="card">
+                    <div class="col-6 d-flex">
+                        <div class="card w-100 d-flex flex-column">
                             <img src="<?= base_url('assets/uploads/' . $p['imagen_producto']) ?>" class="card-img-top"
-                                alt="<?= esc($p['nombre_producto']) ?>" style="width: 100%">
-                            <div class="card-body">
+                                alt="<?= esc($p['nombre_producto']) ?>"
+                                style="width: 100%; aspect-ratio: 14/16; object-fit: cover;">
+
+                            <div class="card-body d-flex flex-column justify-content-between">
                                 <h5 class="card-title"><?= esc($p['nombre_producto']) ?></h5>
                                 <p class="card-text">$<?= number_format($p['precio_producto'], 2) ?></p>
                                 <a href="<?= base_url('producto/' . $p['id_producto']) ?>"
-                                    class="btn btn-primary btn-sm">Ver más</a>
+                                    class="btn btn-primary btn-sm mt-auto">Ver más</a>
                             </div>
                         </div>
                     </div>
+
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -145,6 +162,7 @@
         <button class="carousel-control-next" type="button" data-bs-target="#multiCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
         </button>
+
     </div>
 
     <?php else : ?>

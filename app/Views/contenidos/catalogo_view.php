@@ -83,39 +83,44 @@ helper('form');
         <div class="col-lg-9 col-12">
 
             <div class="row" style="--bs-gutter-x: 0.5rem;">
+                <?php if (empty($productos)) : ?>
+                <div class="col-12 text-center bg-translucido">
+                    <h1>No se encontraron productos.</p>
+                </div>
+                <?php else : ?>
                 <?php foreach ($productos as $producto): ?>
-                    <div class="col-md-3 col-lg-3 col-6 mb-2">
-                        <div class="card h-100 mw-50">
-                            <img src="<?= base_url('assets/uploads/' . $producto['imagen_producto']) ?>"
-                                class="card-img-top carta-productos">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title sans-deva" style="font-weight: 500;">
-                                    <?= $producto['nombre_producto'] ?></h5>
+                <div class="col-md-3 col-lg-3 col-6 mb-2">
+                    <div class="card h-100 mw-50">
+                        <img src="<?= base_url('assets/uploads/' . $producto['imagen_producto']) ?>"
+                            class="card-img-top carta-productos">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title sans-deva" style="font-weight: 500;">
+                                <?= $producto['nombre_producto'] ?></h5>
 
 
-                                <h6 class="card-subtitle mb-2 text-body-secondary mt-auto">Stock:
-                                    <?= $producto['stock_producto']; ?></h6>
-                                <h6 class="card-subtitle mb-2 text-body-secondary ">Precio:
-                                    $<?= $producto['precio_producto']; ?></h6>
-                                <a href="<?= base_url('producto/' . $producto['id_producto']) ?>"
-                                    class="btn btn-ver-mas sans-deva mb-2">Ver más</a>
+                            <h6 class="card-subtitle mb-2 text-body-secondary mt-auto">Stock:
+                                <?= $producto['stock_producto']; ?></h6>
+                            <h6 class="card-subtitle mb-2 text-body-secondary ">Precio:
+                                $<?= $producto['precio_producto']; ?></h6>
+                            <a href="<?= base_url('producto/' . $producto['id_producto']) ?>"
+                                class="btn btn-ver-mas sans-deva mb-2">Ver más</a>
 
-                                <?php if (session('usuario')) : ?>
-                                    <?= form_open('/agregar-carrito', ['class' => 'formAgregarCarrito ']); ?>
-                                    <?= form_hidden('id', $producto['id_producto']) ?>
-                                    <?= form_hidden('nombre', $producto['nombre_producto']) ?>
-                                    <?= form_hidden('precio', $producto['precio_producto']) ?>
-                                    <?= form_hidden('imagen', 'assets/uploads/' . $producto['imagen_producto']) ?>
-                                    <?= form_submit('agregar', 'Agregar al carrito', ['class' => 'btn btn-warning sans-deva btn-agregar w-100']) ?>
-                                    <?= form_close() ?>
-                                <?php endif; ?>
+                            <?php if (session('usuario')) : ?>
+                            <?= form_open('/agregar-carrito', ['class' => 'formAgregarCarrito ']); ?>
+                            <?= form_hidden('id', $producto['id_producto']) ?>
+                            <?= form_hidden('nombre', $producto['nombre_producto']) ?>
+                            <?= form_hidden('precio', $producto['precio_producto']) ?>
+                            <?= form_hidden('imagen', 'assets/uploads/' . $producto['imagen_producto']) ?>
+                            <?= form_submit('agregar', 'Agregar al carrito', ['class' => 'btn btn-warning sans-deva btn-agregar w-100']) ?>
+                            <?= form_close() ?>
+                            <?php endif; ?>
 
-                            </div>
                         </div>
                     </div>
+                </div>
                 <?php endforeach ?>
 
-
+                <?php endif ?>
             </div>
 
 
@@ -138,126 +143,126 @@ helper('form');
 
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const forms = document.querySelectorAll(".formAgregarCarrito");
-            const toastElement = document.getElementById("carritoToast");
-            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastElement);
+    document.addEventListener("DOMContentLoaded", function() {
+        const forms = document.querySelectorAll(".formAgregarCarrito");
+        const toastElement = document.getElementById("carritoToast");
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastElement);
 
-            forms.forEach(form => {
-                form.addEventListener("submit", function(e) {
-                    e.preventDefault();
+        forms.forEach(form => {
+            form.addEventListener("submit", function(e) {
+                e.preventDefault();
 
-                    const submitButton = form.querySelector(".btn-agregar");
-                    const originalText = submitButton.textContent;
+                const submitButton = form.querySelector(".btn-agregar");
+                const originalText = submitButton.textContent;
 
-                    submitButton.disabled = true;
-                    submitButton.textContent = "Agregando...";
+                submitButton.disabled = true;
+                submitButton.textContent = "Agregando...";
 
-                    const formData = new FormData(form);
+                const formData = new FormData(form);
 
-                    fetch("<?= base_url('/agregar-carrito') ?>", {
-                            method: "POST",
-                            body: formData
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                toastBootstrap.show(); // 🎉 Mostrar toast aquí
-                            } else {
-                                alert("No se pudo agregar el producto");
-                            }
-                        })
-                        .catch(error => {
-                            console.error("Error al agregar al carrito:", error);
-                            alert("Error en la solicitud.");
-                        })
-                        .finally(() => {
-                            submitButton.disabled = false;
-                            submitButton.textContent = originalText;
-                        });
-                });
+                fetch("<?= base_url('/agregar-carrito') ?>", {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            toastBootstrap.show(); // 🎉 Mostrar toast aquí
+                        } else {
+                            alert("No se pudo agregar el producto");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error al agregar al carrito:", error);
+                        alert("Error en la solicitud.");
+                    })
+                    .finally(() => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalText;
+                    });
             });
         });
+    });
     </script>
     <script>
-        let $ = (string) => document.querySelector(string)
-        let btn_restart = $('#btn-restart');
-        let marca_dropdown = $('#marca-dropdown');
-        let max_price_input = $('#maxPrice');
-        let min_price_input = $('#minPrice');
-        let nombre_producto_input = $('#nombre_producto');
-        let tag_container = $('.tag-container');
-        let categoria_dropdown = $('#categoria_dropdown');
-        let categorias = ['<?= implode("', '", $categorias) ?>'];
-        let tag_id_list = ['<?= implode("', '", $categorias_seleccionadas) ?>']
-        if (tag_id_list.includes("")) {
-            tag_id_list.pop()
+    let $ = (string) => document.querySelector(string)
+    let btn_restart = $('#btn-restart');
+    let marca_dropdown = $('#marca-dropdown');
+    let max_price_input = $('#maxPrice');
+    let min_price_input = $('#minPrice');
+    let nombre_producto_input = $('#nombre_producto');
+    let tag_container = $('.tag-container');
+    let categoria_dropdown = $('#categoria_dropdown');
+    let categorias = ['<?= implode("', '", $categorias) ?>'];
+    let tag_id_list = ['<?= implode("', '", $categorias_seleccionadas) ?>']
+    if (tag_id_list.includes("")) {
+        tag_id_list.pop()
+    }
+    tag_id_list.forEach(id => {
+        const hiddenInput = document.createElement('input')
+        hiddenInput.type = 'hidden';
+        hiddenInput.value = id;
+        hiddenInput.name = 'categoria_producto[]'
+
+        const tag = document.createElement('span')
+        tag.textContent = categorias[id];
+        tag.className = 'rounded-pill bg-warning p-2 categorias'
+
+        const removeButton = document.createElement('button')
+
+        removeButton.className = 'bg-transparent border-0 fa fa-times'
+        removeButton.addEventListener('click', () => {
+            tag_id_list.splice(tag_id_list.indexOf(id), 1)
+            tag.remove()
+        });
+
+        tag.appendChild(removeButton)
+        tag.appendChild(hiddenInput)
+        tag_container.appendChild(tag)
+    });
+
+    tag_id_list.push('0')
+
+    categoria_dropdown.addEventListener("click", (e) => {
+        const selected_category_id = e.target.value
+        if (tag_id_list.includes(selected_category_id)) {
+            return
         }
-        tag_id_list.forEach(id => {
-            const hiddenInput = document.createElement('input')
-            hiddenInput.type = 'hidden';
-            hiddenInput.value = id;
-            hiddenInput.name = 'categoria_producto[]'
+        tag_id_list.push(selected_category_id)
 
-            const tag = document.createElement('span')
-            tag.textContent = categorias[id];
-            tag.className = 'rounded-pill bg-warning p-2 categorias'
+        const hiddenInput = document.createElement('input')
+        hiddenInput.type = 'hidden';
+        hiddenInput.value = selected_category_id;
+        hiddenInput.name = 'categoria_producto[]'
 
-            const removeButton = document.createElement('button')
+        const tag = document.createElement('span')
+        tag.textContent = categorias[selected_category_id];
+        tag.className = 'rounded-pill bg-warning p-2 categorias'
 
-            removeButton.className = 'bg-transparent border-0 fa fa-times'
-            removeButton.addEventListener('click', () => {
-                tag_id_list.splice(tag_id_list.indexOf(id), 1)
-                tag.remove()
-            });
+        const removeButton = document.createElement('button')
 
-            tag.appendChild(removeButton)
-            tag.appendChild(hiddenInput)
-            tag_container.appendChild(tag)
+        removeButton.className = 'bg-transparent border-0 fa fa-times'
+        removeButton.addEventListener('click', () => {
+            tag_id_list.splice(tag_id_list.indexOf(selected_category_id), 1)
+            tag.remove()
         });
 
-        tag_id_list.push('0')
+        tag.appendChild(removeButton)
+        tag.appendChild(hiddenInput)
+        tag_container.appendChild(tag)
 
-        categoria_dropdown.addEventListener("click", (e) => {
-            const selected_category_id = e.target.value
-            if (tag_id_list.includes(selected_category_id)) {
-                return
-            }
-            tag_id_list.push(selected_category_id)
+    });
 
-            const hiddenInput = document.createElement('input')
-            hiddenInput.type = 'hidden';
-            hiddenInput.value = selected_category_id;
-            hiddenInput.name = 'categoria_producto[]'
-
-            const tag = document.createElement('span')
-            tag.textContent = categorias[selected_category_id];
-            tag.className = 'rounded-pill bg-warning p-2 categorias'
-
-            const removeButton = document.createElement('button')
-
-            removeButton.className = 'bg-transparent border-0 fa fa-times'
-            removeButton.addEventListener('click', () => {
-                tag_id_list.splice(tag_id_list.indexOf(selected_category_id), 1)
-                tag.remove()
-            });
-
-            tag.appendChild(removeButton)
-            tag.appendChild(hiddenInput)
-            tag_container.appendChild(tag)
-
-        });
-
-        btn_restart.addEventListener("click", () => {
-            marca_dropdown.value = 0;
-            max_price_input.value = "";
-            min_price_input.value = "";
-            nombre_producto_input.value = "";
-            let lista_categorias = document.querySelectorAll('.categorias')
-            lista_categorias.forEach((el) => {
-                el.remove()
-            })
+    btn_restart.addEventListener("click", () => {
+        marca_dropdown.value = 0;
+        max_price_input.value = "";
+        min_price_input.value = "";
+        nombre_producto_input.value = "";
+        let lista_categorias = document.querySelectorAll('.categorias')
+        lista_categorias.forEach((el) => {
+            el.remove()
         })
+    })
     </script>
 
 
