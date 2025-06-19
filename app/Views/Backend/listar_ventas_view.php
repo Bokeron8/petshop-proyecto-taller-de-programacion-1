@@ -13,7 +13,11 @@
     <?php endif; ?>
 
     <?php if (empty($ventas)): ?>
-        <div class="alert alert-warning">No hay ventas registradas.</div>
+        <?php if ($esAdmin): ?>
+            <div class="alert alert-warning">No hay ventas registradas.</div>
+        <?php else: ?>
+            <div class="alert alert-warning">No hay compras registradas.</div>
+        <?php endif; ?>
     <?php else: ?>
 
 
@@ -33,7 +37,7 @@
                                 <th scope="col">Total</th>
                                 <th scope="col">Forma de Pago</th>
                                 <th scope="col">Forma de Entrega</th>
-                                <th scope="col">Acciones</th>
+                                <th scope="col">Detalles</th>
                             </tr>
                         </thead>
                         <tbody id="listaVentas">

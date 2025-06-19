@@ -14,6 +14,14 @@
     object-fit: cover;
     border-radius: 10px;
 }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-size: 100% 100%;
+}
 </style>
 
 <div class="container mt-4">
@@ -24,7 +32,7 @@
         </div>
         <div class="col-md-7 bg-translucido">
             <h2><?= esc($producto['nombre_producto']) ?></h2>
-            <p>Descripcion: <?= esc($producto['descripcion_producto']) ?></p>
+            <p><strong>Descripcion</strong>: <?= esc($producto['descripcion_producto']) ?></p>
             <p><strong>Precio:</strong> $ <?= number_format($producto['precio_producto'], 2) ?></p>
             <p><strong>Stock:</strong> <?= esc($producto['stock_producto']) ?> unidades</p>
 
@@ -62,7 +70,7 @@
 </div>
 
 <div class="container mt-5">
-    <h4 class="mb-3">Productos relacionados</h4>
+    <h2 class="mb-3 title bg-translucido">Productos relacionados</h2>
     <?php if (!empty($productos_relacionados)) : ?>
 
 

@@ -5,6 +5,34 @@
 
 <h1 class="text-center title mt-3 bg-translucido">Listado de Productos</h1>
 <div class="container overflow-x-auto">
+    <form method="GET" action="<?= base_url('admin/gestionar-productos') ?>" class="mb-3 bg-translucido">
+        <div class="row">
+            <!-- Filtro por categoría -->
+            <div class="col-md-4">
+                <label for="categoria bg">Filtrar por categoría:</label>
+                <select name="categoria" id="categoria" class="form-select">
+                    <option value="">-- Todas --</option>
+                    <?php foreach ($categorias as $categoria): ?>
+                        <option value="<?= $categoria['id_categoria'] ?>" <?= ($categoriaSeleccionada == $categoria['id_categoria']) ? 'selected' : '' ?>>
+                            <?= esc($categoria['descripcion_categoria']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <!-- Búsqueda por nombre -->
+            <div class="col-md-4">
+                <label for="nombre">Buscar por nombre:</label>
+                <input type="text" name="nombre" id="nombre" class="form-control"
+                    value="<?= esc($nombreBuscado) ?>">
+            </div>
+
+            <!-- Botón de búsqueda -->
+            <div class="col-md-2 align-self-end mt-1">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+    </form>
     <table class="table table-bordered table-striped table-hover">
         <thead>
             <tr>
