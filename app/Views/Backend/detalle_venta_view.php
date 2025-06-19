@@ -4,7 +4,7 @@
 <div class="container mt-5 text-light">
 
     <div class="container mt-4">
-        <h2 class="mb-4 text-primary">Detalle de la Venta #<span id="ventaId"><?= esc($venta['venta_id']) ?></span></h2>
+        <h2 class="mb-4 text-primary bg-translucido">Detalle de la Venta #<span id="ventaId"><?= esc($venta['venta_id']) ?></span></h2>
 
         <!-- Sección de Información de la Venta -->
         <div class="card mb-4">
@@ -70,8 +70,8 @@
                             <?php foreach ($detalles as $detalle): ?>
                                 <tr>
                                     <td><?= esc($detalle['nombre_producto']) ?></td>
-                                    <td>$<?= number_format($detalle['detalle_precio'], 2) ?></td>
                                     <td><?= esc($detalle['detalle_cantidad']) ?></td>
+                                    <td>$<?= number_format($detalle['detalle_precio'], 2) ?></td>
                                     <td>$<?= number_format($detalle['detalle_subtotal'], 2) ?></td>
                                 </tr>
                             <?php endforeach; ?>

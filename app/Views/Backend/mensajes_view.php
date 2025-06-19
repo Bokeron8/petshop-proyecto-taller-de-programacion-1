@@ -15,7 +15,7 @@
             <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" value="<?= esc($fecha_fin) ?>">
         </div>
         <div class="col-md-2 d-flex align-items-end">
-            <button type="submit" class="btn btn-warning w-100">Filtrar</button>
+            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
         </div>
     </form>
 
