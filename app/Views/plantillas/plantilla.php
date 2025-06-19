@@ -1,14 +1,14 @@
 <?php
 $data = [
-    'titulo' => $title
+  'titulo' => $title
 ];
 
 echo view("plantillas/header_view", $data) ?>
 <?php echo view("plantillas/nav_view") ?>
 
-<div class="content" style="min-height: auto;">
+<div class="content flex-fill">
 
-    <?= $this->renderSection('content'); ?>
+  <?= $this->renderSection('content'); ?>
 </div>
 
 
