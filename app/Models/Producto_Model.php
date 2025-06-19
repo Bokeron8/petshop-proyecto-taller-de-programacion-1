@@ -62,6 +62,11 @@ class Producto_Model extends Model
             $query->like('productos.nombre', $filtros['nombre']);
         }
 
+        if (!empty($filtros['excluir_id'])) {
+            $query->where('productos.id_producto !=', $filtros['excluir_id']);
+        }
+
+
 
         return $query->get()->getResultArray();
     }

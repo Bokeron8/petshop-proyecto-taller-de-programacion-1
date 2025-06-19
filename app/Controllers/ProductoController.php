@@ -329,7 +329,7 @@ class ProductoController extends BaseController
 
 
 
-        $filtros = ['categorias_id' => $categoriaIDs];
+        $filtros = ['categorias_id' => $categoriaIDs, 'excluir_id' => $id];
         $productosRelacionados = $productoModel->getProductosFiltrados($filtros);
 
         if (!$producto) {
