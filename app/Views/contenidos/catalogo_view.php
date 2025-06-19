@@ -22,6 +22,19 @@ helper('form');
             </button>
             <div class="collapse show" id="collapseExample">
                 <?= form_open('/productos', ['class' => 'd-flex flex-column gap-2', 'method' => 'GET']) ?>
+                <div>
+                    <label for="nombre_producto" class="form-label">Buscar por nombre</label>
+                    <?= form_input(
+                        [
+                            'name' => 'nombre',
+                            'id' => 'nombre_producto',
+                            'type' => 'text',
+                            'class' => 'form-control',
+                            'placeholder' => 'Ej: pelota'
+                        ],
+                        value: esc($nombre)
+                    ) ?>
+                </div>
 
 
 
@@ -172,6 +185,7 @@ helper('form');
         let marca_dropdown = $('#marca-dropdown');
         let max_price_input = $('#maxPrice');
         let min_price_input = $('#minPrice');
+        let nombre_producto_input = $('#nombre_producto');
         let tag_container = $('.tag-container');
         let categoria_dropdown = $('#categoria_dropdown');
         let categorias = ['<?= implode("', '", $categorias) ?>'];
@@ -238,6 +252,7 @@ helper('form');
             marca_dropdown.value = 0;
             max_price_input.value = "";
             min_price_input.value = "";
+            nombre_producto_input.value = "";
             let lista_categorias = document.querySelectorAll('.categorias')
             lista_categorias.forEach((el) => {
                 el.remove()

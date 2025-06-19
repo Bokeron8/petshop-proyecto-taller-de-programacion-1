@@ -82,7 +82,7 @@ class Home extends BaseController
         $categoriasId = $this->request->getGet('categoria_producto') ?? [];
         $minPrice = $this->request->getGet('min_price') ?? "";
         $maxPrice = $this->request->getGet('max_price') ?? "";
-
+        $nombre = $this->request->getGet("nombre") ?? "";
 
         // Puedes pasarlos a tu modelo
         $filtros = [
@@ -90,7 +90,8 @@ class Home extends BaseController
             'id_marca' => $idMarca,
             'categorias_id' => $categoriasId,
             'min_price' => $minPrice,
-            'max_price' => $maxPrice
+            'max_price' => $maxPrice,
+            'nombre' => $nombre,
         ];
         $data = [
             'title' => 'Catalogo - Full animal',
@@ -100,7 +101,8 @@ class Home extends BaseController
             'categorias_seleccionadas' => $categoriasId,
             'marca' => $idMarca,
             'minPrice' => $minPrice,
-            'maxPrice' => $maxPrice
+            'maxPrice' => $maxPrice,
+            'nombre' => $nombre,
         ];
         return view('contenidos/catalogo_view', $data);
     }
