@@ -37,7 +37,7 @@
                                 <th scope="col">Total</th>
                                 <th scope="col">Forma de Pago</th>
                                 <th scope="col">Forma de Entrega</th>
-                                <th scope="col">Acciones</th>
+                                <th scope="col">Detalles</th>
                             </tr>
                         </thead>
                         <tbody id="listaVentas">
