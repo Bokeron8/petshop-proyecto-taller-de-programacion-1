@@ -80,8 +80,8 @@ class Home extends BaseController
 
         $idMarca = $this->request->getGet('marca_producto') ?? 0;
         $categoriasId = $this->request->getGet('categoria_producto') ?? [];
-        $minPrice = $this->request->getGet('min_price') ?? 0;
-        $maxPrice = $this->request->getGet('max_price') ?? 999999;
+        $minPrice = $this->request->getGet('min_price') ?? "";
+        $maxPrice = $this->request->getGet('max_price') ?? "";
 
 
         // Puedes pasarlos a tu modelo

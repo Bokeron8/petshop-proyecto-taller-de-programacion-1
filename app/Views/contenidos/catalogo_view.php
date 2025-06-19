@@ -45,7 +45,7 @@ helper('form');
                     <div class="col">
                         <label for="minPrice" class="form-label">Precio minimo</label>
                         <?= form_input(
-                            ['name' => 'min_price', 'id' => 'minPrice', 'type' => 'number', 'min' => 0, 'max' => 999999],
+                            ['name' => 'min_price', 'id' => 'minPrice', 'type' => 'number', 'min' => 0, 'max' => 999999, 'placeholder' => 'Minimo'],
                             value: esc($minPrice)
                         ) ?>
                     </div>
@@ -53,7 +53,7 @@ helper('form');
                     <div class="col">
                         <label for="maxPrice" class="form-label">Precio maximo</label>
                         <?= form_input(
-                            ['name' => 'max_price', 'id' => 'maxPrice', 'type' => 'number', 'min' => 0, 'max' => 999999],
+                            ['name' => 'max_price', 'id' => 'maxPrice', 'type' => 'number', 'min' => 0, 'max' => 999999, 'placeholder' => 'Maximo'],
                             value: esc($maxPrice)
                         ) ?>
                     </div>
@@ -236,8 +236,8 @@ helper('form');
 
         btn_restart.addEventListener("click", () => {
             marca_dropdown.value = 0;
-            max_price_input.value = 999999;
-            min_price_input.value = 0;
+            max_price_input.value = "";
+            min_price_input.value = "";
             let lista_categorias = document.querySelectorAll('.categorias')
             lista_categorias.forEach((el) => {
                 el.remove()
