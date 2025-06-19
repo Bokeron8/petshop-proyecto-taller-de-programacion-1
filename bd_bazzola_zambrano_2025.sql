@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 19-06-2025 a las 17:06:24
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Host: localhost
+-- Generation Time: Jun 20, 2025 at 01:11 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd_bazzola_zambrano_2025`
+-- Database: `bd_bazzola_zambrano_2025`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -33,7 +33,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`id_categoria`, `descripcion_categoria`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `categorias` (`id_categoria`, `descripcion_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias_productos`
+-- Table structure for table `categorias_productos`
 --
 
 CREATE TABLE `categorias_productos` (
@@ -58,7 +58,7 @@ CREATE TABLE `categorias_productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `categorias_productos`
+-- Dumping data for table `categorias_productos`
 --
 
 INSERT INTO `categorias_productos` (`id_categorias_producto`, `id_producto_categorias_productos`, `id_categoria_categorias_productos`) VALUES
@@ -93,10 +93,6 @@ INSERT INTO `categorias_productos` (`id_categorias_producto`, `id_producto_categ
 (99, 29, 7),
 (100, 30, 1),
 (101, 30, 7),
-(102, 31, 1),
-(103, 31, 6),
-(104, 32, 1),
-(105, 32, 6),
 (106, 33, 1),
 (107, 33, 6),
 (108, 34, 7),
@@ -104,12 +100,41 @@ INSERT INTO `categorias_productos` (`id_categorias_producto`, `id_producto_categ
 (110, 35, 1),
 (111, 35, 7),
 (112, 36, 6),
-(113, 36, 1);
+(113, 36, 1),
+(116, 37, 4),
+(117, 37, 6),
+(118, 38, 5),
+(119, 38, 6),
+(120, 38, 4),
+(124, 39, 4),
+(125, 39, 7),
+(126, 39, 6),
+(127, 40, 3),
+(128, 40, 1),
+(129, 40, 6),
+(130, 41, 3),
+(131, 41, 6),
+(132, 32, 1),
+(133, 32, 6),
+(134, 32, 2),
+(135, 31, 1),
+(136, 31, 6),
+(137, 31, 2),
+(138, 42, 6),
+(139, 42, 7),
+(140, 42, 5),
+(141, 42, 2),
+(142, 43, 7),
+(143, 43, 6),
+(144, 43, 2),
+(145, 44, 7),
+(146, 44, 6),
+(147, 44, 2);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalle_venta`
+-- Table structure for table `detalle_venta`
 --
 
 CREATE TABLE `detalle_venta` (
@@ -121,7 +146,7 @@ CREATE TABLE `detalle_venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `detalle_venta`
+-- Dumping data for table `detalle_venta`
 --
 
 INSERT INTO `detalle_venta` (`id_venta`, `id_producto`, `detalle_cantidad`, `detalle_precio`, `detalle_subtotal`) VALUES
@@ -142,12 +167,13 @@ INSERT INTO `detalle_venta` (`id_venta`, `id_producto`, `detalle_cantidad`, `det
 (11, 16, 1, 22000, 22000),
 (12, 17, 2, 13, 25),
 (13, 17, 2, 13, 25),
-(14, 16, 1, 22000, 22000);
+(14, 16, 1, 22000, 22000),
+(15, 31, 5, 60000, 300000);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `marcas`
+-- Table structure for table `marcas`
 --
 
 CREATE TABLE `marcas` (
@@ -156,7 +182,7 @@ CREATE TABLE `marcas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `marcas`
+-- Dumping data for table `marcas`
 --
 
 INSERT INTO `marcas` (`id_marca`, `descripcion_marca`) VALUES
@@ -170,7 +196,7 @@ INSERT INTO `marcas` (`id_marca`, `descripcion_marca`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mensajes`
+-- Table structure for table `mensajes`
 --
 
 CREATE TABLE `mensajes` (
@@ -182,7 +208,7 @@ CREATE TABLE `mensajes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `mensajes`
+-- Dumping data for table `mensajes`
 --
 
 INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaje`, `fecha_mensaje`) VALUES
@@ -194,7 +220,7 @@ INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaj
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `perfiles`
+-- Table structure for table `perfiles`
 --
 
 CREATE TABLE `perfiles` (
@@ -203,7 +229,7 @@ CREATE TABLE `perfiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `perfiles`
+-- Dumping data for table `perfiles`
 --
 
 INSERT INTO `perfiles` (`id_perfil`, `descripcion_perfil`) VALUES
@@ -213,7 +239,7 @@ INSERT INTO `perfiles` (`id_perfil`, `descripcion_perfil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Table structure for table `productos`
 --
 
 CREATE TABLE `productos` (
@@ -228,7 +254,7 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `productos`
+-- Dumping data for table `productos`
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `id_marca_producto`, `stock_producto`, `precio_producto`, `imagen_producto`, `estado_producto`) VALUES
@@ -252,12 +278,20 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto
 (33, 'Bolsa de Agility Cachorro 15kg', 'Durante el primer año de vida es fundamental que el cachorro reciba una alimentación con todos los nutrientes clave para su crecimiento.\r\n\r\nAgility Cachorros está diseñado especialmente para cubrir sus requerimientos nutricionales y brindarle una vida saludable. Contiene un nivel energético y proteico ideal, necesario para la primera etapa de vida', 5, 10, 61000, '1750344562_689a396f579a92e27099.webp', 1),
 (34, 'Bolsa de Agility Kitten 15kg', 'Durante el primer año de vida es fundamental que el gatito reciba una alimentación con todos los nutrientes clave para su crecimiento. Agility Kitten está diseñado especialmente para cubrir sus requerimientos nutricionales y brindarle una vida saludable. Contiene un aporte energético y proteico ideal, necesario para la primera etapa de vida.\r\n\r\nSu fórmula está basada en la exclusiva tecnología Active Health: una combinación de nutrientes minuciosamente seleccionados para que tu gatito alcance su máximo potencial. También indicado para hembras gestantes y lactantes, quienes necesitan un aporte mayor de estos macronutrientes (proteínas y grasas).', 5, 10, 70000, '1750344625_d917c4d4e4f7b4714a3d.webp', 1),
 (35, 'Bolsa de Agility Urinary 10kg', 'Los gatos adultos con tendencia a alteraciones urinarias necesitan de una alimentación completa y equilibrada que cubra sus requerimientos nutricionales y les brinde salud y vitalidad.\r\n\r\nAgility Cats Urinary es una fórmula exclusivamente diseñada con ingredientes de alta calidad, basada en la tecnología Active Health: una óptima combinación de nutrientes minuciosamente establecidos que ayudan a controlar el ph urinario, reducir la formación de cálculos y mantenener la salud del tracto urinario inferior.', 5, 10, 70000, '1750344692_c10e61c41eca931c52c9.jpg', 1),
-(36, 'Agility cachorro alimento humedo sabor carne vacuna', 'Alimento húmedo 100 % completo y balanceado para perros cachorros con carne vacuna seleccionada. Alimento balanceado completo húmedo, cocido al vapor, resultado de una mezcla equilibrada de macronutrientes, micronutrientes y aditivos de la más alta calidad que cubren los requerimientos alimenticios de los perros cachorros (desde el destete hasta los 12/15 meses).', 5, 15, 3500, '1750344987_262dad0ffeb1aa0b0855.webp', 1);
+(36, 'Agility cachorro alimento humedo sabor carne vacuna', 'Alimento húmedo 100 % completo y balanceado para perros cachorros con carne vacuna seleccionada. Alimento balanceado completo húmedo, cocido al vapor, resultado de una mezcla equilibrada de macronutrientes, micronutrientes y aditivos de la más alta calidad que cubren los requerimientos alimenticios de los perros cachorros (desde el destete hasta los 12/15 meses).', 5, 15, 3500, '1750344987_262dad0ffeb1aa0b0855.webp', 1),
+(37, 'Piloto Capa Lluvia Perro Impermeable', 'Descripción del producto:\r\n*Este modelo permite una colocación símple y rápida, ideal para perros viejitos y/o de gran porte, ya que no es necesario pasar las patitas por una manga\r\n*Pecho REGULABLE, lo que permite ajustarlo cómodamente al contorno de la mascota.\r\n*Confeccionado en tela impermeable, súper resistente\r\n*Interior íntegramente forrado\r\n*Ojal en el lomo para pase de correa\r\n*Capucha cómoda\r\n*Impermeables 100%', 6, 5, 62000, '1750373407_928af3b5f0b615fcb3f3.webp', 1),
+(38, 'Bandeja Sanitaria Perros ', 'Bandeja sanitaria para perros, ideal para mantener la higiene del hogar. Fabricada con materiales resistentes y de fácil limpieza. Incluye accesorios que facilitan el entrenamiento y la adaptación de tu mascota. Diseñada para brindar comodidad, reducir olores y promover hábitos saludables en tu perro.', 6, 3, 58000, '1750373559_747def1baaaef95d841d.webp', 1),
+(39, 'Bolso Transportador Mascota', 'Ventilación segura\r\n• Cintas reflectivas para identificación del bolso transportador por la noche.\r\n• Correa cómoda, el usuario no se sentirá incómodo para usarlo durante el viaje.\r\n• Tiene bolsillos donde puede colocar objetos que necesiten.\r\n• El cinturón de mano se ajusta a la curva de las manos, que pueden proporcionar la sensación cómoda de la mano, y no te sientas cansado después de llévala mucho tiempo.\r\n• Adecuado para gatos cuyo peso no supere los 6,5 kg y perros en los 5 kg\r\n', 6, 5, 79300, '1750373634_f4e81d273834b7d8b546.webp', 1),
+(40, 'Pelota Irregular Dispensador Rellenable ', 'Pelota Irregular Dispensador Rellenable. Estos juguetes, además de proporcionar diversión, permiten rellenarlos con snacks saludables para hacer todo más entretenido y sano. Son juguetes dispensadores de comida.\r\nJugar reduce el estrés de tu mascota. Encontrar un espacio lúdico no solo reduce su estrés, sino que también estimula su inteligencia. Y seguramente ambos pasen un momento super divertido!\r\nTIP. El tipo de alimento que le pongas va a hacer a la dificultad. Más fácil, alimentos pequeños. Más difícil, trozos más grandes. Que se diviertan', 6, 5, 21200, '1750373864_2ddedb6a64e8b490976e.webp', 1),
+(41, 'Mordedor Rueda Grande', 'El juguete se caracteriza por ser de excelente calidad.\r\n\r\nEs lavables y durables. Ideal para perros chicos o poco mordedores (no te olvides de consultarnos por juguetes para perros grandes, mordedores y/o cachorros).\r\nDivertidos diseños.\r\nTIP de Responsabilidad: Supervisa tu mascota mientras juega, aprovecha ese tiempo para formar un vínculo con ella y de paso evitar accidentes!', 6, 5, 15000, '1750374012_45ab8564bf601e33a5c7.webp', 1),
+(42, 'Shampoo Medicado Hipoalergénico', 'Higiene general hipoalergénico, antiséptico, antiseborreico, antipruriginoso. Cicatrizante, suavizante, dermatitis-dermatosis descamativas. Dejar actuar 5 minutos. Repetir el baño cada 7 días. Para caninos y felinos', 3, 10, 6720, '1750374363_b2150737fa4e3736226d.png', 1),
+(43, 'Crema 6A', 'Indicado para el tratamiento de lesiones cutáneas en perros y gatos, ya sea que presenten infección o no. Su uso es efectivo en casos de otitis aguda o crónica, ayudando a reducir la inflamación y el malestar del animal. También se recomienda en lesiones pruriginosas que causan picazón intensa, proporcionando alivio y favoreciendo la regeneración de la piel. Es apto para todas las formas de dermatitis que no sean de origen viral ni tuberculoso, tales como dermatitis alérgicas, bacterianas, seborreicas o por contacto. Su fórmula ayuda a controlar la proliferación bacteriana, aliviar el enrojecimiento y mejorar la calidad de vida del paciente dermatológico.', 3, 5, 10420, '1750374525_8e72540b38733682b2ed.png', 1),
+(44, 'Algen 20 Mg 20 Ml', 'Algen 20 es una solución inyectable estéril que contiene tramadol clorhidrato (2000 mg/100 ml), diseñada para perros, gatos y caballos. Su acción analgésica dual —agonista μ y bloqueo de recaptación de noradrenalina y serotonina— proporciona alivio del dolor somático y visceral moderado a severo, tanto agudo como crónico. Se utiliza en control postquirúrgico y como parte de protocolos preanestésicos. La dosis recomendada es de 1–2 mg/kg cada 6–8 h, vía SC, IM, IV lenta o epidural. Al ser cardiovascularmente estable, es una opción segura incluso en pacientes cardiópatas.', 3, 5, 18937, '1750374626_5d209ba7e9ae73ed0598.png', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -274,7 +308,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `dni_usuario`, `domicilio_usuario`, `email_usuario`, `contraseña_usuario`, `estado_usuario`, `telefono_usuario`, `perfil_id`) VALUES
@@ -284,7 +318,7 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `dni
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `venta`
+-- Table structure for table `venta`
 --
 
 CREATE TABLE `venta` (
@@ -297,7 +331,7 @@ CREATE TABLE `venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `venta`
+-- Dumping data for table `venta`
 --
 
 INSERT INTO `venta` (`venta_id`, `id_cliente`, `venta_fecha`, `venta_total`, `venta_forma_pago`, `venta_forma_entrega`) VALUES
@@ -314,20 +348,21 @@ INSERT INTO `venta` (`venta_id`, `id_cliente`, `venta_fecha`, `venta_total`, `ve
 (11, 9, '2025-06-17', 22000, 'efectivo', 0),
 (12, 9, '2025-06-17', 25, 'efectivo', 0),
 (13, 9, '2025-06-19', 25, 'Efectivo', 0),
-(14, 9, '2025-06-19', 22000, 'Tarjeta de credito', 0);
+(14, 9, '2025-06-19', 22000, 'Tarjeta de credito', 0),
+(15, 9, '2025-06-19', 300000, 'Efectivo', 0);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indices de la tabla `categorias_productos`
+-- Indexes for table `categorias_productos`
 --
 ALTER TABLE `categorias_productos`
   ADD PRIMARY KEY (`id_categorias_producto`),
@@ -335,39 +370,39 @@ ALTER TABLE `categorias_productos`
   ADD KEY `id_producto` (`id_producto_categorias_productos`);
 
 --
--- Indices de la tabla `detalle_venta`
+-- Indexes for table `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
   ADD KEY `id_producto` (`id_producto`),
   ADD KEY `id_venta` (`id_venta`);
 
 --
--- Indices de la tabla `marcas`
+-- Indexes for table `marcas`
 --
 ALTER TABLE `marcas`
   ADD PRIMARY KEY (`id_marca`);
 
 --
--- Indices de la tabla `mensajes`
+-- Indexes for table `mensajes`
 --
 ALTER TABLE `mensajes`
   ADD PRIMARY KEY (`id_mensaje`);
 
 --
--- Indices de la tabla `perfiles`
+-- Indexes for table `perfiles`
 --
 ALTER TABLE `perfiles`
   ADD PRIMARY KEY (`id_perfil`);
 
 --
--- Indices de la tabla `productos`
+-- Indexes for table `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_marca_producto` (`id_marca_producto`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
@@ -375,96 +410,96 @@ ALTER TABLE `usuarios`
   ADD KEY `perfil_id` (`perfil_id`);
 
 --
--- Indices de la tabla `venta`
+-- Indexes for table `venta`
 --
 ALTER TABLE `venta`
   ADD PRIMARY KEY (`venta_id`),
   ADD KEY `id_cliente` (`id_cliente`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `categorias_productos`
+-- AUTO_INCREMENT for table `categorias_productos`
 --
 ALTER TABLE `categorias_productos`
-  MODIFY `id_categorias_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id_categorias_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
--- AUTO_INCREMENT de la tabla `marcas`
+-- AUTO_INCREMENT for table `marcas`
 --
 ALTER TABLE `marcas`
   MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT de la tabla `mensajes`
+-- AUTO_INCREMENT for table `mensajes`
 --
 ALTER TABLE `mensajes`
   MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT de la tabla `perfiles`
+-- AUTO_INCREMENT for table `perfiles`
 --
 ALTER TABLE `perfiles`
   MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `productos`
+-- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `venta`
+-- AUTO_INCREMENT for table `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `categorias_productos`
+-- Constraints for table `categorias_productos`
 --
 ALTER TABLE `categorias_productos`
   ADD CONSTRAINT `categorias_productos_ibfk_1` FOREIGN KEY (`id_categoria_categorias_productos`) REFERENCES `categorias` (`id_categoria`),
   ADD CONSTRAINT `categorias_productos_ibfk_2` FOREIGN KEY (`id_producto_categorias_productos`) REFERENCES `productos` (`id_producto`);
 
 --
--- Filtros para la tabla `detalle_venta`
+-- Constraints for table `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
   ADD CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
   ADD CONSTRAINT `detalle_venta_ibfk_2` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`venta_id`);
 
 --
--- Filtros para la tabla `productos`
+-- Constraints for table `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`id_marca_producto`) REFERENCES `marcas` (`id_marca`);
 
 --
--- Filtros para la tabla `usuarios`
+-- Constraints for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`perfil_id`) REFERENCES `perfiles` (`id_perfil`);
 
 --
--- Filtros para la tabla `venta`
+-- Constraints for table `venta`
 --
 ALTER TABLE `venta`
   ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `usuarios` (`id_usuario`);
