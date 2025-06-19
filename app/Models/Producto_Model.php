@@ -59,7 +59,7 @@ class Producto_Model extends Model
         }
 
         if (!empty($filtros['nombre'])) {
-            $query->like('productos.nombre', $filtros['nombre']);
+            $query->like('productos.nombre_producto', $filtros['nombre']);
         }
 
 

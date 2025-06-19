@@ -148,9 +148,32 @@ class ProductoController extends BaseController
     public function gestionar_productos()
     {
         $productoModel = new \App\Models\Producto_Model();
-        $productos = $productoModel->obtener_con_todo();
+        $categoriaModel = new \App\Models\Categoria_Model();
 
-        return view('Backend/gestionar_view', ['productos' => $productos, 'title' => 'Gestionar productos - Full animal']);
+        // Captura filtros desde la URL
+        $categoriaSeleccionada = $this->request->getGet('categoria');
+        $nombreBuscado = $this->request->getGet('nombre');
+
+        $filtros = [];
+
+        if (!empty($categoriaSeleccionada)) {
+            $filtros['categorias_id'] = [$categoriaSeleccionada];
+        }
+
+        if (!empty($nombreBuscado)) {
+            $filtros['nombre'] = $nombreBuscado;
+        }
+
+        $productos = $productoModel->getProductosFiltrados($filtros);
+        $categorias = $categoriaModel->findAll();
+
+        return view('Backend/gestionar_view', [
+            'productos' => $productos,
+            'categorias' => $categorias,
+            'categoriaSeleccionada' => $categoriaSeleccionada,
+            'nombreBuscado' => $nombreBuscado,
+            'title' => 'Gestionar productos - Full animal'
+        ]);
     }
 
     public function activar($id)
