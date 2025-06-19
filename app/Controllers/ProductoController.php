@@ -353,12 +353,11 @@ class ProductoController extends BaseController
 
     $producto = $productoModel->where('id_producto', $id)->first();
 
-    $categorias = $categoriaProductoModel->where('id_producto_categorias_productos', $id)->findAll();
-    $categoriaIDs = array_column($categorias, 'id_categoria_categorias_productos');
 
 
 
-    $filtros = ['categorias_id' => $categoriaIDs, 'excluir_id' => $id];
+
+    $filtros = ['id_marca' => $producto['id_marca_producto'], 'excluir_id' => $id];
     $productosRelacionados = $productoModel->getProductosFiltrados($filtros);
 
     if (!$producto) {
