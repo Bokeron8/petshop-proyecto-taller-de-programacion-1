@@ -36,7 +36,11 @@ class Producto_Model extends Model
   public function getProductosFiltrados($filtros = [])
   {
     $query = $this->baseQuery();
-    $query->where('productos.stock_producto >', 0);
+
+
+    if (!empty($filtros['cantidad_stock'])) {
+      $query->where('productos.stock_producto >', $filtros['cantidad_stock']);
+    }
 
     if (!empty($filtros['estado_producto'])) {
       $query->where('productos.estado_producto', $filtros['estado_producto']);

@@ -92,6 +92,7 @@ class Home extends BaseController
       'max_price' => $maxPrice,
       'nombre' => $nombre,
       'ordenar_por' => $ordenarPor,
+      'cantidad_stock' => 0,
     ];
 
     $data = [
