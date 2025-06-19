@@ -74,7 +74,7 @@
         </table>
     </div>
     <?php else: ?>
-    <p class="text-center sans-deva fs-2">Tu carrito esta vacio.</p>
+    <div class="alert alert-warning">Tu carrito esta vacio.</div>
     <?php endif; ?>
     
     <?php if (!empty($carrito)) : ?>

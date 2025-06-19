@@ -49,10 +49,11 @@
       ) ?>
     </div>
 
-    <!-- Botón de búsqueda -->
-    <div class="col-md-2 align-self-end mt-1">
-      <?= form_submit('buscar', 'Buscar', ['class' => 'btn btn-primary']) ?>
-    </div>
+  <div class="col-md-2 align-self-end mt-1 d-flex gap-2">
+    <?= form_submit('buscar', 'Buscar', ['class' => 'btn btn-primary w-100']) ?>
+    <a href="<?= base_url('admin/gestionar-productos') ?>" class="btn btn-primary w-100">Reiniciar</a>
+  </div>
+
   </div>
   <?= form_close() ?>
 
