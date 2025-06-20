@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-06-2025 a las 03:53:46
+-- Tiempo de generación: 20-06-2025 a las 04:24:56
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -191,7 +191,8 @@ INSERT INTO `detalle_venta` (`id_venta`, `id_producto`, `detalle_cantidad`, `det
 (12, 17, 2, 13, 25),
 (13, 17, 2, 13, 25),
 (14, 16, 1, 22000, 22000),
-(15, 31, 5, 60000, 300000);
+(15, 31, 5, 60000, 300000),
+(16, 44, 5, 18937, 94685);
 
 -- --------------------------------------------------------
 
@@ -235,7 +236,8 @@ CREATE TABLE `mensajes` (
 --
 
 INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaje`, `fecha_mensaje`) VALUES
-(10, 'juan perez', 'juanperez@gmail.com', 'mensaje de prueba ', '2025-06-12');
+(10, 'juan perez', 'juanperez@gmail.com', 'mensaje de prueba ', '2025-06-12'),
+(14, 'cami', 'Arandacamila65@gmail.com', 'holaasokmskslj', '2025-06-19');
 
 -- --------------------------------------------------------
 
@@ -306,7 +308,7 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto
 (41, 'Mordedor Rueda Grande', 'El juguete se caracteriza por ser de excelente calidad.\r\n\r\nEs lavables y durables. Ideal para perros chicos o poco mordedores (no te olvides de consultarnos por juguetes para perros grandes, mordedores y/o cachorros).\r\nDivertidos diseños.\r\nTIP de Responsabilidad: Supervisa tu mascota mientras juega, aprovecha ese tiempo para formar un vínculo con ella y de paso evitar accidentes!', 6, 5, 15000, '1750374012_45ab8564bf601e33a5c7.webp', 1),
 (42, 'Shampoo Medicado Hipoalergénico', 'Higiene general hipoalergénico, antiséptico, antiseborreico, antipruriginoso. Cicatrizante, suavizante, dermatitis-dermatosis descamativas. Dejar actuar 5 minutos. Repetir el baño cada 7 días. Para caninos y felinos', 3, 10, 6720, '1750374363_b2150737fa4e3736226d.png', 1),
 (43, 'Crema 6A', 'Indicado para el tratamiento de lesiones cutáneas en perros y gatos, ya sea que presenten infección o no. Su uso es efectivo en casos de otitis aguda o crónica, ayudando a reducir la inflamación y el malestar del animal. También se recomienda en lesiones pruriginosas que causan picazón intensa, proporcionando alivio y favoreciendo la regeneración de la piel. Es apto para todas las formas de dermatitis que no sean de origen viral ni tuberculoso, tales como dermatitis alérgicas, bacterianas, seborreicas o por contacto. Su fórmula ayuda a controlar la proliferación bacteriana, aliviar el enrojecimiento y mejorar la calidad de vida del paciente dermatológico.', 3, 5, 10420, '1750374525_8e72540b38733682b2ed.png', 1),
-(44, 'Algen 20 Mg 20 Ml', 'Algen 20 es una solución inyectable estéril que contiene tramadol clorhidrato (2000 mg/100 ml), diseñada para perros, gatos y caballos. Su acción analgésica dual —agonista μ y bloqueo de recaptación de noradrenalina y serotonina— proporciona alivio del dolor somático y visceral moderado a severo, tanto agudo como crónico. Se utiliza en control postquirúrgico y como parte de protocolos preanestésicos. La dosis recomendada es de 1–2 mg/kg cada 6–8 h, vía SC, IM, IV lenta o epidural. Al ser cardiovascularmente estable, es una opción segura incluso en pacientes cardiópatas.', 3, 5, 18937, '1750374626_5d209ba7e9ae73ed0598.png', 1),
+(44, 'Algen 20 Mg 20 Ml', 'Algen 20 es una solución inyectable estéril que contiene tramadol clorhidrato (2000 mg/100 ml), diseñada para perros, gatos y caballos. Su acción analgésica dual —agonista μ y bloqueo de recaptación de noradrenalina y serotonina— proporciona alivio del dolor somático y visceral moderado a severo, tanto agudo como crónico. Se utiliza en control postquirúrgico y como parte de protocolos preanestésicos. La dosis recomendada es de 1–2 mg/kg cada 6–8 h, vía SC, IM, IV lenta o epidural. Al ser cardiovascularmente estable, es una opción segura incluso en pacientes cardiópatas.', 3, 0, 18937, '1750374626_5d209ba7e9ae73ed0598.png', 1),
 (45, 'Bolsa de Pedigree Cachorro Sabor Carne y Pollo 1.5kg', 'Bolsa de Alimento 1.5kg. Cachorro. Alimento seco es elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a NutriDefense™, con DHA para contribuir a su desarrollo cerebral y visual, están hechas con Omega 6 que ayudan a una piel y pelo saludable con prebióticos que ayudan a proteger su intestino y fibras naturales para una óptima digestión.​', 1, 15, 3500, '1750379324_150fa5de8efb1026bc24.avif', 1),
 (46, 'Bolsa de Pedigree Cachorro Sabor Carne y Pollo 3kg', 'Bolsa de Alimento 3kg. Cachorro. Alimento seco es elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a NutriDefense™, con DHA para contribuir a su desarrollo cerebral y visual, están hechas con Omega 6 que ayudan a una piel y pelo saludable con prebióticos que ayudan a proteger su intestino y fibras naturales para una óptima digestión.​', 1, 12, 7000, '1750379423_86e50d8efe844223a03a.avif', 1),
 (47, 'Bolsa de Pedigree Cachorro Sabor Carne y Pollo 21kg', 'Bolsa de Alimento 21kg. Perro Adulto. Alimento seco elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a su contenido de antioxidantes, vitamina E y Selenio. Además, están hechas con Omega 6 que ayudan a una piel y pelo saludables, así como con fibras y proteína de alta calidad que ayudan a una óptima digestión y heces firmes fáciles de recoger.', 1, 7, 49000, '1750379806_949521f34a5c03ecd736.avif', 1),
@@ -346,7 +348,10 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `dni_usuario`, `domicilio_usuario`, `email_usuario`, `contraseña_usuario`, `estado_usuario`, `telefono_usuario`, `perfil_id`) VALUES
 (8, 'full animal', 'administrador', 0, '', 'admin@tienda.com', '$2y$10$jFS2onakGo4X.lufNAKf/uhx5z09B1LvCSiSpHNw9FR0YQBvyrB96', 1, 0, 2),
-(9, 'Marcos', 'Mazzanti', 45676321, 'Irigoyen 369', 'marcos@gmail.com', '$2y$10$XloL2Fb1aZV2mDJ6AJMRxORg0KA8rfl.bHhMQRL2dIJuuO4PgUOx.', 1, 2147483647, 1);
+(9, 'Marcos', 'Mazzanti', 45676321, 'Irigoyen 369', 'marcos@gmail.com', '$2y$10$XloL2Fb1aZV2mDJ6AJMRxORg0KA8rfl.bHhMQRL2dIJuuO4PgUOx.', 1, 2147483647, 1),
+(11, 'camila', 'aranda', 46716840, 'entre rios 1261 2b', 'Arandacamila65@gmail.com', '$2y$10$MXYwA6GLi4tcFAcRGAjIzOqDzcmS4emx.O6Ri8sVCcaCNg04xiCNe', 1, 2147483647, 1),
+(12, 'Gabo', 'Bazzola', 0, '', 'gabobaz10@gmail.com', '$2y$10$S9JN1rTGVeeg/cMb9MsaoOxFkVQC1wprjRVkoQ8AVFRRRlkRi1aza', 1, 0, 2),
+(13, 'Franco', 'Mezzi', 0, '', 'franquex@gmail.com', '$2y$10$QNd2elKkCu4kMmDw4p1e7uvwp3582p6HjsCVJ0epIx9I5G10Z4lo.', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -382,7 +387,8 @@ INSERT INTO `venta` (`venta_id`, `id_cliente`, `venta_fecha`, `venta_total`, `ve
 (12, 9, '2025-06-17', 25, 'efectivo', 0),
 (13, 9, '2025-06-19', 25, 'Efectivo', 0),
 (14, 9, '2025-06-19', 22000, 'Tarjeta de credito', 0),
-(15, 9, '2025-06-19', 300000, 'Efectivo', 0);
+(15, 9, '2025-06-19', 300000, 'Efectivo', 0),
+(16, 11, '2025-06-20', 94685, 'Transferencia', 0);
 
 --
 -- Índices para tablas volcadas
@@ -475,7 +481,7 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `perfiles`
@@ -493,13 +499,13 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restricciones para tablas volcadas
