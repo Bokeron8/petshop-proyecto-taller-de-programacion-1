@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 20, 2025 at 01:11 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 20-06-2025 a las 03:53:46
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bd_bazzola_zambrano_2025`
+-- Base de datos: `bd_bazzola_zambrano_2025`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -33,7 +33,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `categorias`
+-- Volcado de datos para la tabla `categorias`
 --
 
 INSERT INTO `categorias` (`id_categoria`, `descripcion_categoria`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `categorias` (`id_categoria`, `descripcion_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias_productos`
+-- Estructura de tabla para la tabla `categorias_productos`
 --
 
 CREATE TABLE `categorias_productos` (
@@ -58,16 +58,10 @@ CREATE TABLE `categorias_productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `categorias_productos`
+-- Volcado de datos para la tabla `categorias_productos`
 --
 
 INSERT INTO `categorias_productos` (`id_categorias_producto`, `id_producto_categorias_productos`, `id_categoria_categorias_productos`) VALUES
-(45, 21, 1),
-(46, 22, 1),
-(61, 20, 1),
-(62, 20, 6),
-(63, 23, 1),
-(64, 23, 6),
 (69, 16, 1),
 (70, 16, 6),
 (74, 18, 3),
@@ -129,12 +123,41 @@ INSERT INTO `categorias_productos` (`id_categorias_producto`, `id_producto_categ
 (144, 43, 2),
 (145, 44, 7),
 (146, 44, 6),
-(147, 44, 2);
+(147, 44, 2),
+(153, 21, 1),
+(156, 22, 1),
+(161, 46, 1),
+(162, 46, 6),
+(163, 45, 1),
+(164, 45, 6),
+(165, 20, 1),
+(166, 20, 6),
+(167, 47, 6),
+(168, 47, 1),
+(169, 48, 1),
+(170, 48, 6),
+(171, 23, 1),
+(172, 23, 6),
+(176, 49, 7),
+(177, 49, 1),
+(178, 51, 7),
+(179, 51, 1),
+(180, 52, 7),
+(181, 52, 1),
+(182, 53, 1),
+(183, 53, 7),
+(184, 50, 7),
+(185, 50, 1),
+(186, 54, 1),
+(187, 54, 7),
+(188, 55, 2),
+(189, 56, 2),
+(190, 57, 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detalle_venta`
+-- Estructura de tabla para la tabla `detalle_venta`
 --
 
 CREATE TABLE `detalle_venta` (
@@ -146,7 +169,7 @@ CREATE TABLE `detalle_venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `detalle_venta`
+-- Volcado de datos para la tabla `detalle_venta`
 --
 
 INSERT INTO `detalle_venta` (`id_venta`, `id_producto`, `detalle_cantidad`, `detalle_precio`, `detalle_subtotal`) VALUES
@@ -173,7 +196,7 @@ INSERT INTO `detalle_venta` (`id_venta`, `id_producto`, `detalle_cantidad`, `det
 -- --------------------------------------------------------
 
 --
--- Table structure for table `marcas`
+-- Estructura de tabla para la tabla `marcas`
 --
 
 CREATE TABLE `marcas` (
@@ -182,7 +205,7 @@ CREATE TABLE `marcas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `marcas`
+-- Volcado de datos para la tabla `marcas`
 --
 
 INSERT INTO `marcas` (`id_marca`, `descripcion_marca`) VALUES
@@ -196,7 +219,7 @@ INSERT INTO `marcas` (`id_marca`, `descripcion_marca`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mensajes`
+-- Estructura de tabla para la tabla `mensajes`
 --
 
 CREATE TABLE `mensajes` (
@@ -208,19 +231,16 @@ CREATE TABLE `mensajes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `mensajes`
+-- Volcado de datos para la tabla `mensajes`
 --
 
 INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaje`, `fecha_mensaje`) VALUES
-(10, 'juan perez', 'juanperez@gmail.com', 'mensaje de prueba ', '2025-06-12'),
-(11, 'Marcos', 'marcos@gmail.com', 'Hola buenas quisiera saber si venden ropa de las tortugas ninja para mi tortuga', '2025-06-19'),
-(12, 'Marcos', 'marcos@gmail.com', 'Hola buenas quisiera saber si venden ropa de las tortugas ninja para mi tortuga', '2025-06-19'),
-(13, 'Marcos', 'marcos@gmail.com', 'Hola buenas quisiera saber si venden ropa de las tortugas ninja para mi tortuga', '2025-06-19');
+(10, 'juan perez', 'juanperez@gmail.com', 'mensaje de prueba ', '2025-06-12');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perfiles`
+-- Estructura de tabla para la tabla `perfiles`
 --
 
 CREATE TABLE `perfiles` (
@@ -229,7 +249,7 @@ CREATE TABLE `perfiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `perfiles`
+-- Volcado de datos para la tabla `perfiles`
 --
 
 INSERT INTO `perfiles` (`id_perfil`, `descripcion_perfil`) VALUES
@@ -239,7 +259,7 @@ INSERT INTO `perfiles` (`id_perfil`, `descripcion_perfil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
@@ -254,7 +274,7 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `id_marca_producto`, `stock_producto`, `precio_producto`, `imagen_producto`, `estado_producto`) VALUES
@@ -262,10 +282,10 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto
 (17, 'Pelota Leon', 'La Pelota León es el juguete perfecto para que tu mascota se divierta sin parar. Fabricada con materiales resistentes y seguros, garantiza horas de juego activo y estimulación mental. Su diseño atractivo y tamaño ideal la hacen perfecta para perros  y gatos de todas las edades. Además, ayuda a mantener a tu mascota activa y feliz mientras fortalece su mordida y coordinación. ', 6, 21, 1000, '1749236644_b33cb4c09d834a956a51.jpg', 1),
 (18, 'Pelota Tigre', 'La Pelota Tigre es el juguete perfecto para que tu mascota se divierta sin parar. Fabricada con materiales resistentes y seguros, garantiza horas de juego activo y estimulación mental. Su diseño atractivo y tamaño ideal la hacen perfecta para perros  y gatos de todas las edades. Además, ayuda a mantener a tu mascota activa y feliz mientras fortalece su mordida y coordinación. ', 6, 20, 1000, '1749236697_54665aa688d4810ffb6a.jpg', 1),
 (19, 'Pelota Mono', 'La Pelota Mono es el juguete perfecto para que tu mascota se divierta sin parar. Fabricada con materiales resistentes y seguros, garantiza horas de juego activo y estimulación mental. Su diseño atractivo y tamaño ideal la hacen perfecta para perros  y gatos de todas las edades. Además, ayuda a mantener a tu mascota activa y feliz mientras fortalece su mordida y coordinación. ', 6, 5, 1000, '1749236775_6072896120044aa2d056.jpg', 1),
-(20, 'Bolsa de Pedigree 3kg', 'Bolsa de Alimento 3kg. Pedigree. Perro Adulto.', 1, 23, 6000, '1749736776_2270f3139c8809163d85.avif', 1),
-(21, 'Bolsa de Pedigree 1.5kg', 'Bolsa de Alimento 1.5kg. Pedigree. Perro Adulto.', 1, 19, 3000, '1749737107_b281301906f97ffff350.avif', 1),
-(22, 'Bolsa de Pedigree 21kg', 'Bolsa de Alimento 21kg. Pedigree. Perro Adulto.', 1, 19, 41000, '1749737175_e24b0d5b858778572bb5.avif', 1),
-(23, 'Bolsa de Agility Adultos 3kg', 'Bolsa de Agility Adultos 3kg. Talla mediana.', 5, 23, 5000, '1750170821_538dff0b2798c811eb73.webp', 1),
+(20, 'Bolsa de Pedigree Adulto Sabor Vegetales y Carne 3kg', 'Bolsa de Alimento 3kg. Perro Adulto. Alimento seco elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a su contenido de antioxidantes, vitamina E y Selenio. Además, están hechas con Omega 6 que ayudan a una piel y pelo saludables, así como con fibras y proteína de alta calidad que ayudan a una óptima digestión y heces firmes fáciles de recoger.', 1, 23, 6000, '1749736776_2270f3139c8809163d85.avif', 1),
+(21, 'Bolsa de Pedigree Adulto Sabor Vegetales y Carne 1.5kg', 'Bolsa de Alimento 1.5kg. Perro Adulto. Alimento seco elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a su contenido de antioxidantes, vitamina E y Selenio. Además, están hechas con Omega 6 que ayudan a una piel y pelo saludables, así como con fibras y proteína de alta calidad que ayudan a una óptima digestión y heces firmes fáciles de recoger.', 1, 19, 3000, '1749737107_b281301906f97ffff350.avif', 1),
+(22, 'Bolsa de Pedigree Adulto Sabor Vegetales y Carne 21kg', 'Bolsa de Alimento 21kg. Perro Adulto. Alimento seco elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a su contenido de antioxidantes, vitamina E y Selenio. Además, están hechas con Omega 6 que ayudan a una piel y pelo saludables, así como con fibras y proteína de alta calidad que ayudan a una óptima digestión y heces firmes fáciles de recoger.', 1, 19, 41000, '1749737175_e24b0d5b858778572bb5.avif', 1),
+(23, 'Bolsa de Agility Adultos 3kg', 'Bolsa de Agility Adultos 3kg. Talla pequeña. Los perros adultos de estructura pequeña necesitan una alimentación con un alto aporte de proteínas y grasas para mantener una salud integral óptima.\r\n\r\nAgility Adultos Talla Pequeña es una fórmula especialmente ideada para promover óptimos niveles de energía y vitalidad, basada en su tecnología Active Health: una combinación de nutrientes minuciosamente seleccionados para que tu perro mantenga siempre su máximo potencial.', 5, 23, 5000, '1750170821_538dff0b2798c811eb73.webp', 1),
 (24, 'Bolsa de Whiskas gatito 1kg', 'Nueva receta, cuidadosamente preparada para satisfacer las necesidades nutricionales de su gato. Alimento para gatos 100% completo y balanceado. Fibras múltiples apoyan el funcionamiento gastrointestinal, contribuyendo a la formación de heces firmes y fáciles de limpiar. Recomendado por Waltham Petcare Science Institute - Una de las autoridades mundiales líderes en nutrición, cuidado y bienestar animal', 2, 20, 5000, '1750342647_99be43e30fe1dfeb8dde.avif', 1),
 (25, 'Bolsa de Whiskas Adulto sabor carne 1kg', 'Nueva receta, cuidadosamente preparada para satisfacer las necesidades nutricionales de su gato. Alimento para gatos 100% completo y balanceado. Fibras múltiples apoyan el funcionamiento gastrointestinal, contribuyendo a la formación de heces firmes y fáciles de limpiar. Recomendado por Waltham Petcare Science Institute - Una de las autoridades mundiales líderes en nutrición, cuidado y bienestar animal', 2, 20, 5000, '1750343145_fd761c3ac86a2f4b8414.avif', 1),
 (26, 'Bolsa de Whiskas Adulto sabor pollo 1kg', 'Nueva receta, cuidadosamente preparada para satisfacer las necesidades nutricionales de su gato. Alimento para gatos 100% completo y balanceado. Fibras múltiples apoyan el funcionamiento gastrointestinal, contribuyendo a la formación de heces firmes y fáciles de limpiar. Recomendado por Waltham Petcare Science Institute - Una de las autoridades mundiales líderes en nutrición, cuidado y bienestar animal', 2, 20, 5000, '1750343208_502500624d3aa64ef4c5.avif', 1),
@@ -286,12 +306,25 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto
 (41, 'Mordedor Rueda Grande', 'El juguete se caracteriza por ser de excelente calidad.\r\n\r\nEs lavables y durables. Ideal para perros chicos o poco mordedores (no te olvides de consultarnos por juguetes para perros grandes, mordedores y/o cachorros).\r\nDivertidos diseños.\r\nTIP de Responsabilidad: Supervisa tu mascota mientras juega, aprovecha ese tiempo para formar un vínculo con ella y de paso evitar accidentes!', 6, 5, 15000, '1750374012_45ab8564bf601e33a5c7.webp', 1),
 (42, 'Shampoo Medicado Hipoalergénico', 'Higiene general hipoalergénico, antiséptico, antiseborreico, antipruriginoso. Cicatrizante, suavizante, dermatitis-dermatosis descamativas. Dejar actuar 5 minutos. Repetir el baño cada 7 días. Para caninos y felinos', 3, 10, 6720, '1750374363_b2150737fa4e3736226d.png', 1),
 (43, 'Crema 6A', 'Indicado para el tratamiento de lesiones cutáneas en perros y gatos, ya sea que presenten infección o no. Su uso es efectivo en casos de otitis aguda o crónica, ayudando a reducir la inflamación y el malestar del animal. También se recomienda en lesiones pruriginosas que causan picazón intensa, proporcionando alivio y favoreciendo la regeneración de la piel. Es apto para todas las formas de dermatitis que no sean de origen viral ni tuberculoso, tales como dermatitis alérgicas, bacterianas, seborreicas o por contacto. Su fórmula ayuda a controlar la proliferación bacteriana, aliviar el enrojecimiento y mejorar la calidad de vida del paciente dermatológico.', 3, 5, 10420, '1750374525_8e72540b38733682b2ed.png', 1),
-(44, 'Algen 20 Mg 20 Ml', 'Algen 20 es una solución inyectable estéril que contiene tramadol clorhidrato (2000 mg/100 ml), diseñada para perros, gatos y caballos. Su acción analgésica dual —agonista μ y bloqueo de recaptación de noradrenalina y serotonina— proporciona alivio del dolor somático y visceral moderado a severo, tanto agudo como crónico. Se utiliza en control postquirúrgico y como parte de protocolos preanestésicos. La dosis recomendada es de 1–2 mg/kg cada 6–8 h, vía SC, IM, IV lenta o epidural. Al ser cardiovascularmente estable, es una opción segura incluso en pacientes cardiópatas.', 3, 5, 18937, '1750374626_5d209ba7e9ae73ed0598.png', 1);
+(44, 'Algen 20 Mg 20 Ml', 'Algen 20 es una solución inyectable estéril que contiene tramadol clorhidrato (2000 mg/100 ml), diseñada para perros, gatos y caballos. Su acción analgésica dual —agonista μ y bloqueo de recaptación de noradrenalina y serotonina— proporciona alivio del dolor somático y visceral moderado a severo, tanto agudo como crónico. Se utiliza en control postquirúrgico y como parte de protocolos preanestésicos. La dosis recomendada es de 1–2 mg/kg cada 6–8 h, vía SC, IM, IV lenta o epidural. Al ser cardiovascularmente estable, es una opción segura incluso en pacientes cardiópatas.', 3, 5, 18937, '1750374626_5d209ba7e9ae73ed0598.png', 1),
+(45, 'Bolsa de Pedigree Cachorro Sabor Carne y Pollo 1.5kg', 'Bolsa de Alimento 1.5kg. Cachorro. Alimento seco es elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a NutriDefense™, con DHA para contribuir a su desarrollo cerebral y visual, están hechas con Omega 6 que ayudan a una piel y pelo saludable con prebióticos que ayudan a proteger su intestino y fibras naturales para una óptima digestión.​', 1, 15, 3500, '1750379324_150fa5de8efb1026bc24.avif', 1),
+(46, 'Bolsa de Pedigree Cachorro Sabor Carne y Pollo 3kg', 'Bolsa de Alimento 3kg. Cachorro. Alimento seco es elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a NutriDefense™, con DHA para contribuir a su desarrollo cerebral y visual, están hechas con Omega 6 que ayudan a una piel y pelo saludable con prebióticos que ayudan a proteger su intestino y fibras naturales para una óptima digestión.​', 1, 12, 7000, '1750379423_86e50d8efe844223a03a.avif', 1),
+(47, 'Bolsa de Pedigree Cachorro Sabor Carne y Pollo 21kg', 'Bolsa de Alimento 21kg. Perro Adulto. Alimento seco elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a su contenido de antioxidantes, vitamina E y Selenio. Además, están hechas con Omega 6 que ayudan a una piel y pelo saludables, así como con fibras y proteína de alta calidad que ayudan a una óptima digestión y heces firmes fáciles de recoger.', 1, 7, 49000, '1750379806_949521f34a5c03ecd736.avif', 1),
+(48, 'Pedigree Sobres Cachorro En Salsa Sabor Carne', 'Sobre en salsa Cachorro. Alimento húmedo preparado en deliciosas recetas que le encantarán. Contiene vitamina E que ayuda al sistema inmunológico e ingredientes de calidad para mantener a tu perro saludable y con energía, además de estar hechos sin conservadores, sabores, ni aromas artificiales.​\r\n\r\n', 1, 20, 1000, '1750380169_aa827a5b07bcabf8908d.avif', 1),
+(49, 'Bolsa de Cat Chow Adulto Sabor Carne y Pollo 3Kg', 'Bolsa de Alimento 3Kg. Adulto. Sabor Carne y Pollo. Una buena nutrición es fundamental para proteger la salud de los gatos. Es por eso que desarrollamos PURINA® CAT CHOW® CON DEFENSE PLUS®, elaborado con una selección de ingredientes naturales y mejorado, con la inclusión de un prebiótico natural.', 4, 15, 5500, '1750381354_265efcaa50c21c3ee932.avif', 1),
+(50, 'Bolsa de Cat Chow Adulto Sabor Carne y Pollo 15Kg', 'Bolsa de Alimento 15Kg. Adulto. Sabor Carne y Pollo. Una buena nutrición es fundamental para proteger la salud de los gatos. Es por eso que desarrollamos PURINA® CAT CHOW® CON DEFENSE PLUS®, elaborado con una selección de ingredientes naturales y mejorado, con la inclusión de un prebiótico natural.', 4, 8, 32000, '1750381504_96016a080d54e96a70cf.avif', 1),
+(51, 'Bolsa de Cat Chow Adulto Sabor Pescado 3Kg', 'Bolsa de Alimento 3Kg. Adulto. Sabor Pescado. Una buena nutrición es fundamental para proteger la salud de los gatos. Es por eso que desarrollamos PURINA® CAT CHOW® CON DEFENSE PLUS®, elaborado con una selección de ingredientes naturales y mejorado, con la inclusión de un prebiótico natural.\r\n\r\n', 4, 17, 5500, '1750381843_f40d4aa4e7f3e1da7227.webp', 1),
+(52, 'Bolsa de Cat Chow Adulto Sabor Pescado 15Kg', 'Bolsa de Alimento 15Kg. Adulto. Sabor Pescado. Una buena nutrición es fundamental para proteger la salud de los gatos. Es por eso que desarrollamos PURINA® CAT CHOW® CON DEFENSE PLUS®, elaborado con una selección de ingredientes naturales y mejorado, con la inclusión de un prebiótico natural.\r\n\r\n', 4, 9, 32000, '1750381893_fba9e3eba7e967c80909.webp', 1),
+(53, 'Bolsa de Cat Chow Gatitos Sabor Pescado, Carne y Vegetales 1Kg', 'Bolsa de Cat Chow 1Kg. Gatitos Sabor Pescado, Carne y Vegetales. Una nueva nutrición es fundamental para proteger la salud de los gatos . Es por eso que desarrollamos PURINA® CAT CHOW® GATITOS PESCADO, CARNE Y LECHE, desde el destete hasta 12 meses con DEFENSE PLUS, hecho con todos los nutrientes que tu gatito necesita para favorecer un crecimiento sano, y mejorado con la inclusión de un prebiótico natural. Alimento completo y balanceado para gatitos desde el destete hasta 12 meses de edad.', 4, 25, 5000, '1750382369_b440d85af6f97a8878ff.avif', 1),
+(54, 'Bolsa de Cat Chow Gatitos Sabor Pescado, Carne y Vegetales 15Kg', 'Bolsa de Cat Chow 15Kg. Gatitos Sabor Pescado, Carne y Vegetales. Una nueva nutrición es fundamental para proteger la salud de los gatos . Es por eso que desarrollamos PURINA® CAT CHOW® GATITOS PESCADO, CARNE Y LECHE, desde el destete hasta 12 meses con DEFENSE PLUS, hecho con todos los nutrientes que tu gatito necesita para favorecer un crecimiento sano, y mejorado con la inclusión de un prebiótico natural. Alimento completo y balanceado para gatitos desde el destete hasta 12 meses de edad.', 4, 7, 72000, '1750382573_dc4ad8faefe0ff45cf8c.avif', 1),
+(55, 'Inadrim Gotas', 'Tranquilizante neuroléptico. Indicado para sedar animales excitados o agresivos, permitir maniobras asociadas al transporte, evitar vómitos, controlar en comportamiento de hembras en celo, animales que ladran en exceso, estrés ante ruidos muy fuertes. Además facilita el manejo en intervenciones con fines de diagnóstico y terapéutico.', 3, 10, 8500, '1750383266_d4ad6f3c3b2dc3ea620a.jpg', 1),
+(56, 'Sucravet Antiácido – Antiulceroso – Protector gástrico', 'SUCRAVET es Antiácido, Antiulceroso y Protector Gástrico y libera hidróxido de aluminio, neutralizando el ácido del estómago en forma casi inmediata. Por su doble acción,  es el producto más efectivo en la prevención de daños producidos por AINES o Corticoides. SUCRAVET actúa en caninos y felinos sobre las zonas donde existe erosión de la mucosa gástrica, tapizando la lesión e impidiendo que el ácido siga dañando los tejidos del esófago, estómago e intestino.', 3, 11, 15500, '1750383547_c8dd7cf3bc4301afca68.jpg', 1),
+(57, 'Jabón PPT Antipulgas para Perro', 'Mantén a tu mascota limpia, saludable y libre de parásitos con el Jabón PPT Antipulgas para Perro. Especialmente formulado para eliminar pulgas, garrapatas y otros ectoparásitos, este jabón ofrece una limpieza profunda mientras cuida la piel y el pelaje de tu perro.\r\n\r\nSu fórmula contiene ingredientes efectivos pero suaves, que no solo combaten las infestaciones, sino que también ayudan a aliviar la picazón, el enrojecimiento y la irritación causados por las pulgas. Ideal para uso regular, deja el pelaje brillante, suave y con un agradable aroma.\r\n\r\n✅ Elimina pulgas y garrapatas\r\n✅ Alivia la irritación de la piel\r\n✅ Apto para todo tipo de razas\r\n✅ Fácil de usar y enjuagar\r\n', 3, 12, 1200, '1750384000_ee126fa3e43dde757a83.png', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -308,17 +341,17 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `dni_usuario`, `domicilio_usuario`, `email_usuario`, `contraseña_usuario`, `estado_usuario`, `telefono_usuario`, `perfil_id`) VALUES
 (8, 'full animal', 'administrador', 0, '', 'admin@tienda.com', '$2y$10$jFS2onakGo4X.lufNAKf/uhx5z09B1LvCSiSpHNw9FR0YQBvyrB96', 1, 0, 2),
-(9, 'Marcos', 'Mazzanti', 45676321, 'casita de marcos', 'marcos@gmail.com', '$2y$10$XloL2Fb1aZV2mDJ6AJMRxORg0KA8rfl.bHhMQRL2dIJuuO4PgUOx.', 1, 2147483647, 1);
+(9, 'Marcos', 'Mazzanti', 45676321, 'Irigoyen 369', 'marcos@gmail.com', '$2y$10$XloL2Fb1aZV2mDJ6AJMRxORg0KA8rfl.bHhMQRL2dIJuuO4PgUOx.', 1, 2147483647, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `venta`
+-- Estructura de tabla para la tabla `venta`
 --
 
 CREATE TABLE `venta` (
@@ -331,7 +364,7 @@ CREATE TABLE `venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `venta`
+-- Volcado de datos para la tabla `venta`
 --
 
 INSERT INTO `venta` (`venta_id`, `id_cliente`, `venta_fecha`, `venta_total`, `venta_forma_pago`, `venta_forma_entrega`) VALUES
@@ -352,17 +385,17 @@ INSERT INTO `venta` (`venta_id`, `id_cliente`, `venta_fecha`, `venta_total`, `ve
 (15, 9, '2025-06-19', 300000, 'Efectivo', 0);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `categorias`
+-- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indexes for table `categorias_productos`
+-- Indices de la tabla `categorias_productos`
 --
 ALTER TABLE `categorias_productos`
   ADD PRIMARY KEY (`id_categorias_producto`),
@@ -370,39 +403,39 @@ ALTER TABLE `categorias_productos`
   ADD KEY `id_producto` (`id_producto_categorias_productos`);
 
 --
--- Indexes for table `detalle_venta`
+-- Indices de la tabla `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
   ADD KEY `id_producto` (`id_producto`),
   ADD KEY `id_venta` (`id_venta`);
 
 --
--- Indexes for table `marcas`
+-- Indices de la tabla `marcas`
 --
 ALTER TABLE `marcas`
   ADD PRIMARY KEY (`id_marca`);
 
 --
--- Indexes for table `mensajes`
+-- Indices de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
   ADD PRIMARY KEY (`id_mensaje`);
 
 --
--- Indexes for table `perfiles`
+-- Indices de la tabla `perfiles`
 --
 ALTER TABLE `perfiles`
   ADD PRIMARY KEY (`id_perfil`);
 
 --
--- Indexes for table `productos`
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_marca_producto` (`id_marca_producto`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
@@ -410,96 +443,96 @@ ALTER TABLE `usuarios`
   ADD KEY `perfil_id` (`perfil_id`);
 
 --
--- Indexes for table `venta`
+-- Indices de la tabla `venta`
 --
 ALTER TABLE `venta`
   ADD PRIMARY KEY (`venta_id`),
   ADD KEY `id_cliente` (`id_cliente`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `categorias`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `categorias_productos`
+-- AUTO_INCREMENT de la tabla `categorias_productos`
 --
 ALTER TABLE `categorias_productos`
-  MODIFY `id_categorias_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `id_categorias_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 
 --
--- AUTO_INCREMENT for table `marcas`
+-- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
   MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT for table `mensajes`
+-- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
   MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `perfiles`
+-- AUTO_INCREMENT de la tabla `perfiles`
 --
 ALTER TABLE `perfiles`
   MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `productos`
+-- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `venta`
+-- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
   MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `categorias_productos`
+-- Filtros para la tabla `categorias_productos`
 --
 ALTER TABLE `categorias_productos`
   ADD CONSTRAINT `categorias_productos_ibfk_1` FOREIGN KEY (`id_categoria_categorias_productos`) REFERENCES `categorias` (`id_categoria`),
   ADD CONSTRAINT `categorias_productos_ibfk_2` FOREIGN KEY (`id_producto_categorias_productos`) REFERENCES `productos` (`id_producto`);
 
 --
--- Constraints for table `detalle_venta`
+-- Filtros para la tabla `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
   ADD CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
   ADD CONSTRAINT `detalle_venta_ibfk_2` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`venta_id`);
 
 --
--- Constraints for table `productos`
+-- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`id_marca_producto`) REFERENCES `marcas` (`id_marca`);
 
 --
--- Constraints for table `usuarios`
+-- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`perfil_id`) REFERENCES `perfiles` (`id_perfil`);
 
 --
--- Constraints for table `venta`
+-- Filtros para la tabla `venta`
 --
 ALTER TABLE `venta`
   ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `usuarios` (`id_usuario`);
