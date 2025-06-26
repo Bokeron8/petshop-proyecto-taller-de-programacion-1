@@ -52,10 +52,10 @@
                     <td>
                         <?php if ($usuario['estado_usuario'] == 1): ?>
                         <a class="btn btn-danger"
-                            href="<?= base_url('usuarios/eliminarUsuario/' . $usuario['id_usuario']) ?>">Desactivar</a>
+                            href="<?= base_url('admin/usuarios/eliminarUsuario/' . $usuario['id_usuario']) ?>">Desactivar</a>
                         <?php else: ?>
                         <a class="btn btn-success"
-                            href="<?= base_url('usuarios/activarUsuario/' . $usuario['id_usuario']) ?>">Activar</a>
+                            href="<?= base_url('admin/usuarios/activarUsuario/' . $usuario['id_usuario']) ?>">Activar</a>
                         <?php endif; ?>
                     </td>
                 </tr>

@@ -17,7 +17,7 @@ class VentasController extends BaseController
     // Definir orden
     switch ($ordenarPor) {
       case 'fecha_asc':
-        $orderBy = ['venta.venta_fecha', 'ASC'];
+        $orderBy = ['venta.venta_id', 'ASC'];
         break;
       case 'total_desc':
         $orderBy = ['venta.venta_total', 'DESC'];
@@ -26,7 +26,7 @@ class VentasController extends BaseController
         $orderBy = ['venta.venta_total', 'ASC'];
         break;
       default:
-        $orderBy = ['venta.venta_fecha', 'DESC'];
+        $orderBy = ['venta.venta_id', 'DESC'];
         break;
     }
 

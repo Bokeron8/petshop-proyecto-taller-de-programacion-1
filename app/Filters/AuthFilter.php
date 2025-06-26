@@ -15,6 +15,9 @@ class AuthFilter implements FilterInterface
         if (!$usuario) {
             return redirect()->to('login')
                 ->with('error', 'Por favor inicia sesión primero');
+        } elseif ($usuario['estado_usuario'] == 0) {
+            return redirect()->to('login')
+                ->with('error', 'Tu cuenta ha sido suspendida');
         }
     }
 

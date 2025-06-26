@@ -51,6 +51,10 @@ class Usuario extends BaseController
         ->withInput()
         ->with('validation', $validation);
     }
+    elseif($user['estado_usuario'] == 0){
+      return redirect()->to('login')
+                ->with('error', 'Tu cuenta ha sido suspendida');
+    }
 
     $session = session();
     $session->set('usuario', [
@@ -58,7 +62,8 @@ class Usuario extends BaseController
       'nombre_usuario' => $user['nombre_usuario'],
       'apellido_usuario' => $user['apellido_usuario'],
       'perfil_id' => $user['perfil_id'],
-      'email_usuario' => $user['email_usuario']
+      'email_usuario' => $user['email_usuario'],
+      'estado_usuario' => $user['estado_usuario']
     ]);
 
 

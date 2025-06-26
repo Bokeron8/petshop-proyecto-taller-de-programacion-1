@@ -14,6 +14,9 @@
             <?php if (session()->getFlashdata('success')): ?>
                 <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
             <?php endif; ?>
+            <?php if (session()->getFlashdata('error')): ?>
+                <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+            <?php endif; ?>
             <div class="d-flex flex-column align-items-center">
                 <i class="fa fa-paw title" style="font-size: 64px;" aria-hidden="true"></i>
                 <h1 class="h3 mb-3 fw-normal ">Iniciar sesion</h1>
