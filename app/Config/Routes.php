@@ -19,6 +19,7 @@ $routes->post('/contacto', 'Mensaje::enviar');
 $routes->post('/login', 'Usuario::login');
 $routes->post('/register', 'Usuario::register');
 $routes->get('logout', 'Usuario::logout');
+$routes->get('producto/(:num)', 'ProductoController::ver_producto/$1');
 
 
 $routes->group('admin', ['filter' => 'admin'], function ($routes) {
@@ -38,6 +39,8 @@ $routes->group('admin', ['filter' => 'admin'], function ($routes) {
 
     $routes->get('usuarios/eliminarUsuario/(:num)', 'Usuario::eliminarUsuario/$1');
     $routes->get('usuarios/activarUsuario/(:num)', 'Usuario::activarUsuario/$1');
+    $routes->get('marcar-leido/(:num)', 'Mensaje::marcarLeido/$1');
+    $routes->get('marcar-no-leido/(:num)', 'Mensaje::marcarNoLeido/$1');
 });
 
 $routes->group('/', ['filter' => 'auth'], function ($routes) {
@@ -54,7 +57,3 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
     $routes->get('ventas', 'VentasController::listarVentas');
     $routes->get('ventas/detalle/(:num)', 'VentasController::detalle/$1');
 });
-
-
-
-$routes->get('producto/(:num)', 'ProductoController::ver_producto/$1');

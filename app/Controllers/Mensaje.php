@@ -53,6 +53,7 @@ class Mensaje extends BaseController
                 'nombre_mensaje' => $this->request->getPost('nombre'),
                 'email_mensaje'  => $this->request->getPost('email'),
                 'mensaje'        => $this->request->getPost('mensaje'),
+                'estado_mensaje' => 0
             ];
             // Guardar en base de datos
             if ($model->insert($data)) {
@@ -69,31 +70,53 @@ class Mensaje extends BaseController
         }
     }
 
+
     public function verMensajes()
     {
         $mensajeModel = new \App\Models\Mensaje_Model();
 
         $fechaInicio = $this->request->getGet('fecha_inicio');
         $fechaFin    = $this->request->getGet('fecha_fin');
+        $builder = $mensajeModel;
+        $estado = $this->request->getGet('estado');
 
-        $mensajes = [];
-
-        if ($fechaInicio && $fechaFin) {
-            $mensajes = $mensajeModel
-                ->where('fecha_mensaje >=', $fechaInicio)
-                ->where('fecha_mensaje <=', $fechaFin)
-                ->orderBy('fecha_mensaje', 'DESC')
-                ->findAll();
-        } else {
-            $mensajes = $mensajeModel->orderBy('fecha_mensaje', 'DESC')->findAll();
+        if ($fechaInicio) {
+            $builder = $builder->where('fecha_mensaje >=', $fechaInicio);
         }
+        if ($fechaFin) {
+            $builder = $builder->where('fecha_mensaje <=', $fechaFin);
+        }
+
+        if ($estado === 'leidos') {
+            $builder = $builder->where('estado_mensaje', 1);
+        } elseif ($estado === 'no-leidos') {
+            $builder = $builder->where('estado_mensaje', 0);
+        }
+
+        $mensajes = $builder->findAll();
 
         return view('Backend/mensajes_view', [
             'title' => 'Consultas - Full Animal',
             'mensajes' => $mensajes,
             'fecha_inicio' => $fechaInicio,
             'fecha_fin' => $fechaFin,
+            'estado' => $estado
         ]);
-}
+    }
 
+    public function marcarLeido($id)
+    {
+        $mensajeModel = new \App\Models\Mensaje_Model();
+        $mensajeModel->update($id, ['estado_mensaje' => 1]);
+
+        return redirect()->back()->with('mensaje', 'Mensaje marcado como leído.');
+    }
+
+    public function marcarNoLeido($id)
+    {
+        $mensajeModel = new \App\Models\Mensaje_Model();
+        $mensajeModel->update($id, ['estado_mensaje' => 0]);
+
+        return redirect()->back()->with('mensaje', 'Mensaje marcado como no leído.');
+    }
 }
