@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-06-2025 a las 04:24:56
+-- Tiempo de generación: 26-06-2025 a las 17:15:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -192,7 +192,12 @@ INSERT INTO `detalle_venta` (`id_venta`, `id_producto`, `detalle_cantidad`, `det
 (13, 17, 2, 13, 25),
 (14, 16, 1, 22000, 22000),
 (15, 31, 5, 60000, 300000),
-(16, 44, 5, 18937, 94685);
+(16, 44, 5, 18937, 94685),
+(17, 38, 1, 58000, 58000),
+(17, 23, 1, 5000, 5000),
+(18, 36, 1, 3500, 3500),
+(18, 33, 1, 61000, 61000),
+(19, 16, 1, 22000, 22000);
 
 -- --------------------------------------------------------
 
@@ -228,16 +233,17 @@ CREATE TABLE `mensajes` (
   `nombre_mensaje` varchar(50) NOT NULL,
   `email_mensaje` varchar(50) NOT NULL,
   `mensaje` text NOT NULL,
-  `fecha_mensaje` date NOT NULL DEFAULT current_timestamp()
+  `fecha_mensaje` date NOT NULL DEFAULT current_timestamp(),
+  `estado_mensaje` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `mensajes`
 --
 
-INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaje`, `fecha_mensaje`) VALUES
-(10, 'juan perez', 'juanperez@gmail.com', 'mensaje de prueba ', '2025-06-12'),
-(14, 'cami', 'Arandacamila65@gmail.com', 'holaasokmskslj', '2025-06-19');
+INSERT INTO `mensajes` (`id_mensaje`, `nombre_mensaje`, `email_mensaje`, `mensaje`, `fecha_mensaje`, `estado_mensaje`) VALUES
+(10, 'juan perez', 'juanperez@gmail.com', 'mensaje de prueba ', '2025-06-12', 0),
+(14, 'cami', 'Arandacamila65@gmail.com', 'holaasokmskslj', '2025-06-19', 1);
 
 -- --------------------------------------------------------
 
@@ -280,14 +286,14 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto`, `id_marca_producto`, `stock_producto`, `precio_producto`, `imagen_producto`, `estado_producto`) VALUES
-(16, 'Bolsa de Dr.Perrot 20kg', 'Bolsa de Alimento 20kg Dr Perrot. Perro Adulto.\r\nIngredientes: Maíz, afrechillo de trigo, harina de carne y huesos bovina, pellet de soja, harina de soja desactivado, arroz, harina de subproductos de pollo, gluten de maíz, aceite de pollo, hidrolizado de menudencias vacunas, porcinas y aviares, zeolita, fibras de maíz, pulpa de remolacha, harina de trigo, aceite de girasol alto oleico, harina de pescado, sal, levadura de cerveza, extracto de Yucca schidigera.', 3, 11, 22000, '1749735374_5925eebc723e54458017.png', 1),
+(16, 'Bolsa de Dr.Perrot 20kg', 'Bolsa de Alimento 20kg Dr Perrot. Perro Adulto.\r\nIngredientes: Maíz, afrechillo de trigo, harina de carne y huesos bovina, pellet de soja, harina de soja desactivado, arroz, harina de subproductos de pollo, gluten de maíz, aceite de pollo, hidrolizado de menudencias vacunas, porcinas y aviares, zeolita, fibras de maíz, pulpa de remolacha, harina de trigo, aceite de girasol alto oleico, harina de pescado, sal, levadura de cerveza, extracto de Yucca schidigera.', 3, 10, 22000, '1749735374_5925eebc723e54458017.png', 1),
 (17, 'Pelota Leon', 'La Pelota León es el juguete perfecto para que tu mascota se divierta sin parar. Fabricada con materiales resistentes y seguros, garantiza horas de juego activo y estimulación mental. Su diseño atractivo y tamaño ideal la hacen perfecta para perros  y gatos de todas las edades. Además, ayuda a mantener a tu mascota activa y feliz mientras fortalece su mordida y coordinación. ', 6, 21, 1000, '1749236644_b33cb4c09d834a956a51.jpg', 1),
 (18, 'Pelota Tigre', 'La Pelota Tigre es el juguete perfecto para que tu mascota se divierta sin parar. Fabricada con materiales resistentes y seguros, garantiza horas de juego activo y estimulación mental. Su diseño atractivo y tamaño ideal la hacen perfecta para perros  y gatos de todas las edades. Además, ayuda a mantener a tu mascota activa y feliz mientras fortalece su mordida y coordinación. ', 6, 20, 1000, '1749236697_54665aa688d4810ffb6a.jpg', 1),
 (19, 'Pelota Mono', 'La Pelota Mono es el juguete perfecto para que tu mascota se divierta sin parar. Fabricada con materiales resistentes y seguros, garantiza horas de juego activo y estimulación mental. Su diseño atractivo y tamaño ideal la hacen perfecta para perros  y gatos de todas las edades. Además, ayuda a mantener a tu mascota activa y feliz mientras fortalece su mordida y coordinación. ', 6, 5, 1000, '1749236775_6072896120044aa2d056.jpg', 1),
 (20, 'Bolsa de Pedigree Adulto Sabor Vegetales y Carne 3kg', 'Bolsa de Alimento 3kg. Perro Adulto. Alimento seco elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a su contenido de antioxidantes, vitamina E y Selenio. Además, están hechas con Omega 6 que ayudan a una piel y pelo saludables, así como con fibras y proteína de alta calidad que ayudan a una óptima digestión y heces firmes fáciles de recoger.', 1, 23, 6000, '1749736776_2270f3139c8809163d85.avif', 1),
 (21, 'Bolsa de Pedigree Adulto Sabor Vegetales y Carne 1.5kg', 'Bolsa de Alimento 1.5kg. Perro Adulto. Alimento seco elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a su contenido de antioxidantes, vitamina E y Selenio. Además, están hechas con Omega 6 que ayudan a una piel y pelo saludables, así como con fibras y proteína de alta calidad que ayudan a una óptima digestión y heces firmes fáciles de recoger.', 1, 19, 3000, '1749737107_b281301906f97ffff350.avif', 1),
 (22, 'Bolsa de Pedigree Adulto Sabor Vegetales y Carne 21kg', 'Bolsa de Alimento 21kg. Perro Adulto. Alimento seco elaborado bajo estrictos estándares de calidad y basado en el conocimiento científico de WALTHAM®, una autoridad líder en nutrición animal. Las recetas de PEDIGREE® ayudan a su sistema inmune gracias a su contenido de antioxidantes, vitamina E y Selenio. Además, están hechas con Omega 6 que ayudan a una piel y pelo saludables, así como con fibras y proteína de alta calidad que ayudan a una óptima digestión y heces firmes fáciles de recoger.', 1, 19, 41000, '1749737175_e24b0d5b858778572bb5.avif', 1),
-(23, 'Bolsa de Agility Adultos 3kg', 'Bolsa de Agility Adultos 3kg. Talla pequeña. Los perros adultos de estructura pequeña necesitan una alimentación con un alto aporte de proteínas y grasas para mantener una salud integral óptima.\r\n\r\nAgility Adultos Talla Pequeña es una fórmula especialmente ideada para promover óptimos niveles de energía y vitalidad, basada en su tecnología Active Health: una combinación de nutrientes minuciosamente seleccionados para que tu perro mantenga siempre su máximo potencial.', 5, 23, 5000, '1750170821_538dff0b2798c811eb73.webp', 1),
+(23, 'Bolsa de Agility Adultos 3kg', 'Bolsa de Agility Adultos 3kg. Talla pequeña. Los perros adultos de estructura pequeña necesitan una alimentación con un alto aporte de proteínas y grasas para mantener una salud integral óptima.\r\n\r\nAgility Adultos Talla Pequeña es una fórmula especialmente ideada para promover óptimos niveles de energía y vitalidad, basada en su tecnología Active Health: una combinación de nutrientes minuciosamente seleccionados para que tu perro mantenga siempre su máximo potencial.', 5, 22, 5000, '1750170821_538dff0b2798c811eb73.webp', 1),
 (24, 'Bolsa de Whiskas gatito 1kg', 'Nueva receta, cuidadosamente preparada para satisfacer las necesidades nutricionales de su gato. Alimento para gatos 100% completo y balanceado. Fibras múltiples apoyan el funcionamiento gastrointestinal, contribuyendo a la formación de heces firmes y fáciles de limpiar. Recomendado por Waltham Petcare Science Institute - Una de las autoridades mundiales líderes en nutrición, cuidado y bienestar animal', 2, 20, 5000, '1750342647_99be43e30fe1dfeb8dde.avif', 1),
 (25, 'Bolsa de Whiskas Adulto sabor carne 1kg', 'Nueva receta, cuidadosamente preparada para satisfacer las necesidades nutricionales de su gato. Alimento para gatos 100% completo y balanceado. Fibras múltiples apoyan el funcionamiento gastrointestinal, contribuyendo a la formación de heces firmes y fáciles de limpiar. Recomendado por Waltham Petcare Science Institute - Una de las autoridades mundiales líderes en nutrición, cuidado y bienestar animal', 2, 20, 5000, '1750343145_fd761c3ac86a2f4b8414.avif', 1),
 (26, 'Bolsa de Whiskas Adulto sabor pollo 1kg', 'Nueva receta, cuidadosamente preparada para satisfacer las necesidades nutricionales de su gato. Alimento para gatos 100% completo y balanceado. Fibras múltiples apoyan el funcionamiento gastrointestinal, contribuyendo a la formación de heces firmes y fáciles de limpiar. Recomendado por Waltham Petcare Science Institute - Una de las autoridades mundiales líderes en nutrición, cuidado y bienestar animal', 2, 20, 5000, '1750343208_502500624d3aa64ef4c5.avif', 1),
@@ -297,12 +303,12 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion_producto
 (30, 'Whiskas sobrecito para gato salmon en salsa', 'Whiskas sabor salmon en salsa – alimento balanceado completo para gatos adultos (húmedo).\r\nIngredientes: Agua, menudencias (bovinas y/o porcinas y/o de pollo), subproductos (de pollo y/o bovinos y/o porcinos), plasma bovino, harina de trigo, harina de subproductos de pollo y/o arveja en polvo y/o gluten de trigo, espesantes (goma xántica y/o almidón modificado), estabilizantes (tripolifosfato de sodio), vitaminas (D, E, B1, B2, B6, ácido fólico, colina y/o ácido ascórbico), minerales (cloruro de sodio, cloruro de potasio y/o fosfato dicálcico, carbonato de calcio, iodato de calcio, óxido de zinc, óxido de magnesio, sulfato de manganeso, sulfato de cobre), aminoácidos (taurina y/o glicina y/o metionina), colorante (caramelo, hemoglobina), saborizante (xilosa y/o dextrosa).', 2, 30, 1000, '1750344063_a76251e2d9ad9bcdc6f3.avif', 1),
 (31, 'Bolsa de Agility Derma Control 15kg', 'Agility Adultos Derma Control es un alimento especialmente formulado con proteína de cerdo, que por su baja alergenicidad ayuda a disminuir las probabilidades de aparición de alteraciones en la piel y sistema digestivo.\r\n\r\nDebido a su bajo porcentaje de grasas saturadas ayuda a desarrollar una masa muscular magra, favoreciendo una condición corporal ideal y un estado general óptimo. Su exclusiva fórmula está basada en la tecnología Active Health: una combinación de nutrientes minuciosamente seleccionados para que tu perro mantenga siempre su máximo potencial.', 5, 5, 60000, '1750344216_f4e68205a5f4c81e76ac.png', 1),
 (32, 'Bolsa de Agility Control de peso 15kg', 'Agility Control de peso es un alimento especialmente formulado para perros con tendencia al sobrepeso. Combina una dieta nutritiva y reducida en calorías que favorece un descenso de peso saludable y contribuye a evitar la pérdida de masa muscular en el proceso. La eﬁcacia de sus ﬁbras naturales logran generar sensación de saciedad por tiempo prolongado, limitando el consumo de calorías. Mantiene al perro activo, sano y esbelto. Su exclusiva fórmula está basada en la  ', 5, 10, 60000, '1750344485_1f2923aa861f8edbf9d7.png', 1),
-(33, 'Bolsa de Agility Cachorro 15kg', 'Durante el primer año de vida es fundamental que el cachorro reciba una alimentación con todos los nutrientes clave para su crecimiento.\r\n\r\nAgility Cachorros está diseñado especialmente para cubrir sus requerimientos nutricionales y brindarle una vida saludable. Contiene un nivel energético y proteico ideal, necesario para la primera etapa de vida', 5, 10, 61000, '1750344562_689a396f579a92e27099.webp', 1),
+(33, 'Bolsa de Agility Cachorro 15kg', 'Durante el primer año de vida es fundamental que el cachorro reciba una alimentación con todos los nutrientes clave para su crecimiento.\r\n\r\nAgility Cachorros está diseñado especialmente para cubrir sus requerimientos nutricionales y brindarle una vida saludable. Contiene un nivel energético y proteico ideal, necesario para la primera etapa de vida', 5, 9, 61000, '1750344562_689a396f579a92e27099.webp', 1),
 (34, 'Bolsa de Agility Kitten 15kg', 'Durante el primer año de vida es fundamental que el gatito reciba una alimentación con todos los nutrientes clave para su crecimiento. Agility Kitten está diseñado especialmente para cubrir sus requerimientos nutricionales y brindarle una vida saludable. Contiene un aporte energético y proteico ideal, necesario para la primera etapa de vida.\r\n\r\nSu fórmula está basada en la exclusiva tecnología Active Health: una combinación de nutrientes minuciosamente seleccionados para que tu gatito alcance su máximo potencial. También indicado para hembras gestantes y lactantes, quienes necesitan un aporte mayor de estos macronutrientes (proteínas y grasas).', 5, 10, 70000, '1750344625_d917c4d4e4f7b4714a3d.webp', 1),
 (35, 'Bolsa de Agility Urinary 10kg', 'Los gatos adultos con tendencia a alteraciones urinarias necesitan de una alimentación completa y equilibrada que cubra sus requerimientos nutricionales y les brinde salud y vitalidad.\r\n\r\nAgility Cats Urinary es una fórmula exclusivamente diseñada con ingredientes de alta calidad, basada en la tecnología Active Health: una óptima combinación de nutrientes minuciosamente establecidos que ayudan a controlar el ph urinario, reducir la formación de cálculos y mantenener la salud del tracto urinario inferior.', 5, 10, 70000, '1750344692_c10e61c41eca931c52c9.jpg', 1),
-(36, 'Agility cachorro alimento humedo sabor carne vacuna', 'Alimento húmedo 100 % completo y balanceado para perros cachorros con carne vacuna seleccionada. Alimento balanceado completo húmedo, cocido al vapor, resultado de una mezcla equilibrada de macronutrientes, micronutrientes y aditivos de la más alta calidad que cubren los requerimientos alimenticios de los perros cachorros (desde el destete hasta los 12/15 meses).', 5, 15, 3500, '1750344987_262dad0ffeb1aa0b0855.webp', 1),
+(36, 'Agility cachorro alimento humedo sabor carne vacuna', 'Alimento húmedo 100 % completo y balanceado para perros cachorros con carne vacuna seleccionada. Alimento balanceado completo húmedo, cocido al vapor, resultado de una mezcla equilibrada de macronutrientes, micronutrientes y aditivos de la más alta calidad que cubren los requerimientos alimenticios de los perros cachorros (desde el destete hasta los 12/15 meses).', 5, 14, 3500, '1750344987_262dad0ffeb1aa0b0855.webp', 1),
 (37, 'Piloto Capa Lluvia Perro Impermeable', 'Descripción del producto:\r\n*Este modelo permite una colocación símple y rápida, ideal para perros viejitos y/o de gran porte, ya que no es necesario pasar las patitas por una manga\r\n*Pecho REGULABLE, lo que permite ajustarlo cómodamente al contorno de la mascota.\r\n*Confeccionado en tela impermeable, súper resistente\r\n*Interior íntegramente forrado\r\n*Ojal en el lomo para pase de correa\r\n*Capucha cómoda\r\n*Impermeables 100%', 6, 5, 62000, '1750373407_928af3b5f0b615fcb3f3.webp', 1),
-(38, 'Bandeja Sanitaria Perros ', 'Bandeja sanitaria para perros, ideal para mantener la higiene del hogar. Fabricada con materiales resistentes y de fácil limpieza. Incluye accesorios que facilitan el entrenamiento y la adaptación de tu mascota. Diseñada para brindar comodidad, reducir olores y promover hábitos saludables en tu perro.', 6, 3, 58000, '1750373559_747def1baaaef95d841d.webp', 1),
+(38, 'Bandeja Sanitaria Perros ', 'Bandeja sanitaria para perros, ideal para mantener la higiene del hogar. Fabricada con materiales resistentes y de fácil limpieza. Incluye accesorios que facilitan el entrenamiento y la adaptación de tu mascota. Diseñada para brindar comodidad, reducir olores y promover hábitos saludables en tu perro.', 6, 2, 58000, '1750373559_747def1baaaef95d841d.webp', 1),
 (39, 'Bolso Transportador Mascota', 'Ventilación segura\r\n• Cintas reflectivas para identificación del bolso transportador por la noche.\r\n• Correa cómoda, el usuario no se sentirá incómodo para usarlo durante el viaje.\r\n• Tiene bolsillos donde puede colocar objetos que necesiten.\r\n• El cinturón de mano se ajusta a la curva de las manos, que pueden proporcionar la sensación cómoda de la mano, y no te sientas cansado después de llévala mucho tiempo.\r\n• Adecuado para gatos cuyo peso no supere los 6,5 kg y perros en los 5 kg\r\n', 6, 5, 79300, '1750373634_f4e81d273834b7d8b546.webp', 1),
 (40, 'Pelota Irregular Dispensador Rellenable ', 'Pelota Irregular Dispensador Rellenable. Estos juguetes, además de proporcionar diversión, permiten rellenarlos con snacks saludables para hacer todo más entretenido y sano. Son juguetes dispensadores de comida.\r\nJugar reduce el estrés de tu mascota. Encontrar un espacio lúdico no solo reduce su estrés, sino que también estimula su inteligencia. Y seguramente ambos pasen un momento super divertido!\r\nTIP. El tipo de alimento que le pongas va a hacer a la dificultad. Más fácil, alimentos pequeños. Más difícil, trozos más grandes. Que se diviertan', 6, 5, 21200, '1750373864_2ddedb6a64e8b490976e.webp', 1),
 (41, 'Mordedor Rueda Grande', 'El juguete se caracteriza por ser de excelente calidad.\r\n\r\nEs lavables y durables. Ideal para perros chicos o poco mordedores (no te olvides de consultarnos por juguetes para perros grandes, mordedores y/o cachorros).\r\nDivertidos diseños.\r\nTIP de Responsabilidad: Supervisa tu mascota mientras juega, aprovecha ese tiempo para formar un vínculo con ella y de paso evitar accidentes!', 6, 5, 15000, '1750374012_45ab8564bf601e33a5c7.webp', 1),
@@ -347,10 +353,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `dni_usuario`, `domicilio_usuario`, `email_usuario`, `contraseña_usuario`, `estado_usuario`, `telefono_usuario`, `perfil_id`) VALUES
-(8, 'full animal', 'administrador', 0, '', 'admin@tienda.com', '$2y$10$jFS2onakGo4X.lufNAKf/uhx5z09B1LvCSiSpHNw9FR0YQBvyrB96', 1, 0, 2),
+(8, 'Gabo', 'Bazzola', 0, '', 'gabobaz10@gmail.com', '$2y$10$jFS2onakGo4X.lufNAKf/uhx5z09B1LvCSiSpHNw9FR0YQBvyrB96', 1, 0, 2),
 (9, 'Marcos', 'Mazzanti', 45676321, 'Irigoyen 369', 'marcos@gmail.com', '$2y$10$XloL2Fb1aZV2mDJ6AJMRxORg0KA8rfl.bHhMQRL2dIJuuO4PgUOx.', 1, 2147483647, 1),
 (11, 'camila', 'aranda', 46716840, 'entre rios 1261 2b', 'Arandacamila65@gmail.com', '$2y$10$MXYwA6GLi4tcFAcRGAjIzOqDzcmS4emx.O6Ri8sVCcaCNg04xiCNe', 1, 2147483647, 1),
-(12, 'Gabo', 'Bazzola', 0, '', 'gabobaz10@gmail.com', '$2y$10$S9JN1rTGVeeg/cMb9MsaoOxFkVQC1wprjRVkoQ8AVFRRRlkRi1aza', 1, 0, 2),
 (13, 'Franco', 'Mezzi', 0, '', 'franquex@gmail.com', '$2y$10$QNd2elKkCu4kMmDw4p1e7uvwp3582p6HjsCVJ0epIx9I5G10Z4lo.', 1, 0, 1);
 
 -- --------------------------------------------------------
@@ -388,7 +393,10 @@ INSERT INTO `venta` (`venta_id`, `id_cliente`, `venta_fecha`, `venta_total`, `ve
 (13, 9, '2025-06-19', 25, 'Efectivo', 0),
 (14, 9, '2025-06-19', 22000, 'Tarjeta de credito', 0),
 (15, 9, '2025-06-19', 300000, 'Efectivo', 0),
-(16, 11, '2025-06-20', 94685, 'Transferencia', 0);
+(16, 11, '2025-06-20', 94685, 'Transferencia', 0),
+(17, 9, '2025-06-26', 63000, 'Tarjeta de debito', 1),
+(18, 9, '2025-06-26', 64500, 'Efectivo', 1),
+(19, 9, '2025-06-26', 22000, 'Mercado Pago', 0);
 
 --
 -- Índices para tablas volcadas
@@ -481,7 +489,7 @@ ALTER TABLE `marcas`
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `perfiles`
@@ -505,7 +513,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `venta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas
