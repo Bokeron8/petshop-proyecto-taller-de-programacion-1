@@ -1,0 +1,17 @@
+name: petshop
+app_id: da_KN4IZtyUBQk6
+owner: bokeron8
+package: "."
+kind: wasmer.io/App.v0
+mounts:
+  - path: /writable
+    source: writable
+    writable: true
+build:
+  commands:
+    - composer install --no-dev --optimize-autoloader
+runtime: php
+entrypoint: php index.php
+
+env:
+  app_baseURL: http://localhost:8080
