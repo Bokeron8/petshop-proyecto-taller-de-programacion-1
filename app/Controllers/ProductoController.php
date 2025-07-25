@@ -372,4 +372,12 @@ class ProductoController extends BaseController
 
     return view('contenidos/producto_view', $data);
   }
+
+
+  public function obtener_con_todo()
+  {
+    $productoModel = new Producto_Model();
+    $productos = $productoModel->obtener_con_todo();
+    return $this->response->setJSON($productos);
+  }
 }

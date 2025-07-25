@@ -23,37 +23,50 @@ $routes->get('producto/(:num)', 'ProductoController::ver_producto/$1');
 
 
 $routes->group('admin', ['filter' => 'admin'], function ($routes) {
-    $routes->get('agregar-productos', 'ProductoController::form_agregar_producto');
-    $routes->post('agregar-productos', 'ProductoController::registrarProducto');
+  $routes->get('agregar-productos', 'ProductoController::form_agregar_producto');
+  $routes->post('agregar-productos', 'ProductoController::registrarProducto');
 
-    $routes->get('gestionar-productos', 'ProductoController::gestionar_productos');
-    $routes->get('activar/(:num)', 'ProductoController::activar/$1');
-    $routes->get('desactivar/(:num)', 'ProductoController::desactivar/$1');
-    $routes->get('editar-producto/(:num)', 'ProductoController::editar_Producto/$1');
-    $routes->post('editar-producto/(:num)', 'ProductoController::actualizarProducto/$1');
+  $routes->get('gestionar-productos', 'ProductoController::gestionar_productos');
+  $routes->get('activar/(:num)', 'ProductoController::activar/$1');
+  $routes->get('desactivar/(:num)', 'ProductoController::desactivar/$1');
+  $routes->get('editar-producto/(:num)', 'ProductoController::editar_Producto/$1');
+  $routes->post('editar-producto/(:num)', 'ProductoController::actualizarProducto/$1');
 
-    $routes->get('mensajes', 'Mensaje::verMensajes');
-    $routes->get('usuarios', 'Usuario::listarUsuarios');
-    $routes->get('ventas', 'VentasController::listarVentas');
+  $routes->get('mensajes', 'Mensaje::verMensajes');
+  $routes->get('usuarios', 'Usuario::listarUsuarios');
+  $routes->get('ventas', 'VentasController::listarVentas');
 
 
-    $routes->get('usuarios/eliminarUsuario/(:num)', 'Usuario::eliminarUsuario/$1');
-    $routes->get('usuarios/activarUsuario/(:num)', 'Usuario::activarUsuario/$1');
-    $routes->get('marcar-leido/(:num)', 'Mensaje::marcarLeido/$1');
-    $routes->get('marcar-no-leido/(:num)', 'Mensaje::marcarNoLeido/$1');
+  $routes->get('usuarios/eliminarUsuario/(:num)', 'Usuario::eliminarUsuario/$1');
+  $routes->get('usuarios/activarUsuario/(:num)', 'Usuario::activarUsuario/$1');
+  $routes->get('marcar-leido/(:num)', 'Mensaje::marcarLeido/$1');
+  $routes->get('marcar-no-leido/(:num)', 'Mensaje::marcarNoLeido/$1');
 });
 
 $routes->group('/', ['filter' => 'auth'], function ($routes) {
 
-    $routes->get('carrito', 'CarritoController::verCarrito');
-    $routes->post('agregar-carrito', 'CarritoController::agregarProducto');
-    $routes->get('vaciarCarrito', 'CarritoController::vaciarCarrito');
-    $routes->get('eliminarProducto/(:any)', 'CarritoController::eliminarProducto/$1');
-    $routes->get('reducirProducto/(:any)', 'CarritoController::reducirCantidad/$1');
+  $routes->get('carrito', 'CarritoController::verCarrito');
+  $routes->post('agregar-carrito', 'CarritoController::agregarProducto');
+  $routes->get('vaciarCarrito', 'CarritoController::vaciarCarrito');
+  $routes->get('eliminarProducto/(:any)', 'CarritoController::eliminarProducto/$1');
+  $routes->get('reducirProducto/(:any)', 'CarritoController::reducirCantidad/$1');
 
-    $routes->get('carrito/finalizar', 'CarritoController::finalizarCompra');
-    $routes->post('carrito/procesarVenta', 'CarritoController::procesarVenta');
+  $routes->get('carrito/finalizar', 'CarritoController::finalizarCompra');
+  $routes->post('carrito/procesarVenta', 'CarritoController::procesarVenta');
 
-    $routes->get('ventas', 'VentasController::listarVentas');
-    $routes->get('ventas/detalle/(:num)', 'VentasController::detalle/$1');
+  $routes->get('ventas', 'VentasController::listarVentas');
+  $routes->get('ventas/detalle/(:num)', 'VentasController::detalle/$1');
+});
+
+$routes->group('api', function ($routes) {
+  $routes->get('getProductos', 'ProductoController::obtener_con_todo');
+});
+
+
+$routes->options('(:any)', function () {
+    return response()
+        ->setHeader('Access-Control-Allow-Origin', '*')
+        ->setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+        ->setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+        ->setStatusCode(204); // No content
 });

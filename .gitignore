@@ -1,2 +1,4 @@
 .vscode
 writable/
+.env
+.gitignore
